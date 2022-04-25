@@ -64,6 +64,7 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     ],
     title: 'Material You',
     description: 'A material you components library',
+    base: '/MaterialYouUI/',
 
     // 注册组件
     clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.js'),
