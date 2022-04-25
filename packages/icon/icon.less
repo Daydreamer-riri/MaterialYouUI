@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v7/kJESBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzBwG-RpA6RzaxHMO1W.woff2)
+        format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v7/sykd-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvLgyidOK7BDB_QddU.woff2)
+        format('woff2');
+}
+
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: 'Material Symbols Sharp';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialsymbolssharp/v7/gNMoW2J8Roq16WD5tFNRaeLQk6-SHQ_R00k4c2_wjOOEa9ruReaU4avo.woff2)
+        format('woff2');
+}
+
+.material-symbols-sharp {
+    font-family: 'Material Symbols Sharp';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+@icon-size: 24px;
+
+:root {
+    --icon-size: @icon-size;
+}
+
+.my-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--icon-size);
+    color: inherit;
+    vertical-align: bottom;
+    user-select: none;
+
+    &--shrinking {
+        transform: scale(0);
+    }
+
+    &__image {
+        width: var(--icon-size);
+        height: var(--icon-size);
+        object-fit: cover;
+    }
+
+    &--fill {
+        font-variation-settings: 'FILL' 1;
+    }
+
+    &--stokeWidth-100 {
+        font-variation-settings: 'wght' 100;
+    }
+    &--stokeWidth-200 {
+        font-variation-settings: 'wght' 200;
+    }
+    &--stokeWidth-300 {
+        font-variation-settings: 'wght' 300;
+    }
+    &--stokeWidth-400 {
+        font-variation-settings: 'wght' 400;
+    }
+    &--stokeWidth-500 {
+        font-variation-settings: 'wght' 500;
+    }
+    &--stokeWidth-600 {
+        font-variation-settings: 'wght' 600;
+    }
+
+    &--stokeWidth-700 {
+        font-variation-settings: 'wght' 700;
+    }
+}

@@ -1,0 +1,201 @@
+.my-button {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    transition: box-shadow 0.2s, background 0.25s;
+    will-change: box-shadow;
+    cursor: pointer;
+    user-select: none;
+
+    .text-content {
+        flex: 1;
+        margin-left: 8px;
+        font-weight: 500;
+    }
+
+    // filled 按钮样式
+    &--filled {
+        background-color: var(--md-color-primary);
+        .common-buttons();
+
+        &:hover {
+            @media (any-hover: hover) {
+                background-color: var(--md-color-primary-hover);
+                .md-elevation-z1;
+            }
+        }
+
+        &:active {
+            background-color: var(--md-color-primary-focus);
+            .md-elevation-z0;
+        }
+
+        .text-content,
+        .button-icon {
+            color: var(--md-color-on-primary);
+        }
+
+        &--disabled {
+            .filled-disabled();
+        }
+    }
+
+    // elevated 按钮样式
+    &--elevated {
+        background: var(--md-layer-surface-1), var(--md-color-surface);
+        .md-elevation-z1;
+        .common-buttons();
+
+        &:hover {
+            @media (any-hover: hover) {
+                .md-elevation-z2;
+                background: var(--md-layer-surface-2), var(--md-layer-surface-2), var(--md-color-surface);
+            }
+        }
+
+        &:active {
+            background: var(--md-layer-surface-3), var(--md-layer-surface-2), var(--md-color-surface);
+            .md-elevation-z1;
+        }
+
+        .text-content,
+        .button-icon {
+            color: var(--md-color-primary);
+        }
+
+        &--disabled {
+            .filled-disabled();
+        }
+    }
+
+    // filled-tonal 按钮样式
+    &--filled-tonal {
+        .common-buttons();
+        background-color: var(--md-color-secondary-container);
+
+        &:hover {
+            @media (any-hover: hover) {
+                .md-elevation-z1;
+                background-color: var(--md-color-secondary-light-hover);
+            }
+        }
+
+        &:active {
+            background-color: var(--md-color-secondary-light-focus);
+            .md-elevation-z0;
+        }
+
+        .text-content,
+        .button-icon {
+            color: var(--md-color-on-secondary-container);
+        }
+
+        &--disabled {
+            .filled-disabled();
+        }
+    }
+
+    // outline 按钮样式
+    &--outlined {
+        .common-buttons();
+        background: rgba(0, 0, 0, 0);
+        border: 1px solid var(--md-color-outline);
+        box-sizing: border-box;
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: var(--md-color-surface-2);
+            }
+        }
+
+        &:active {
+            background: var(--md-color-surface-3);
+        }
+
+        .text-content,
+        .button-icon {
+            color: var(--md-color-primary);
+        }
+
+        &--disabled {
+            border-color: var(--md-color-background-disable);
+            cursor: default;
+            pointer-events: none;
+
+            .text-content,
+            .button-icon {
+                .text-content-disabled();
+            }
+        }
+    }
+
+    // text 按钮样式
+    &--text {
+        height: 40px;
+        padding-left: 4px;
+        padding-right: 12px;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0);
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: var(--md-color-surface-2);
+            }
+        }
+
+        &:active {
+            background: var(--md-color-surface-3);
+        }
+
+        .text-content,
+        .button-icon {
+            color: var(--md-color-primary);
+        }
+
+        .button-icon {
+            margin-left: 8px;
+        }
+
+        .button-icon + .text-content {
+            margin-right: 4px;
+        }
+
+        &--disabled {
+            cursor: default;
+            pointer-events: none;
+
+            .text-content,
+            .button-icon {
+                .text-content-disabled();
+            }
+        }
+    }
+}
+
+.filled-disabled() {
+    background: var(--md-color-background-disable);
+    .md-elevation-z0;
+    cursor: default;
+    pointer-events: none;
+
+    .text-content,
+    .button-icon {
+        .text-content-disabled();
+    }
+}
+
+.common-buttons() {
+    height: 40px;
+    border-radius: 20px;
+    padding-right: 24px;
+    padding-left: 16px;
+}
+
+.text-content-disabled() {
+    color: var(--md-color-on-surface);
+    opacity: 0.38;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

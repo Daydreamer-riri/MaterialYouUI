@@ -1,0 +1,66 @@
+@import './styles';
+@import './light';
+@import './dark.less';
+@import './colors';
+
+// 动画函数
+@cubic-bezier: cubic-bezier(0.25, 0.8, 0.5, 1);
+
+.my {
+    &--box {
+        box-sizing: border-box;
+
+        * {
+            box-sizing: border-box;
+        }
+    }
+
+    &--relative {
+        position: relative;
+    }
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--hidden {
+        overflow: hidden;
+    }
+
+    &--lock {
+        overflow: hidden;
+    }
+
+    &--block {
+        display: block;
+    }
+
+    &--ellipsis {
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &--inline-block {
+        display: inline-block;
+    }
+
+    &--flex {
+        display: flex;
+    }
+
+    &--inline-flex {
+        display: inline-flex;
+    }
+}
+
+:root {
+    .material-colors;
+    .material-typescale;
+    @media (prefers-color-scheme: dark) {
+        .material-theme-dark;
+    }
+    @media (prefers-color-scheme: light) {
+        .material-theme-light;
+    }
+}
