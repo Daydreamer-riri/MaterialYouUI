@@ -1,54 +1,63 @@
 <template>
-    <div class="col">
-        <div class="item"><span>1</span></div>
-        <div class="item"><span>2</span></div>
-        <div class="item"><span>3</span></div>
-        <div class="item"><span>4</span></div>
-        <div class="item"><span>5</span></div>
-        <div class="wrap">
-            <my-button type="elevated">Confirm</my-button>
+    <div class="container exmaple-card">
+        <div class="item">
+            <span class="button-name">1</span>
+            <div>
+                <my-button type="elevated">Confirm</my-button>
+            </div>
         </div>
-        <div class="wrap">
-            <my-button type="filled">Confirm</my-button>
+        <div class="item">
+            <span class="button-name">2</span>
+            <div>
+                <my-button type="filled">Confirm</my-button>
+            </div>
         </div>
-        <div class="wrap">
-            <my-button type="filled-tonal">Enabled</my-button>
+        <div class="item">
+            <span class="button-name">3</span>
+            <div>
+                <my-button type="filled-tonal">Enabled</my-button>
+            </div>
         </div>
-        <div class="wrap">
-            <my-button type="outlined">Confirm</my-button>
+        <div class="item">
+            <span class="button-name">4</span>
+            <div>
+                <my-button type="outlined">Confirm</my-button>
+            </div>
         </div>
-        <div class="wrap">
-            <my-button type="text">Enabled</my-button>
+        <div class="item">
+            <span class="button-name">5</span>
+            <div>
+                <my-button type="text">Enabled</my-button>
+            </div>
         </div>
     </div>
 </template>
 <style lang="less" scoped>
-.col {
-    display: grid;
-    height: 100px;
-    grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(2, 50%);
-    align-items: center;
-    user-select: none;
-    background: var(--md-color-surface);
-    border-radius: 13px;
-    padding: 40px 0 70px;
-    border: 1px solid var(--md-color-outline);
+@import '../styles/exmapleCard.less';
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .wrap {
     display: flex;
     justify-content: center;
 }
-.item,
-my-button {
-    flex: 20%;
-}
-
 .item {
+    width: 134px;
+    height: 100px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
-.item span {
+.item button {
+    flex-grow: 0;
+}
+.button-name {
     border-radius: 12px;
     text-align: center;
     display: block;
@@ -59,12 +68,14 @@ my-button {
 }
 </style>
 <script>
-import Button from '../../../../packages/button/Button.vue'
+import Button from '../../../../packages/button'
+import Space from '../../../../packages/space'
 
 export default {
     name: 'BasicUse',
     components: {
         [Button.name]: Button,
+        [Space.name]: Space,
     },
     setup() {},
 }
