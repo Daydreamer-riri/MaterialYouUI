@@ -6,12 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-dist
 node_modules
 dist-ssr
 *.local
 
 # Editor directories and files
+dist
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -24,4 +24,4 @@ dist-ssr
 node_modules
 .temp
 .cache
-*.sh
+deploy-gh.sh
