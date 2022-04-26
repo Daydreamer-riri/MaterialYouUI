@@ -1,7 +1,7 @@
-import { defineUserConfig } from 'vuepress-vite'
-import type { DefaultThemeOptions, ViteBundlerOptions } from 'vuepress-vite'
+import { defineUserConfig, defaultTheme, viteBundler } from 'vuepress'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
-const { path } = require('@vuepress/utils')
+import { path } from '@vuepress/utils'
 const sidebar = {
     '/guide/': [
         { text: '快速开始', children: ['/guide/README.md'] },
@@ -46,12 +46,15 @@ const sidebar = {
     ],
 }
 
-export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
+export default defineUserConfig({
     // 使用vite模式打包
-    bundler: '@vuepress/vite',
-    bundlerConfig: {
+    bundler: viteBundler({
         // vite 打包工具的选项
-    },
+        vuePluginOptions: {},
+        viteOptions: {
+            plugins: [vueJsx()],
+        },
+    }),
     lang: 'zh-CN',
     head: [
         [
@@ -70,12 +73,11 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
     clientAppEnhanceFiles: path.resolve(__dirname, './clientAppEnhance.js'),
 
     // theme
-    theme: '@vuepress/theme-default',
-    themeConfig: {
-        repo: 'https://www.bilibili.com',
-        logo: 'https://lh3.googleusercontent.com/UA4cn84QGMesPZb6pWYU2ny8NhqYA-2m6yKn4D1PEDtNfvIc2SQA11JTWRGU-0R21DVoDKh6REdSHLgTdfcn5xr4a9zWRy5HbRk1WA',
+    theme: defaultTheme({
+        repo: 'https://github.com/Daydreamer-riri/MaterialYouUI',
+        logo: '/img/m3-favicon.ico',
         sidebar,
-    },
+    }),
 
     // markdown
     markdown: {
@@ -84,12 +86,5 @@ export default defineUserConfig<DefaultThemeOptions, ViteBundlerOptions>({
         },
     },
 
-    plugins: [
-        [
-            '@vuepress/register-components',
-            {
-                // componentsDir: path.resolve(__dirname, './components/button'),
-            },
-        ],
-    ],
+    plugins: [[]],
 })

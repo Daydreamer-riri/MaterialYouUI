@@ -2,7 +2,11 @@
 
 设置组件之间的间距，使您更有效率的进行 flex 布局。
 
-### 基本用法
+### 使用
+
+避免组件紧贴在一起，拉开统一的空间。
+- 适合行内元素的水平间距。
+- 可以设置各种水平对齐方式。
 
 ```html:no-line-numbers
 <template>
@@ -14,9 +18,10 @@
 </template>
 ```
 
-```vue
-import index from '../exmaple/index.vue'
-```
+<ClientOnly>
+<!-- <space-use></space-use> -->
+</ClientOnly>
+
 
 ### 垂直
 

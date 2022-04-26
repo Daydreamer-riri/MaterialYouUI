@@ -68,13 +68,13 @@
 }
 </style>
 <script>
-import Button from '../../../../packages/button'
+import MyButton from '../../../../packages/button'
 import Space from '../../../../packages/space'
 
 export default {
     name: 'BasicUse',
     components: {
-        [Button.name]: Button,
+        MyButton,
         [Space.name]: Space,
     },
     setup() {},

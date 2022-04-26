@@ -5,6 +5,7 @@ import DisabledButton from './components/button/DisabledButton.vue'
 import IconUse from './components/icon/IconUse.vue'
 import IconSize from './components/icon/IconSize.vue'
 import IconFill from './components/icon/IconFill.vue'
+import SpaceUse from './components/space/SpaceUse.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -13,4 +14,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('icon-use', IconUse)
     app.component('icon-size', IconSize)
     app.component('icon-fill', IconFill)
+    app.component('space-use', SpaceUse)
 })
