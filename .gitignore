@@ -13,7 +13,6 @@ dist-ssr
 .prettierrc
 
 # Editor directories and files
-dist
 .vscode/*
 !.vscode/extensions.json
 .idea
