@@ -36,4 +36,8 @@ export const props = {
         type: Boolean,
         default: false,
     },
+    ripple: {
+        type: Boolean,
+        default: true,
+    },
 }

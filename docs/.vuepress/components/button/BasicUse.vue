@@ -70,12 +70,16 @@
 <script>
 import MyButton from '../../../../packages/button'
 import Space from '../../../../packages/space'
+import Ripple from '../../../../packages/ripple'
 
 export default {
     name: 'BasicUse',
     components: {
         MyButton,
         [Space.name]: Space,
+    },
+    directives: {
+        Ripple,
     },
     setup() {},
 }

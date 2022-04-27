@@ -1,6 +1,14 @@
 <template>
     <button
-        :class="classes(n(), n(`--${btnType}`), [disabled, n(`--${btnType}--disabled`), n(`--${btnType}`)])"
+        v-ripple="{ disabled: disabled || !ripple, color: rippleColor }"
+        :class="
+            classes(
+                n(),
+                n(`--${btnType}`),
+                [disabled, n(`--${btnType}--disabled`), n(`--${btnType}`)],
+                [!ripple, n(`--${btnType}--noripple`)]
+            )
+        "
         :style="{
             color: textColor,
             background: color,
@@ -16,6 +24,7 @@
 </template>
 
 <script lang="ts">
+import Ripple from '../ripple'
 import MyIcon from '../icon'
 import { defineComponent } from 'vue'
 import { createNamespace } from '../utils/components'
@@ -26,6 +35,7 @@ const { n, classes } = createNamespace('button')
 export default defineComponent({
     name: 'MyButton',
     components: { MyIcon },
+    directives: { Ripple },
     props,
     setup(props) {
         const handleClick = (e: Event) => {
@@ -47,7 +57,20 @@ export default defineComponent({
 
             onTouchstart(e)
         }
-        return { n, classes, handleClick, handleTouchstart }
+
+        // 获取 ripple 颜色
+        let rippleColor = null
+        if (props.type === 'text' || props.type === 'outlined') {
+            // rippleColor = document.documentElement.style.getPropertyValue('--md-color-surface-3-light')
+            rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-primary')
+        } else if (props.type === 'filled-tonal') {
+            rippleColor = getComputedStyle(document.documentElement).getPropertyValue(
+                '--md-color-on-secondary-container'
+            )
+        } else if (props.type === 'filled') {
+            rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-on-primary')
+        }
+        return { n, classes, handleClick, handleTouchstart, rippleColor }
     },
     computed: {
         btnType() {

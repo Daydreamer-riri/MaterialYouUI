@@ -1,5 +1,9 @@
 import { isNumber, isString } from './share'
 
+// =====================
+// 单位判断与转换
+// =====================
+
 // 1rem
 export const isRem = (value: unknown): value is string => isString(value) && value.endsWith('rem')
 
@@ -60,4 +64,9 @@ export const toSizeUnit = (value: unknown) => {
     }
 
     return `${toPxNum(value)}px`
+}
+
+export function supportTouch() {
+    const inBrowser = typeof window !== 'undefined'
+    return inBrowser && 'ontouchstart' in window
 }

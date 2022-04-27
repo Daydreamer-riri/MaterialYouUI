@@ -62,3 +62,7 @@ td:last-child,
 th:last-child {
     border-right: 0;
 }
+
+body {
+    -webkit-tap-highlight-color: transparent;
+}
