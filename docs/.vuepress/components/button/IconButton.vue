@@ -1,14 +1,14 @@
 <template>
     <div class="container">
-        <my-button type="elevated" icon="add">Elevated button</my-button>
-        <my-button type="text" icon="check">Text button</my-button>
+        <m-button type="elevated" icon="add">Elevated button</m-button>
+        <m-button type="text" icon="check">Text button</m-button>
     </div>
 </template>
 
 <script>
-import MyButton from '../../../../packages/button/Button.vue'
+import MButton from '../../../../packages/button/Button.vue'
 export default {
-    components: { MyButton },
+    components: { MButton },
 }
 </script>
 

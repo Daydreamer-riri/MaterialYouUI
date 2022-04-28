@@ -1,29 +1,29 @@
 <template>
     <div class="container exmaple-card">
         <div class="item">
-            <div class="icon"><my-icon name="verified"></my-icon></div>
+            <div class="icon"><m-icon name="verified"></m-icon></div>
             <span class="icon-name">unfilled</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="verified" fill></my-icon></div>
+            <div class="icon"><m-icon name="verified" fill></m-icon></div>
             <span class="icon-name">filled</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="verified" stokeWidth="700"></my-icon></div>
+            <div class="icon"><m-icon name="verified" stokeWidth="700"></m-icon></div>
             <span class="icon-name">stokeWidth-700</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="verified" stokeWidth="200"></my-icon></div>
+            <div class="icon"><m-icon name="verified" stokeWidth="200"></m-icon></div>
             <span class="icon-name">stokeWidth-200</span>
         </div>
     </div>
 </template>
 
 <script>
-import MyIcon from '../../../../packages/icon/Icon.vue'
+import MIcon from '../../../../packages/icon/Icon.vue'
 export default {
     name: 'IconSize',
-    components: { MyIcon },
+    components: { MIcon },
 }
 </script>
 

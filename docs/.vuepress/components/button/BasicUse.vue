@@ -3,31 +3,31 @@
         <div class="item">
             <span class="button-name">1</span>
             <div>
-                <my-button type="elevated">Confirm</my-button>
+                <m-button type="elevated">Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">2</span>
             <div>
-                <my-button type="filled">Confirm</my-button>
+                <m-button type="filled">Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">3</span>
             <div>
-                <my-button type="filled-tonal">Enabled</my-button>
+                <m-button type="filled-tonal">Enabled</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">4</span>
             <div>
-                <my-button type="outlined">Confirm</my-button>
+                <m-button type="outlined">Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">5</span>
             <div>
-                <my-button type="text">Enabled</my-button>
+                <m-button type="text">Enabled</m-button>
             </div>
         </div>
     </div>
@@ -68,14 +68,14 @@
 }
 </style>
 <script>
-import MyButton from '../../../../packages/button'
-import Space from '../../../../packages/space'
-import Ripple from '../../../../packages/ripple'
+import MButton from '@packages/button'
+import Space from '@packages/space'
+import Ripple from '@packages/ripple'
 
 export default {
     name: 'BasicUse',
     components: {
-        MyButton,
+        MButton,
         [Space.name]: Space,
     },
     directives: {

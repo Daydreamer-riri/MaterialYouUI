@@ -3,31 +3,31 @@
         <div class="item">
             <span class="button-name">1</span>
             <div>
-                <my-button type="elevated" disabled>Confirm</my-button>
+                <m-button type="elevated" disabled>Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">2</span>
             <div>
-                <my-button type="filled" disabled>Confirm</my-button>
+                <m-button type="filled" disabled>Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">3</span>
             <div>
-                <my-button type="filled-tonal" disabled>Disabled</my-button>
+                <m-button type="filled-tonal" disabled>Disabled</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">4</span>
             <div>
-                <my-button type="outlined" disabled>Confirm</my-button>
+                <m-button type="outlined" disabled>Confirm</m-button>
             </div>
         </div>
         <div class="item">
             <span class="button-name">5</span>
             <div>
-                <my-button type="text" disabled>Disabled</my-button>
+                <m-button type="text" disabled>Disabled</m-button>
             </div>
         </div>
     </div>

@@ -18,14 +18,14 @@
         @click="handleClick"
         @touchstart="handleTouchstart"
     >
-        <my-icon class="button-icon" :name="icon" v-if="icon" :fill="iconFill" size="small"></my-icon>
+        <m-icon class="button-icon" :name="icon" v-if="icon" :fill="iconFill" size="small"></m-icon>
         <span class="label-large text-content"><slot /></span>
     </button>
 </template>
 
 <script lang="ts">
 import Ripple from '../ripple'
-import MyIcon from '../icon'
+import MIcon from '../icon'
 import { defineComponent } from 'vue'
 import { createNamespace } from '../utils/components'
 import { props } from './props'
@@ -33,8 +33,8 @@ import { props } from './props'
 const { n, classes } = createNamespace('button')
 
 export default defineComponent({
-    name: 'MyButton',
-    components: { MyIcon },
+    name: 'MButton',
+    components: { MIcon },
     directives: { Ripple },
     props,
     setup(props) {
@@ -83,7 +83,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../styles/common';
 @import './button';
 @import '../styles/elevation';

@@ -8,6 +8,8 @@ import '../styles/common.less'
 
 const { n } = createNamespace('ripple')
 
+const canTouch = supportTouch()
+
 // ripple 类型
 interface RippleStyles {
     x: number
@@ -22,6 +24,7 @@ interface RippleOptions {
     touchmoveForbid: boolean
     color?: string
     disabled?: boolean
+    unbounded?: boolean
     // ?
     tasker?: number | null
 }
@@ -30,7 +33,7 @@ interface RippleHTMLElement extends HTMLElement {
     _ripple?: RippleOptions
 }
 
-const ANIMATION_DURATION = 250
+const ANIMATION_DURATION = 300
 
 // ===============
 // 设置基础样式
@@ -38,7 +41,9 @@ const ANIMATION_DURATION = 250
 function setStyles(element: RippleHTMLElement) {
     const { zIndex, position } = window.getComputedStyle(element)
 
-    element.style.overflow = 'hidden'
+    if (!element._ripple.unbounded) {
+        element.style.overflow = 'hidden'
+    }
     // ?
     // element.style.overflowX = 'hidden'
     // element.style.overflowY = 'hidden'
@@ -49,15 +54,15 @@ function setStyles(element: RippleHTMLElement) {
 // =======================
 // 计算 ripple style
 // =======================
-function computeRippleStyles(element: RippleHTMLElement, event: MouseEvent): RippleStyles {
+function computeRippleStyles(element: RippleHTMLElement, event: any): RippleStyles {
     const { top, left }: DOMRect = element.getBoundingClientRect()
     const { clientWidth, clientHeight } = element
 
     const radius: number = Math.sqrt(clientWidth ** 2 + clientHeight ** 2) / 2
     const size: number = radius * 2
 
-    const localX: number = event.clientX - left
-    const localY: number = event.clientY - top
+    const localX: number = canTouch ? event.touch[0].clientX - left : event.clientX - left
+    const localY: number = canTouch ? event.touch[0].clintX - top : event.clientY - top
 
     const centerX: number = (clientWidth - radius * 2) / 2
     const centerY: number = (clientHeight - radius * 2) / 2
@@ -71,7 +76,7 @@ function computeRippleStyles(element: RippleHTMLElement, event: MouseEvent): Rip
 // =========================
 // 生成 ripple 并挂载到目标上
 // =========================
-function createRipple(this: RippleHTMLElement, event: MouseEvent) {
+function createRipple(this: RippleHTMLElement, event: any) {
     const _ripple = this._ripple as RippleOptions
     _ripple.removeRipple()
 
@@ -85,12 +90,12 @@ function createRipple(this: RippleHTMLElement, event: MouseEvent) {
         const { x, y, centerX, centerY, size }: RippleStyles = computeRippleStyles(this, event)
         const ripple: RippleHTMLElement = document.createElement('div')
         ripple.classList.add(n())
-        ripple.style.opacity = '0'
+        ripple.style.opacity = '.03'
         ripple.style.transform = `translate(${x}px, ${y}px) scale3d(.3, .3, .3)`
         ripple.style.width = `${size}px`
         ripple.style.height = `${size}px`
         _ripple.color && (ripple.style.backgroundColor = _ripple.color)
-        ripple.style.boxShadow = `0 0 20px 12px ${_ripple.color ?? ''}`
+        ripple.style.boxShadow = `0 0 ${size / 5}px ${size / 10}px ${_ripple.color ?? ''}`
         // 记录生成时间
         ripple.dataset.createdAt = String(performance.now())
 
@@ -100,6 +105,7 @@ function createRipple(this: RippleHTMLElement, event: MouseEvent) {
 
         window.setTimeout(() => {
             ripple.style.transform = `translate(${centerX}px, ${centerY}px) scale3d(1, 1, 1)`
+            ripple.style.transition = `transform 0.2s var(--ripple-cubic-bezier), opacity 0.3s ease-out`
             ripple.style.opacity = `.12`
         }, 20)
     }
@@ -122,6 +128,7 @@ function removeRipple(this: RippleHTMLElement) {
 
         setTimeout(() => {
             // 使叠加层透明度为0
+            lastRipple.style.transition = `transform 0.2s var(--ripple-cubic-bezier), opacity 0.3s ease-in`
             lastRipple.style.opacity = `0`
 
             // 等待动画结束后移除叠加层
@@ -159,22 +166,28 @@ function mounted(el: RippleHTMLElement, binding: DirectiveBinding<RippleOptions>
         removeRipple: removeRipple.bind(el),
     }
 
-    // el.addEventListener('touchstart', createRipple, { passive: true })
-    el.addEventListener('mousedown', createRipple, { passive: true })
+    if (canTouch) {
+        el.addEventListener('touchstart', createRipple, { passive: true })
+        document.addEventListener('touchend', el._ripple.removeRipple, { passive: true })
+    } else {
+        el.addEventListener('mousedown', createRipple, { passive: true })
+        document.addEventListener('mouseup', el._ripple.removeRipple, { passive: true })
+    }
     el.addEventListener('touchmove', forbidRippleTask, { passive: true })
     el.addEventListener('dragstart', removeRipple, { passive: true })
-    // document.addEventListener('touchend', el._ripple.removeRipple, { passive: true })
-    document.addEventListener('mouseup', el._ripple.removeRipple, { passive: true })
     document.addEventListener('touchcancel', el._ripple.removeRipple, { passive: true })
 }
 
 function unmounted(el: RippleHTMLElement) {
-    // el.removeEventListener('touchstart', createRipple)
-    el.removeEventListener('mousedown', createRipple)
+    if (canTouch) {
+        el.removeEventListener('touchstart', createRipple)
+        document.removeEventListener('touchend', el._ripple.removeRipple)
+    } else {
+        el.removeEventListener('mousedown', createRipple)
+        document.removeEventListener('mouseup', el._ripple.removeRipple)
+    }
     el.removeEventListener('touchmove', forbidRippleTask)
     el.removeEventListener('dragstart', removeRipple)
-    // document.removeEventListener('touchend', el._ripple.removeRipple)
-    document.removeEventListener('mouseup', el._ripple.removeRipple)
     document.removeEventListener('touchcancel', el._ripple.removeRipple)
 }
 

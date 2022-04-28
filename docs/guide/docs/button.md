@@ -32,11 +32,11 @@ title: Common buttons
 
 ```html
 <template>
-    <my-button type="elevated">Confirm</my-button>
-    <my-button type="filled">Confirm</my-button>
-    <my-button type="filled-tonal">Enabled</my-button>
-    <my-button type="outlined">Confirm</my-button>
-    <my-button type="text">Enabled</my-button>
+    <m-button type="elevated">Confirm</m-button>
+    <m-button type="filled">Confirm</m-button>
+    <m-button type="filled-tonal">Enabled</m-button>
+    <m-button type="outlined">Confirm</m-button>
+    <m-button type="text">Enabled</m-button>
 </template>
 ```
 
@@ -54,7 +54,7 @@ title: Common buttons
 
 ```html
 <template>
-    <my-button type="elevated" icon="add">Elevated button</my-button>
+    <m-button type="elevated" icon="add">Elevated button</m-button>
 </template>
 ```
 
@@ -70,11 +70,11 @@ title: Common buttons
 
 ```html
 <template>
-    <my-button type="elevated" disabled>Confirm</my-button>
-    <my-button type="filled" disabled>Confirm</my-button>
-    <my-button type="filled-tonal" disabled>Enabled</my-button>
-    <my-button type="outlined" disabled>Confirm</my-button>
-    <my-button type="text" disabled>Enabled</my-button>
+    <m-button type="elevated" disabled>Confirm</m-button>
+    <m-button type="filled" disabled>Confirm</m-button>
+    <m-button type="filled-tonal" disabled>Enabled</m-button>
+    <m-button type="outlined" disabled>Confirm</m-button>
+    <m-button type="text" disabled>Enabled</m-button>
 </template>
 ```
 

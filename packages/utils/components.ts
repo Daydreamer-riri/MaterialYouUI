@@ -13,7 +13,7 @@ type ClassName = string | undefined | null
 type Classes = (ClassName | [any, ClassName, ClassName?])[]
 
 export function createNamespace(name: string) {
-    const namespace = `my-${name}`
+    const namespace = `m-${name}`
 
     const createBEM = (suffix?: string): string => {
         if (!suffix) return namespace

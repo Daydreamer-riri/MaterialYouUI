@@ -17,11 +17,11 @@
 ```html
 <template>
     <div class="container exmaple-card">
-        <my-icon name="search"></my-icon>
-        <my-icon name="home"></my-icon>
-        <my-icon name="settings"></my-icon>
-        <my-icon name="close"></my-icon>
-        <my-icon name="menu"></my-icon>
+        <m-icon name="search"></m-icon>
+        <m-icon name="home"></m-icon>
+        <m-icon name="settings"></m-icon>
+        <m-icon name="close"></m-icon>
+        <m-icon name="menu"></m-icon>
     </div>
 </template>
 ```
@@ -39,9 +39,9 @@
 ```html
 <template>
     <div class="container exmaple-card">
-        <my-icon name="add_circle" size="small"></my-icon>
-        <my-icon name="add_circle" size="medium"></my-icon>
-        <my-icon name="add_circle" size="large"></my-icon>
+        <m-icon name="add_circle" size="small"></m-icon>
+        <m-icon name="add_circle" size="medium"></m-icon>
+        <m-icon name="add_circle" size="large"></m-icon>
     </div>
 </template>
 ```
@@ -59,10 +59,10 @@
 ```html
 <template>
     <div class="container exmaple-card">
-    <my-icon name="verified"></my-icon>
-    <my-icon name="verified" fill></my-icon>
-    <my-icon name="verified" stokeWidth="700"></my-icon>
-    <my-icon name="verified" stokeWidth="200"></my-icon>
+    <m-icon name="verified"></m-icon>
+    <m-icon name="verified" fill></m-icon>
+    <m-icon name="verified" stokeWidth="700"></m-icon>
+    <m-icon name="verified" stokeWidth="200"></m-icon>
 
 </template>
 ```
@@ -72,7 +72,7 @@
 可以通过设置`namespace`属性来使用您自己的图标库。假设我们设置一个名为`new-icons`的字体图标。
 
 ```html
-<my-icon namespace="new-icons"></my-icon>
+<m-icon namespace="new-icons"></m-icon>
 ```
 
 在层叠样式表设置样式：
@@ -88,7 +88,7 @@
 
 /* 字体样式 */
 .new-icons {
-    font: normal normal normal 14px/1 'my-icons';
+    font: normal normal normal 14px/1 'm-icons';
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;

@@ -6,6 +6,8 @@ import IconUse from './components/icon/IconUse.vue'
 import IconSize from './components/icon/IconSize.vue'
 import IconFill from './components/icon/IconFill.vue'
 import SpaceUse from './components/space/SpaceUse.vue'
+import RippleUse from './components/ripple/RippleUse.vue'
+import IcomButtonUse from './components/icon-button/IconButtonUse.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -15,4 +17,6 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('icon-size', IconSize)
     app.component('icon-fill', IconFill)
     app.component('space-use', SpaceUse)
+    app.component('ripple-use', RippleUse)
+    app.component('icon-button-use', IcomButtonUse)
 })

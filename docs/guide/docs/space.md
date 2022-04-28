@@ -10,16 +10,16 @@
 
 ```html:no-line-numbers
 <template>
-    <my-space>
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-        <my-button>Button3</my-button>
-    </my-space>
+    <m-space>
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+        <m-button>Button3</m-button>
+    </m-space>
 </template>
 ```
 
 <ClientOnly>
-<!-- <space-use></space-use> -->
+<space-use></space-use>
 </ClientOnly>
 
 
@@ -27,11 +27,11 @@
 
 ```html
 <template>
-    <my-space direction="column" size="large">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-        <my-button>Button3</my-button>
-    </my-space>
+    <m-space direction="column" size="large">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+        <m-button>Button3</m-button>
+    </m-space>
 </template>
 ```
 
@@ -39,14 +39,14 @@
 
 ```html
 <template>
-    <my-space :size="[20, 20]">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-        <my-button>Button3</my-button>
-        <my-button>Button4</my-button>
-        <my-button>Button5</my-button>
-        <my-button>Button6</my-button>
-    </my-space>
+    <m-space :size="[20, 20]">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+        <m-button>Button3</m-button>
+        <m-button>Button4</m-button>
+        <m-button>Button5</m-button>
+        <m-button>Button6</m-button>
+    </m-space>
 </template>
 ```
 
@@ -54,10 +54,10 @@
 
 ```html
 <template>
-    <my-space justify="end">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-    </my-space>
+    <m-space justify="end">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+    </m-space>
 </template>
 ```
 
@@ -65,10 +65,10 @@
 
 ```html
 <template>
-    <my-space justify="space-around">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-    </my-space>
+    <m-space justify="space-around">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+    </m-space>
 </template>
 ```
 
@@ -76,10 +76,10 @@
 
 ```html
 <template>
-    <my-space justify="center">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-    </my-space>
+    <m-space justify="center">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+    </m-space>
 </template>
 ```
 
@@ -87,10 +87,10 @@
 
 ```html
 <template>
-    <my-space justify="space-between">
-        <my-button>Button1</my-button>
-        <my-button>Button2</my-button>
-    </my-space>
+    <m-space justify="space-between">
+        <m-button>Button1</m-button>
+        <m-button>Button2</m-button>
+    </m-space>
 </template>
 ```
 

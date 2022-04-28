@@ -45,7 +45,7 @@ const isIconSize = (size: any): boolean => {
 }
 
 export default defineComponent({
-    name: 'MyIcon',
+    name: 'MIcon',
     props,
     setup(props) {
         const getSize = (size: any): PropIconSize => {

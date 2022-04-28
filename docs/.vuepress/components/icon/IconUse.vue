@@ -1,33 +1,33 @@
 <template>
     <div class="container exmaple-card">
         <div class="item">
-            <div class="icon"><my-icon name="search"></my-icon></div>
+            <div class="icon"><m-icon name="search"></m-icon></div>
             <span class="icon-name">Search</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="home"></my-icon></div>
+            <div class="icon"><m-icon name="home"></m-icon></div>
             <span class="icon-name">Home</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="settings"></my-icon></div>
+            <div class="icon"><m-icon name="settings"></m-icon></div>
             <span class="icon-name">Settings</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="close"></my-icon></div>
+            <div class="icon"><m-icon name="close"></m-icon></div>
             <span class="icon-name">Close</span>
         </div>
         <div class="item">
-            <div class="icon"><my-icon name="menu"></my-icon></div>
+            <div class="icon"><m-icon name="menu"></m-icon></div>
             <span class="icon-name">Menu</span>
         </div>
     </div>
 </template>
 
 <script>
-import MyIcon from '../../../../packages/icon/Icon.vue'
+import MIcon from '../../../../packages/icon/Icon.vue'
 export default {
     name: 'BasicUse',
-    components: { MyIcon },
+    components: { MIcon },
 }
 </script>
 

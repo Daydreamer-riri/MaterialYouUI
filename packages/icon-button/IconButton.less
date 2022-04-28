@@ -1,0 +1,41 @@
+.m-icon-button {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    transition: background 0.25s;
+    will-change: box-shadow;
+    cursor: pointer;
+    user-select: none;
+
+    padding: 12px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0);
+
+    &:hover {
+        @media (any-hover: hover) {
+            background: var(--md-color-surface-2);
+        }
+    }
+
+    &--noripple:active {
+        background: var(--md-color-surface-3);
+    }
+
+    .button-icon {
+        color: var(--md-color-primary);
+    }
+
+    &--disabled {
+        cursor: default;
+        pointer-events: none;
+
+        .button-icon {
+            color: var(--md-color-on-surface);
+            opacity: 0.38;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+}

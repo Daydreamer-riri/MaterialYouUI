@@ -1,25 +1,33 @@
 <template>
     <div class="container exmaple-card">
         <div class="item">
-            <div class="icon"><m-icon name="add_circle" size="small"></m-icon></div>
+            <div class="icon"><m-icon-button name="add_circle" size="small"></m-icon-button></div>
             <span class="icon-name">small</span>
         </div>
         <div class="item">
-            <div class="icon"><m-icon name="add_circle" size="medium"></m-icon></div>
+            <div class="icon"><m-icon-button name="sort" size="medium"></m-icon-button></div>
             <span class="icon-name">medium</span>
         </div>
         <div class="item">
-            <div class="icon"><m-icon name="add_circle" size="large"></m-icon></div>
+            <div class="icon"><m-icon-button name="menu_open" size="large" @click="handle"></m-icon-button></div>
             <span class="icon-name">large</span>
         </div>
     </div>
 </template>
 
 <script>
-import MIcon from '../../../../packages/icon/Icon.vue'
+import MIconButton from '@packages/icon-button'
 export default {
     name: 'IconSize',
-    components: { MIcon },
+    components: { MIconButton },
+    setup() {
+        const handle = function () {
+            console.log('click')
+        }
+        return {
+            handle,
+        }
+    },
 }
 </script>
 
@@ -51,9 +59,5 @@ export default {
 .icon-name {
     text-align: center;
     display: block;
-}
-
-.item:hover {
-    background: var(--md-color-surface-2);
 }
 </style>

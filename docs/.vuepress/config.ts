@@ -25,10 +25,11 @@ const sidebar = {
                 {
                     text: 'Button 按钮',
                     sidebarDepth: 1,
-                    children: ['/guide/docs/button.md'],
+                    children: ['/guide/docs/button.md', '/guide/docs/icon-button.md'],
                 },
                 '/guide/docs/icon.md',
                 '/guide/docs/space.md',
+                '/guide/docs/ripple.md',
             ],
         },
         {
@@ -53,6 +54,12 @@ export default defineUserConfig({
         vuePluginOptions: {},
         viteOptions: {
             plugins: [vueJsx()],
+            resolve: {
+                alias: {
+                    '@': './',
+                    '@packages': path.resolve('./', 'packages'),
+                },
+            },
         },
     }),
     lang: 'zh-CN',
