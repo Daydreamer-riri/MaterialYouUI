@@ -61,8 +61,9 @@ function computeRippleStyles(element: RippleHTMLElement, event: any): RippleStyl
     const radius: number = Math.sqrt(clientWidth ** 2 + clientHeight ** 2) / 2
     const size: number = radius * 2
 
-    const localX: number = canTouch ? event.touch[0].clientX - left : event.clientX - left
-    const localY: number = canTouch ? event.touch[0].clintX - top : event.clientY - top
+    const localX: number = canTouch ? event.touches[0].clientX - left : event.clientX - left
+    const localY: number = canTouch ? event.touches[0].clientY - top : event.clientY - top
+    console.log(top)
 
     const centerX: number = (clientWidth - radius * 2) / 2
     const centerY: number = (clientHeight - radius * 2) / 2
