@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://materialyou-ui.vercel.app/">
-    <img src="https://materialyou-ui.vercel.app/img/banner.png" width="150">
+    <img src="./docs/.vuepress/public/img/m3-favicon.ico" width="150">
   </a>
   <h1>Material you</h1>
   <p>面向 Vue3 的 Material You 设计组件库</p>
@@ -13,4 +13,5 @@
 ### 介绍
 
 MaterialYou-UI 是一个基于 `Vue3` MaterialYou 组件库。
+
 目前正在锐意开发中！
