@@ -68,6 +68,5 @@ export const toSizeUnit = (value: unknown) => {
 
 export function supportTouch() {
     const inBrowser = typeof window !== 'undefined'
-    console.log('ontouchstart' in window)
     return inBrowser && 'ontouchstart' in window
 }

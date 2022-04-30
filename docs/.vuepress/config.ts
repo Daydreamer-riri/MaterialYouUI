@@ -25,7 +25,7 @@ const sidebar = {
                 {
                     text: 'Button 按钮',
                     sidebarDepth: 1,
-                    children: ['/guide/docs/button.md', '/guide/docs/icon-button.md'],
+                    children: ['/guide/docs/button.md', '/guide/docs/icon-button.md', '/guide/docs/FAB.md'],
                 },
                 '/guide/docs/icon.md',
                 '/guide/docs/space.md',
@@ -60,6 +60,13 @@ export default defineUserConfig({
                     '@packages': path.resolve('./', 'packages'),
                 },
             },
+            css: {
+                preprocessorOptions: {
+                    less: {
+                        javascriptEnabled: true,
+                    },
+                },
+            },
         },
     }),
     lang: 'zh-CN',
@@ -84,6 +91,7 @@ export default defineUserConfig({
         repo: 'https://github.com/Daydreamer-riri/MaterialYouUI',
         logo: '/img/m3-favicon.ico',
         sidebar,
+        sidebarDepth: 1,
     }),
 
     // markdown

@@ -1,0 +1,12 @@
+@on-primary-container-light: #21005d;
+.colorPaletteMixin() {
+@functions: ~`(function() {
+  this.fun = function() {
+    return '#21005d11'
+  };
+})()`;
+}
+// It is hacky way to make this function will be compiled preferentially by less
+// resolve error: `ReferenceError: colorPalette is not defined`
+// https://github.com/ant-design/ant-motion/issues/44
+.colorPaletteMixin();

@@ -10,7 +10,7 @@ export const props = {
     },
     type: {
         type: String,
-        default: 'rounded',
+        default: 'outlined',
     },
     size: {
         type: [Number, String] as PropType<PropIconSize>,

@@ -3,7 +3,7 @@
     align-items: center;
     outline: none;
     border: none;
-    transition: box-shadow 0.2s, background 0.25s;
+    transition: box-shadow 0.2s, background 0.15s;
     will-change: box-shadow;
     cursor: pointer;
     user-select: none;
@@ -46,20 +46,23 @@
 
     // elevated 按钮样式
     &--elevated {
-        background: var(--md-layer-surface-1), var(--md-color-surface);
+        background: var(--md-color-surface1);
         .md-elevation-z1;
         .common-buttons();
 
         &:hover {
             @media (any-hover: hover) {
                 .md-elevation-z2;
-                background: var(--md-layer-surface-2), var(--md-layer-surface-2), var(--md-color-surface);
+                background: var(--md-layer-surface-2), var(--md-color-surface2);
             }
         }
 
         &:active {
-            background: var(--md-layer-surface-3), var(--md-layer-surface-2), var(--md-color-surface);
             .md-elevation-z1;
+        }
+
+        &--noripple:active {
+            background: var(--md-layer-surface-3), var(--md-color-surface2);
         }
 
         .text-content,
@@ -80,7 +83,7 @@
         &:hover {
             @media (any-hover: hover) {
                 .md-elevation-z1;
-                background-color: var(--md-color-secondary-light-hover);
+                background-color: var(--md-color-secondary-container-hover);
             }
         }
 
@@ -89,7 +92,7 @@
         }
 
         &--noripple:active {
-            background-color: var(--md-color-secondary-light-focus);
+            background-color: var(--md-color-secondary-container-focus);
         }
 
         .text-content,
@@ -111,12 +114,16 @@
 
         &:hover {
             @media (any-hover: hover) {
-                background: var(--md-color-surface-2);
+                background: var(--md-color-primary-opacity08);
             }
         }
 
+        &:focus {
+            border: 1px solid var(--md-color-primary);
+        }
+
         &--noripple:active {
-            background: var(--md-color-surface-3);
+            background: var(--md-color-primary-opacity12);
         }
 
         .text-content,
@@ -146,12 +153,12 @@
 
         &:hover {
             @media (any-hover: hover) {
-                background: var(--md-color-surface-2);
+                background: var(--md-color-primary-opacity08);
             }
         }
 
         &--noripple:active {
-            background: var(--md-color-surface-3);
+            background: var(--md-color-primary-opacity12);
         }
 
         .text-content,

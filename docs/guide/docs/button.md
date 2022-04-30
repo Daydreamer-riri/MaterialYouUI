@@ -16,7 +16,7 @@ title: Common buttons
 
 ### 类型
 
-**Material you 提供了五种常见按钮。**
+Material you 提供了五种常见按钮。
 
 1. Elevated button
 2. Filled button
@@ -77,6 +77,15 @@ title: Common buttons
     <m-button type="text" disabled>Enabled</m-button>
 </template>
 ```
+### 禁用涟漪效果
+
+可以设置`ripple`属性为`false`来禁用按钮的涟漪效果。
+
+> 在 Material you 设计中，建议 pc 端关闭按钮的涟漪效果。
+
+<ClientOnly>
+<ripple-disabled></ripple-disabled>
+</ClientOnly>
 
 ### 长按钮
 
@@ -92,6 +101,7 @@ title: Common buttons
 | `disabled` | 按钮是否禁用     | _boolean_                                                         | `false` |
 | `icon`     | 按钮的图标       | _string_                                                          | `null`  |
 | `iconFill` | 按钮图标是否填充 | _boolean_                                                         | `false` |
+| `ripple` | 是否使用涟漪效果 | _boolean_                                                         | `true` |
 
 ### 事件
 

@@ -29,7 +29,7 @@ interface RippleOptions {
     tasker?: number | null
 }
 
-interface RippleHTMLElement extends HTMLElement {
+export interface RippleHTMLElement extends HTMLElement {
     _ripple?: RippleOptions
 }
 
@@ -63,7 +63,6 @@ function computeRippleStyles(element: RippleHTMLElement, event: any): RippleStyl
 
     const localX: number = canTouch ? event.touches[0].clientX - left : event.clientX - left
     const localY: number = canTouch ? event.touches[0].clientY - top : event.clientY - top
-    console.log(top)
 
     const centerX: number = (clientWidth - radius * 2) / 2
     const centerY: number = (clientHeight - radius * 2) / 2
@@ -91,8 +90,8 @@ function createRipple(this: RippleHTMLElement, event: any) {
         const { x, y, centerX, centerY, size }: RippleStyles = computeRippleStyles(this, event)
         const ripple: RippleHTMLElement = document.createElement('div')
         ripple.classList.add(n())
-        ripple.style.opacity = '.03'
-        ripple.style.transform = `translate(${x}px, ${y}px) scale3d(.3, .3, .3)`
+        ripple.style.opacity = '0'
+        ripple.style.transform = `translate(${x}px, ${y}px) scale3d(.4, .4, .4)`
         ripple.style.width = `${size}px`
         ripple.style.height = `${size}px`
         _ripple.color && (ripple.style.backgroundColor = _ripple.color)

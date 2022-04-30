@@ -1,0 +1,121 @@
+@layer-primary-opacity08: linear-gradient(0deg, var(--md-color-primary-opacity08), var(--md-color-primary-opacity08));
+@layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12), var(--md-color-primary-opacity12));
+
+.m-fab {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    transition: box-shadow 0.2s, background 0.15s;
+    will-change: box-shadow;
+    cursor: pointer;
+    user-select: none;
+
+    // 公用部分
+    .md-elevation-z3();
+
+    &:hover {
+        .md-elevation-z4();
+    }
+
+    &:active {
+        .md-elevation-z3();
+    }
+
+    // 尺寸
+    &--small {
+        border-radius: 12px;
+        padding: 8px;
+        width: 40px;
+        height: 40px;
+    }
+
+    &--medium {
+        border-radius: 16px;
+        padding: 16px;
+        width: 56px;
+        height: 56px;
+    }
+
+    &--large {
+        border-radius: 28px;
+        padding: 30px;
+        width: 96px;
+        height: 96px;
+    }
+
+    // 类型
+    &--surface {
+        color: var(--md-color-primary);
+        background: var(--md-color-surface3);
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: @layer-primary-opacity08, var(--md-color-surface4);
+            }
+        }
+
+        &--noripple:active {
+            background: @layer-primary-opacity12, var(--md-color-surface3);
+        }
+    }
+
+    &--primary {
+        color: var(--md-color-on-primary-container);
+        background: var(--md-color-primary-container);
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: var(--md-color-primary-container-hover);
+            }
+        }
+
+        &--noripple:active {
+            background: var(--md-color-primary-container-focus);
+        }
+    }
+
+    &--secondary {
+        color: var(--md-color-on-secondary-container);
+        background: var(--md-color-secondary-container);
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: var(--md-color-secondary-container-hover);
+            }
+        }
+
+        &--noripple:active {
+            background: var(--md-color-secondary-container-focus);
+        }
+    }
+
+    &--tertiary {
+        color: var(--md-color-on-tertiary-container);
+        background: var(--md-color-tertiary-container);
+
+        &:hover {
+            @media (any-hover: hover) {
+                background: var(--md-color-tertiary-container-hover);
+            }
+        }
+
+        &--noripple:active {
+            background: var(--md-color-tertiary-container-focus);
+        }
+    }
+
+    &--disabled {
+        color: var(--md-color-on-surface);
+        background: var(--md-color-on-surface-opacity12);
+        .md-elevation-z0();
+        cursor: default;
+        &:active {
+            background: var(--md-color-on-surface-opacity12);
+        }
+
+        span {
+            opacity: 0.38;
+        }
+    }
+}

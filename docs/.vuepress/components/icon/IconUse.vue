@@ -62,6 +62,6 @@ export default {
 }
 
 .item:hover {
-    background: var(--md-color-surface-2);
+    background: var(--md-color-surface2);
 }
 </style>
