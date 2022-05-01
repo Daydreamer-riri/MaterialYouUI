@@ -15,6 +15,9 @@ import FABSize from './components/FAB/FABSize.vue'
 import FABDisabled from './components/FAB/FABDisabled.vue'
 import FABNoRipple from './components/FAB/FABNoRipple.vue'
 import FABSlot from './components/FAB/FABSlot.vue'
+import ExtendedFABUse from './components/extendedFAB/ExtendedFAB.vue'
+import Extended from './components/extendedFAB/Extended.vue'
+import ExtendedDemo from './components/extendedFAB/ExtendedDemo.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -33,4 +36,7 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('fab-disabled', FABDisabled)
     app.component('fab-noripple', FABNoRipple)
     app.component('fab-slot', FABSlot)
+    app.component('extended-fab-use', ExtendedFABUse)
+    app.component('extended', Extended)
+    app.component('extended-demo', ExtendedDemo)
 })

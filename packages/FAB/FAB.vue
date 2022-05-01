@@ -1,6 +1,6 @@
 <template>
     <button
-        v-ripple="{ disabled: disabled || !ripple, color: rippleColor }"
+        v-ripple="{ disabled: disabled || !ripple }"
         :class="
             classes(
                 n(),
@@ -12,34 +12,49 @@
         :style="{
             color: textColor,
             background: color,
-            width: width,
         }"
+        ref="btn"
         :disabled="disabled"
+        @transitionend="transitionend"
         @click="handleClick"
         @touchstart="handleTouchstart"
     >
         <slot name="icon">
-            <m-icon :name="name" :size="btnSize === 'large' ? 36 : 24"></m-icon>
+            <m-icon v-if="name" :name="name" :size="btnSize === 'large' ? 36 : 24"></m-icon>
         </slot>
-        <span v-show="extended" v-if="isExtended && btnType === 'medium'">
-            <slot></slot>
+        <span
+            v-show="show"
+            v-if="useText && btnSize === 'medium'"
+            :class="
+                classes(
+                    'text',
+                    'label-large',
+                    [extended, 'text-extended', 'text-noextended'],
+                    [!name && !useIcon, 'text-unuseicon', 'text-useicon']
+                )
+            "
+        >
+            <slot name="text"> </slot>
         </span>
     </button>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, nextTick, watch, useSlots } from 'vue'
 import MIcon from '../icon'
 import Ripple from '../ripple'
+import MSpace from '../space'
 import { props } from './props'
 import { createNamespace } from '../utils/components'
+import type { Ref } from 'vue'
+
 const { n, classes } = createNamespace('fab')
 
 export default defineComponent({
     name: 'MFab',
-    components: { MIcon },
+    components: { MIcon, MSpace },
     directives: { Ripple },
     props,
-    setup(props) {
+    setup(props, { slots }) {
         const handleClick = (e: Event) => {
             const { disabled, onClick } = props
 
@@ -60,21 +75,71 @@ export default defineComponent({
             onTouchstart(e)
         }
 
-        // iconsize TODP
+        const btn: Ref<HTMLButtonElement | null> = ref(null)
+        const show: Ref<boolean> = ref(props.extended)
 
-        // rippleColor
-        let rippleColor
+        const useIcon = !!useSlots().icon
+        const useText = !!useSlots().text
 
-        // extended
-        const extended = ref(true)
+        // extended 相关函数
+        let lock = false
+        const open = () => {
+            if (!btn.value) {
+                return
+            }
+            btn.value.style.width = ''
+            show.value = true
 
+            nextTick(() => {
+                const { offsetWidth } = btn.value as HTMLButtonElement
+                ;(btn.value as HTMLButtonElement).style.width = 56 + 'px'
+
+                requestAnimationFrame(() => {
+                    ;(btn.value as HTMLButtonElement).style.width = offsetWidth + 'px'
+                })
+            })
+        }
+
+        const close = () => {
+            if (!btn.value) return
+            ;(btn.value as HTMLButtonElement).style.width = ''
+
+            nextTick(() => {
+                const { offsetWidth } = btn.value as HTMLButtonElement
+                ;(btn.value as HTMLButtonElement).style.width = offsetWidth + 'px'
+
+                requestAnimationFrame(() => {
+                    ;(btn.value as HTMLButtonElement).style.width = 56 + 'px'
+                })
+            })
+        }
+
+        const transitionend = () => {
+            if (!props.extended) {
+                show.value = false
+                ;(btn.value as HTMLButtonElement).style.width = ''
+            }
+        }
+        watch(
+            () => props.extended,
+            (value) => {
+                if (value) {
+                    open()
+                } else {
+                    close()
+                }
+            }
+        )
         return {
             handleClick,
             handleTouchstart,
             classes,
             n,
-            rippleColor,
-            extended,
+            btn,
+            transitionend,
+            show,
+            useIcon,
+            useText,
         }
     },
     computed: {
@@ -93,7 +158,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less">
+<style lang="less" scoped>
 @import '../styles/common';
 @import './FAB.less';
 @import '../styles/elevation';

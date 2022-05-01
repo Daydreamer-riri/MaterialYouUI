@@ -19,9 +19,9 @@ export const props = {
         default: 'medium',
         validator: sizeValidator,
     },
-    isExtended: {
+    extended: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     name: {
         type: String,
@@ -34,9 +34,6 @@ export const props = {
         type: String,
     },
     textColor: {
-        type: String,
-    },
-    width: {
         type: String,
     },
     onClick: {

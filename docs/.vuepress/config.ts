@@ -25,7 +25,12 @@ const sidebar = {
                 {
                     text: 'Button 按钮',
                     sidebarDepth: 1,
-                    children: ['/guide/docs/button.md', '/guide/docs/icon-button.md', '/guide/docs/FAB.md'],
+                    children: [
+                        '/guide/docs/button.md',
+                        '/guide/docs/icon-button.md',
+                        '/guide/docs/FAB.md',
+                        '/guide/docs/extended-FAB.md',
+                    ],
                 },
                 '/guide/docs/icon.md',
                 '/guide/docs/space.md',

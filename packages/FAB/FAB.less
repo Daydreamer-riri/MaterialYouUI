@@ -6,8 +6,9 @@
     align-items: center;
     outline: none;
     border: none;
-    transition: box-shadow 0.2s, background 0.15s;
+    transition: box-shadow 0.15s, background 0.15s, width 0.2s ease;
     will-change: box-shadow;
+    overflow: hidden;
     cursor: pointer;
     user-select: none;
 
@@ -33,7 +34,6 @@
     &--medium {
         border-radius: 16px;
         padding: 16px;
-        width: 56px;
         height: 56px;
     }
 
@@ -103,6 +103,27 @@
         &--noripple:active {
             background: var(--md-color-tertiary-container-focus);
         }
+    }
+
+    // extended
+    .text {
+        transition: opacity 0.15s;
+        white-space: nowrap;
+
+        &-useicon {
+            padding-right: 4px;
+            padding-left: 12px;
+        }
+
+        &-unuseicon {
+            padding: 0 4px 0;
+        }
+    }
+    .text-noextended {
+        opacity: 0;
+    }
+    .text-extended {
+        opacity: 1;
     }
 
     &--disabled {
