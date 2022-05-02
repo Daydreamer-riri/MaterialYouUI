@@ -75,8 +75,34 @@ const changeState = () => {
 
 ### 长滚动页面中的应用
 
-demo
+在向下浏览时，Extended FAB 会自动收起，让用户专注于内容。
 
 <ClientOnly>
 <extended-demo></extended-demo>
 </ClientOnly>
+
+## API
+### 属性
+
+| 参数       | 说明             | 类型                                                              | 默认值  |
+| ---------- | ---------------- | ----------------------------------------------------------------- | ------- |
+| `type`     | FAB 的颜色类型      | _'primary' \| 'surface' \| 'secondary' \|'tertiary'_ | `primary`  |
+| `size`     | FAB 的尺寸, 仅 medium 可展开     | _'medium'_ | `medium`  |
+| `extended` | FAB 是否展开     | _'bolean'_ | `true`  |
+| `disabled` | FAB 是否禁用     | _boolean_ | `false` |
+| `name`     | FAB 的图标字段       | _string_ | `null`  |
+| `ripple` | 是否使用涟漪效果 | _boolean_ | `true` |
+
+### 事件
+
+| 事件名       | 说明                   | 参数           |
+| ------------ | ---------------------- | -------------- |
+| `click`      | 点击 FAB 时触发         | `event: Event` |
+| `touchstart` | 触摸手指压下 FAB 时触发 | `event: Event` |
+
+### 插槽
+
+| 插槽名    | 说明     | 参数 |
+| --------- | -------- | ---- |
+| `icon` | Extended FAB 图标 | `-`  |
+| `text` | Extended FAB 文本 | `-`  |

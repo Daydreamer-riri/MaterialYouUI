@@ -23,6 +23,7 @@
             <m-icon v-if="name" :name="name" :size="btnSize === 'large' ? 36 : 24"></m-icon>
         </slot>
         <span
+            ref="text"
             v-show="show"
             v-if="useText && btnSize === 'medium'"
             :class="
@@ -54,7 +55,7 @@ export default defineComponent({
     components: { MIcon, MSpace },
     directives: { Ripple },
     props,
-    setup(props, { slots }) {
+    setup(props) {
         const handleClick = (e: Event) => {
             const { disabled, onClick } = props
 
@@ -76,15 +77,15 @@ export default defineComponent({
         }
 
         const btn: Ref<HTMLButtonElement | null> = ref(null)
+        const text: Ref<HTMLSpanElement | null> = ref(null)
         const show: Ref<boolean> = ref(props.extended)
 
         const useIcon = !!useSlots().icon
         const useText = !!useSlots().text
 
         // extended 相关函数
-        let lock = false
         const open = () => {
-            if (!btn.value) {
+            if (!btn.value || !text.value) {
                 return
             }
             btn.value.style.width = ''
@@ -96,6 +97,17 @@ export default defineComponent({
 
                 requestAnimationFrame(() => {
                     ;(btn.value as HTMLButtonElement).style.width = offsetWidth + 'px'
+                    nextTick(() => {
+                        ;(text.value as HTMLSpanElement).style.opacity = '0'
+                        setTimeout(() => {
+                            requestAnimationFrame(() => {
+                                ;(text.value as HTMLSpanElement).style.opacity = '1'
+                                nextTick(() => {
+                                    ;(text.value as HTMLSpanElement).style.opacity = ''
+                                })
+                            })
+                        }, 100)
+                    })
                 })
             })
         }
@@ -114,12 +126,18 @@ export default defineComponent({
             })
         }
 
-        const transitionend = () => {
-            if (!props.extended) {
+        const transitionend = (e: TransitionEvent) => {
+            if (!props.extended && e.propertyName === 'width') {
                 show.value = false
                 ;(btn.value as HTMLButtonElement).style.width = ''
+                ;(text.value as HTMLSpanElement).style.opacity = '1'
+                nextTick(() => {
+                    ;(text.value as HTMLSpanElement).style.opacity = '0'
+                })
             }
         }
+
+        // 监听 extended 变化，控制展开动画
         watch(
             () => props.extended,
             (value) => {
@@ -136,6 +154,7 @@ export default defineComponent({
             classes,
             n,
             btn,
+            text,
             transitionend,
             show,
             useIcon,

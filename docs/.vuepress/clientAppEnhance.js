@@ -18,6 +18,7 @@ import FABSlot from './components/FAB/FABSlot.vue'
 import ExtendedFABUse from './components/extendedFAB/ExtendedFAB.vue'
 import Extended from './components/extendedFAB/Extended.vue'
 import ExtendedDemo from './components/extendedFAB/ExtendedDemo.vue'
+import CardDemo from './components/card/CardDemo.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -39,4 +40,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('extended-fab-use', ExtendedFABUse)
     app.component('extended', Extended)
     app.component('extended-demo', ExtendedDemo)
+    app.component('card-demo', CardDemo)
 })

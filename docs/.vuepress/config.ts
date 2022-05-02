@@ -34,6 +34,7 @@ const sidebar = {
                 },
                 '/guide/docs/icon.md',
                 '/guide/docs/space.md',
+                '/guide/docs/card.md',
                 '/guide/docs/ripple.md',
             ],
         },

@@ -1,0 +1,47 @@
+.m-card {
+    box-sizing: border-box;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &--outlined {
+        border: 1px solid var(--md-color-outline);
+        color: var(--md-color-on-surface);
+        background: var(--md-color-surface);
+    }
+
+    &--elevated {
+        .md-elevation-z2();
+        color: var(--md-color-on-surface);
+        background: var(--md-color-surface);
+    }
+
+    &--filled {
+        color: var(--md-color-on-surface-variant);
+        background: var(--md-color-surface-variant);
+    }
+
+    &__headline {
+        padding: 16px;
+    }
+
+    &__title {
+        .body-large();
+    }
+
+    &__subhead {
+        .body-medium();
+        color: var(--md-color-on-surface-variant);
+    }
+
+    &__text {
+        padding: 16px;
+        .body-medium();
+        color: var(--md-color-on-surface-variant);
+    }
+
+    &__action {
+        padding: 16px;
+    }
+}

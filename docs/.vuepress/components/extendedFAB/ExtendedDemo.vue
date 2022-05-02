@@ -4,7 +4,7 @@
             <div class="content" @wheel="clickhandle" @touchmove="clickhandle">
                 <li v-for="item in items">{{ item }}</li>
             </div>
-            <m-fab name="add" class="efab" :extended="state" @click="clickhandle">
+            <m-fab name="add" class="efab" :extended="state">
                 <template #text>New task</template>
             </m-fab>
         </div>
@@ -63,10 +63,10 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .container {
     position: relative;
-    padding: 80px 20px 120px;
+    padding: 80px 20px 80px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
