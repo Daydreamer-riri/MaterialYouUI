@@ -1,20 +1,30 @@
 <template>
-    <div :class="classes(n(), n(`--${type}`))">
+    <div :class="classes(n(), n(`--${type}`), [direction === 'horizontal', n('--horizontal')])">
         <div :class="classes(n('header'))" v-if="useHeader">
             <slot name="header"></slot>
         </div>
         <div :class="classes(n('media'))" v-if="useMedia">
             <slot name="media"></slot>
         </div>
-        <div :class="classes(n('headline'))" v-if="useTitle || useSubhead">
-            <div :class="classes(n('title'))" v-if="useTitle"><slot name="title"></slot></div>
-            <div :class="classes(n('subhead'))" v-if="useSubhead"><slot name="subhead"></slot></div>
-        </div>
-        <div :class="classes(n('content'))" v-if="useContent">
-            <slot name="content"></slot>
-        </div>
-        <div :class="classes(n('action'))" v-if="useAction">
-            <slot name="action"></slot>
+        <div :class="classes(n('main'))">
+            <div
+                :class="classes(n('headline'), [useHeader && !useMedia, n('headline-nopt')])"
+                v-if="useTitle || useSubhead"
+            >
+                <div :class="classes(n('title'))" v-if="useTitle">
+                    <slot name="title">{{ title }}</slot>
+                </div>
+                <div :class="classes(n('subtitle'))" v-if="useSubhead">
+                    <slot name="subtitle">{{ subtitle }}</slot>
+                </div>
+            </div>
+            <div :class="classes(n('content'))" v-if="useContent">
+                <slot name="content"></slot>
+            </div>
+            <div :class="classes(n('action'))" v-if="useAction">
+                <slot name="action"></slot>
+            </div>
+            <div :class="classes(n('padding'))"></div>
         </div>
     </div>
 </template>
@@ -32,11 +42,10 @@ export default defineComponent({
     setup(props) {
         const useHeader = !!useSlots().header
         const useMedia = !!useSlots().media
-        const useTitle = !!useSlots().title
-        const useSubhead = !!useSlots().subhead
+        const useTitle = !!useSlots().title || props.title !== undefined
+        const useSubhead = !!useSlots().subtitle || props.subtitle !== undefined
         const useContent = !!useSlots().content
         const useAction = !!useSlots().action
-        console.log(useSlots())
 
         return {
             n,

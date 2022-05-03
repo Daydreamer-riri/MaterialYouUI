@@ -1,6 +1,6 @@
 <template>
     <button
-        v-ripple="{ disabled: disabled || !ripple, color: rippleColor }"
+        v-ripple="{ disabled: disabled || !ripple }"
         :class="
             classes(
                 n(),
@@ -59,18 +59,18 @@ export default defineComponent({
         }
 
         // 获取 ripple 颜色
-        let rippleColor = null
-        if (props.type === 'text' || props.type === 'outlined') {
-            // rippleColor = document.documentElement.style.getPropertyValue('--md-color-surface-3-light')
-            rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-primary')
-        } else if (props.type === 'filled-tonal') {
-            rippleColor = getComputedStyle(document.documentElement).getPropertyValue(
-                '--md-color-on-secondary-container'
-            )
-        } else if (props.type === 'filled') {
-            rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-on-primary')
-        }
-        return { n, classes, handleClick, handleTouchstart, rippleColor }
+        // let rippleColor = null
+        // if (props.type === 'text' || props.type === 'outlined') {
+        //     // rippleColor = document.documentElement.style.getPropertyValue('--md-color-surface-3-light')
+        //     rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-primary')
+        // } else if (props.type === 'filled-tonal') {
+        //     rippleColor = getComputedStyle(document.documentElement).getPropertyValue(
+        //         '--md-color-on-secondary-container'
+        //     )
+        // } else if (props.type === 'filled') {
+        //     rippleColor = getComputedStyle(document.documentElement).getPropertyValue('--md-color-on-primary')
+        // }
+        return { n, classes, handleClick, handleTouchstart }
     },
     computed: {
         btnType() {

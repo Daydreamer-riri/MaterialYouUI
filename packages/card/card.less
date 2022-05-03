@@ -5,6 +5,10 @@
     flex-direction: column;
     overflow: hidden;
 
+    &--horizontal {
+        flex-direction: row;
+    }
+
     &--outlined {
         border: 1px solid var(--md-color-outline);
         color: var(--md-color-on-surface);
@@ -14,7 +18,7 @@
     &--elevated {
         .md-elevation-z2();
         color: var(--md-color-on-surface);
-        background: var(--md-color-surface);
+        background: var(--md-color-surface1);
     }
 
     &--filled {
@@ -22,26 +26,39 @@
         background: var(--md-color-surface-variant);
     }
 
+    &__main {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__headline {
-        padding: 16px;
+        padding: 16px 16px 0;
+
+        &-nopt {
+            padding-top: 0;
+        }
     }
 
     &__title {
         .body-large();
     }
 
-    &__subhead {
+    &__subtitle {
         .body-medium();
         color: var(--md-color-on-surface-variant);
     }
 
-    &__text {
-        padding: 16px;
+    &__content {
+        padding: 16px 16px 0;
         .body-medium();
         color: var(--md-color-on-surface-variant);
     }
 
     &__action {
-        padding: 16px;
+        padding: 16px 16px 0;
+    }
+
+    &__padding {
+        height: 16px;
     }
 }

@@ -10,4 +10,14 @@ export const props = {
         default: 'elevated',
         validator: typeValidator,
     },
+    title: {
+        type: String,
+    },
+    subtitle: {
+        type: String,
+    },
+    direction: {
+        type: String as PropType<'stacked' | 'horizontal'>,
+        default: 'stacked',
+    },
 }

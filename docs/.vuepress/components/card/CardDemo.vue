@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <m-card :style="{ background: '#faf2f1', width: '300px' }">
+        <m-card :style="{ background: '#faf2f1', width: '300px', color: '#49454f' }">
             <template #media>
                 <div
                     style="
@@ -12,11 +12,11 @@
                 ></div>
             </template>
             <template #title>
-                <span class="title-large">Glass Souls' World Tour</span>
+                <span class="title-large" :style="{ color: '#1c1b1f' }">Glass Souls' World Tour</span>
             </template>
-            <template #subhead>From your recent favorites</template>
+            <template #subtitle>From your recent favorites</template>
             <template #action>
-                <m-button color="#9c4146">Buy Tickets</m-button>
+                <m-button color="#9c4146" textColor="#fff">Buy Tickets</m-button>
             </template>
         </m-card>
     </div>

@@ -16,6 +16,7 @@
     // filled 按钮样式
     &--filled {
         background-color: var(--md-color-primary);
+        color: var(--md-color-on-primary);
         .common-buttons();
 
         &:hover {
@@ -33,11 +34,6 @@
             background-color: var(--md-color-primary-focus);
         }
 
-        .text-content,
-        .button-icon {
-            color: var(--md-color-on-primary);
-        }
-
         &--disabled {
             .filled-disabled();
         }
@@ -46,6 +42,7 @@
     // elevated 按钮样式
     &--elevated {
         background: var(--md-color-surface1);
+        color: var(--md-color-primary);
         .md-elevation-z1;
         .common-buttons();
 
@@ -64,11 +61,6 @@
             background: var(--md-layer-surface-3), var(--md-color-surface2);
         }
 
-        .text-content,
-        .button-icon {
-            color: var(--md-color-primary);
-        }
-
         &--disabled {
             .filled-disabled();
         }
@@ -77,6 +69,7 @@
     // filled-tonal 按钮样式
     &--filled-tonal {
         .common-buttons();
+        color: var(--md-color-on-secondary-container);
         background-color: var(--md-color-secondary-container);
 
         &:hover {
@@ -94,11 +87,6 @@
             background-color: var(--md-color-secondary-container-focus);
         }
 
-        .text-content,
-        .button-icon {
-            color: var(--md-color-on-secondary-container);
-        }
-
         &--disabled {
             .filled-disabled();
         }
@@ -109,6 +97,7 @@
         .common-buttons();
         background: rgba(0, 0, 0, 0);
         border: 1px solid var(--md-color-outline);
+        color: var(--md-color-primary);
         box-sizing: border-box;
 
         &:hover {
@@ -123,11 +112,6 @@
 
         &--noripple:active {
             background: var(--md-color-primary-opacity12);
-        }
-
-        .text-content,
-        .button-icon {
-            color: var(--md-color-primary);
         }
 
         &--disabled {
@@ -148,6 +132,7 @@
         padding-left: 4px;
         padding-right: 12px;
         border-radius: 20px;
+        color: var(--md-color-primary);
         background: rgba(0, 0, 0, 0);
 
         &:hover {
@@ -158,11 +143,6 @@
 
         &--noripple:active {
             background: var(--md-color-primary-opacity12);
-        }
-
-        .text-content,
-        .button-icon {
-            color: var(--md-color-primary);
         }
 
         .button-icon {
