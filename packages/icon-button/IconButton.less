@@ -1,6 +1,6 @@
 .m-icon-button {
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-items: center;
     outline: none;
     border: none;
     transition: background 0.25s;
@@ -11,19 +11,16 @@
     padding: 12px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0);
+    color: var(--md-color-on-surface-variant);
 
     &:hover {
         @media (any-hover: hover) {
-            background: var(--md-color-surface-2);
+            // background: var(--md-color-surface2);
         }
     }
 
     &--noripple:active {
-        background: var(--md-color-surface-3);
-    }
-
-    .button-icon {
-        color: var(--md-color-primary);
+        background: var(--md-color-surface3);
     }
 
     &--disabled {

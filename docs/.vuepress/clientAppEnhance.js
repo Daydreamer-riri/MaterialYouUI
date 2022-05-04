@@ -23,6 +23,7 @@ import CardUse from './components/card/CardUse.vue'
 import CardType from './components/card/CardType.vue'
 import CardDirection from './components/card/CardDirection.vue'
 import CardRipple from './components/card/CardRipple.vue'
+import CardMore from './components/card/CardMore.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -49,4 +50,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('card-type', CardType)
     app.component('card-direction', CardDirection)
     app.component('card-ripple', CardRipple)
+    app.component('card-more', CardMore)
 })

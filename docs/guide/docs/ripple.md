@@ -24,6 +24,8 @@
 ### 设置颜色
 
 通过对`v-ripple`中`color`属性的设置，我们可以修改涟漪的颜色。
+> ripple 的默认颜色为目标元素的字体颜色
+
 <ClientOnly>
 <ripple-color></ripple-color>
 </ClientOnly>
@@ -65,3 +67,4 @@
 | --- | --- | --- | --- |
 | `color` | 涟漪颜色 | _string_ | `currentColor` |
 | `disabled` | 禁用状态 | _boolean_ | `false` |
+| `unbounded` | 是否无界 | _boolean_ | `false` |

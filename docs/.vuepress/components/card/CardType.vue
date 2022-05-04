@@ -55,7 +55,7 @@
 <style lang="less" scoped>
 .container {
     background: var(--md-color-surface1);
-    padding: 40px 80px 40px;
+    padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;
     place-items: center;
@@ -65,6 +65,7 @@
         text-align: center;
         display: block;
         height: 24px;
+        line-height: 24px;
         width: 24px;
         background: var(--md-color-on-surface);
         color: var(--md-color-surface);

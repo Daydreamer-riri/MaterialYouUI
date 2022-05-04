@@ -88,7 +88,7 @@ const changeState = () => {
 | ---------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | `type`     | FAB 的颜色类型      | _'primary' \| 'surface' \| 'secondary' \|'tertiary'_ | `primary`  |
 | `size`     | FAB 的尺寸, 仅 medium 可展开     | _'medium'_ | `medium`  |
-| `extended` | FAB 是否展开     | _'bolean'_ | `true`  |
+| `extended` | FAB 是否展开     | _boolean_ | `true`  |
 | `disabled` | FAB 是否禁用     | _boolean_ | `false` |
 | `name`     | FAB 的图标字段       | _string_ | `null`  |
 | `ripple` | 是否使用涟漪效果 | _boolean_ | `true` |

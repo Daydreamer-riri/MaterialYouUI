@@ -2,15 +2,15 @@
     <div class="container exmaple-card">
         <div class="item">
             <div class="icon"><m-icon-button name="add_circle" size="small"></m-icon-button></div>
-            <span class="icon-name">small</span>
+            <span class="icon-name">add</span>
         </div>
         <div class="item">
             <div class="icon"><m-icon-button name="sort" size="medium"></m-icon-button></div>
-            <span class="icon-name">medium</span>
+            <span class="icon-name">sort</span>
         </div>
         <div class="item">
             <div class="icon"><m-icon-button name="menu_open" size="large" @click="handle"></m-icon-button></div>
-            <span class="icon-name">large</span>
+            <span class="icon-name">mune open</span>
         </div>
     </div>
 </template>

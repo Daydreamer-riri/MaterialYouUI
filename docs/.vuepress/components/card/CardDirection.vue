@@ -31,14 +31,14 @@
 <style lang="less" scoped>
 .container {
     background: var(--md-color-surface1);
-    padding: 40px 40px 40px;
+    padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;
     place-items: center;
 
     .card-img {
         background: url('/img/card/direction.webp') center/cover;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .card-img-v {

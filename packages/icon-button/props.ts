@@ -27,4 +27,10 @@ export const props = {
         type: Boolean,
         default: true,
     },
+    onClick: {
+        type: Function as PropType<(e: Event) => void | Promise<any>>,
+    },
+    onTouchstart: {
+        type: Function as PropType<(e: Event) => void | Promise<any>>,
+    },
 }

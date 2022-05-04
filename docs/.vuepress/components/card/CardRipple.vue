@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <m-space direction="column" size="large">
-            <m-card class="cardripple" type="filled" :style="{ width: '330px' }" v-ripple>
+            <m-card class="cardripple" type="filled" :style="{ width: '330px' }" v-ripple hoverable>
                 <template #header>
                     <m-card-header head="Daniel Maas" subhead="Yesterday">
                         <template #avatar>
@@ -28,7 +28,7 @@
 <style lang="less" scoped>
 .container {
     background: var(--md-color-surface1);
-    padding: 40px 40px 40px;
+    padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;
     place-items: center;

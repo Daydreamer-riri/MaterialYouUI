@@ -31,7 +31,8 @@ Card 有三种类型：elevated, filled 和 outlined。
             <m-card type="elevated" :style="{ width: '370px' }" 
                     subhead="From your recent favorites">
                 <template #title>
-                    <div class="headline-medium" :style="{ marginBottom: '8px' }">
+                    <div class="headline-medium" 
+                        :style="{ marginBottom: '8px' }">
                         Play <br />
                         relaxing songs
                     </div>
@@ -47,7 +48,8 @@ Card 有三种类型：elevated, filled 和 outlined。
             <m-card type="filled" :style="{ width: '370px' }" 
                     subhead="From your recent favorites">
                 <template #title>
-                    <div class="headline-medium" :style="{ marginBottom: '8px' }">
+                    <div class="headline-medium" 
+                        :style="{ marginBottom: '8px' }">
                         Play <br />
                         relaxing songs
                     </div>
@@ -63,7 +65,8 @@ Card 有三种类型：elevated, filled 和 outlined。
             <m-card type="outlined" :style="{ width: '370px' }" 
                     subhead="From your recent favorites">
                 <template #title>
-                    <div class="headline-medium" :style="{ marginBottom: '8px' }">
+                    <div class="headline-medium" 
+                        :style="{ marginBottom: '8px' }">
                         Play <br />
                         relaxing songs
                     </div>
@@ -157,4 +160,53 @@ Card 可以从两种方向展示内容。通过设置`direction`属性为`horizo
 
 <ClientOnly>
 <card-ripple></card-ripple>
+</ClientOnly>
+
+## API
+
+### Card
+
+#### 属性
+
+| 参数       | 说明             | 类型      | 默认值  |
+| ---------- | ---------------- | -------------- | ------- |
+| `type`     | Card 的类型 | _'elevated' \| 'filled' \| 'outlined'_ | `elevated`  |
+| `direction` | Card 的方向 | _'stacked' \| 'horizontal'_ | `stacked`  |
+| `title` | Card 的标题     | _string \| slot_ | `-`  |
+| `subtitle` | Card 的副标题     | _string \| slot_ | `-` |
+
+
+#### 插槽
+
+| 插槽名    | 说明     | 参数 |
+| --------- | -------- | ---- |
+| `header` | Card 的头部，位置在最上层 | `-` |
+| `media` | Card 的媒体部分 | `-` |
+| `title` | Card 的标题 | `-` |
+| `subtitle` | Card 的副标题 | `-` |
+| `content` | Card 的内容部分 | `-` |
+| `action` | Card 的操作组，位置在卡片底部 | `-` |
+
+### Card.Header
+
+#### 属性
+
+| 参数 | 说明 | 类型 | 默认值|
+| --- | --- | --- | --- |
+| `head` | Header 的标头     | _string \| slot_ | `-`  |
+| `subhead` | Card 的副标头     | _string \| slot_ | `-` |
+
+#### 插槽
+
+| 插槽名    | 说明     | 参数 |
+| --------- | -------- | ---- |
+| `avatar` | 头像/图标，也可在单独使用 Header 时做媒体插槽 | `-` |
+| `head` | Header 的标头 | `-`  |
+| `subhead` | Card 的副标头 | `-` |
+| `extra` | 右上角的操作区域 | `-` |
+
+## More demo
+
+<ClientOnly>
+<card-more></card-more>
 </ClientOnly>
