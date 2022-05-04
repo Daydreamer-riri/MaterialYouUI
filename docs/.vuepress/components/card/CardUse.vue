@@ -43,7 +43,7 @@
 <style lang="less" scoped>
 .container {
     background: var(--md-color-surface1);
-    padding: 40px 80px 40px;
+    padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;
     place-items: center;

@@ -61,6 +61,7 @@
     border-radius: 12px;
     text-align: center;
     display: block;
+    line-height: 24px;
     height: 24px;
     width: 24px;
     background: var(--md-color-on-surface);
