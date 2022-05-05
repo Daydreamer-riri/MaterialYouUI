@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <m-space direction="column" size="large">
-            <m-card type="outlined" :style="{ width: '270px' }">
+            <m-card type="outlined" :style="{ width: '270px', maxWidth: '100%' }">
                 <template #media>
                     <div class="card-img card-img-v" />
                 </template>
@@ -13,7 +13,7 @@
                     <m-button type="filled-tonal">Get tickets</m-button>
                 </template>
             </m-card>
-            <m-card type="outlined" direction="horizontal" :style="{ width: '520px' }">
+            <m-card type="outlined" direction="horizontal" :style="{ maxWidth: '520px', width: '100%' }">
                 <template #media>
                     <div class="card-img card-img-h" />
                 </template>

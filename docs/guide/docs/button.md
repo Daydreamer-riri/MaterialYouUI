@@ -1,8 +1,4 @@
----
-title: Common buttons
----
-
-# Common buttons
+# Common buttons 通用按钮
 
 按钮传达用户可以采取的操作。它们通常被放置在整个 UI 中，如
 

@@ -75,7 +75,7 @@ const changeState = () => {
 
 ### 长滚动页面中的应用
 
-在向下浏览时，Extended FAB 会自动收起，让用户专注于内容。
+在向下浏览时，Extended FAB 应该自动收起，让用户专注于内容。
 
 <ClientOnly>
 <extended-demo></extended-demo>

@@ -76,7 +76,8 @@
     }
 
     .grid {
-        width: 500px;
+        width: 100%;
+        max-width: 500px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 8px;
