@@ -6,14 +6,7 @@ const sidebar = [
     { text: '快速开始', children: ['/guide/README.md'] },
     {
         text: 'Styles',
-        children: [
-            {
-                text: '色彩',
-            },
-            {
-                text: '字体',
-            },
-        ],
+        children: ['/guide/docs/color.md', '/guide/docs/typescale.md', '/guide/docs/elevation.md'],
     },
     {
         text: '组件',

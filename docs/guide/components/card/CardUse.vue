@@ -24,7 +24,7 @@
                 </m-card-header>
             </template>
             <template #media>
-                <img class="card-img" src="../../public/img/card/Placeholder.png" />
+                <img class="card-img" src="/img/card/Placeholder.png" />
             </template>
             <template #title>Title</template>
             <template #subtitle>Subtitle</template>
@@ -42,7 +42,7 @@
 </template>
 <style lang="less" scoped>
 .container {
-    background: var(--md-color-surface1);
+    background: var(--md-color-surface);
     padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;

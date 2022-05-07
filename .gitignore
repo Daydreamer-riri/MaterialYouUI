@@ -26,4 +26,4 @@ dist
 node_modules
 .temp
 .cache
-deploy-gh.sh
+*.sh

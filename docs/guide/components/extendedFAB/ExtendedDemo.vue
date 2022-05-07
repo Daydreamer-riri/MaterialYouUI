@@ -35,7 +35,6 @@ export default defineComponent({
                 if (top - oldTop > 90) {
                     state.value = false
                     oldTop = top
-                    console.log('change')
                 } else if (top - oldTop < -99) {
                     state.value = true
                     oldTop = top
@@ -47,7 +46,6 @@ export default defineComponent({
             if (top - oldTop > 10) {
                 state.value = false
                 oldTop = top
-                console.log('change')
             } else if (top - oldTop < -10) {
                 state.value = true
                 oldTop = top

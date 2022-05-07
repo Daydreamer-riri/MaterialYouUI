@@ -1,5 +1,6 @@
-import { PropType, defineProps } from 'vue'
+import type { PropType } from 'vue'
 import { pickProps } from '../utils/components'
+import { props as iconProps } from '../icon/props'
 
 function typeValidator(type: string): boolean {
     return ['assist', 'filter', 'input', 'suggestion'].includes(type)
@@ -31,6 +32,7 @@ export const props = {
         type: Boolean,
         default: false,
     },
+    iconName: pickProps(iconProps, 'name'),
     onClose: {
         type: Function as PropType<(e: Event) => void>,
     },

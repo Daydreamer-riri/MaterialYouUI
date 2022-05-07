@@ -12,10 +12,10 @@
         "esModuleInterop": true,
         "lib": ["esnext", "dom"],
         "skipLibCheck": true,
-        // "baseUrl": "./",
-        // "paths": {
-        //     "@/*": ["packages/*"]
-        // }
+        "baseUrl": "./",
+        "paths": {
+            "@packages/*": ["packages/*"],
+        },
     },
     "include": ["shims-vue.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "packages/**/*.vue", "packages/**/*.d.ts"],
     "references": [{

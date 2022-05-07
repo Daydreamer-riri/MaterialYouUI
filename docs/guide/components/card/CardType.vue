@@ -54,7 +54,7 @@
 </template>
 <style lang="less" scoped>
 .container {
-    background: var(--md-color-surface1);
+    background: var(--md-color-surface);
     padding: 40px 0 40px;
     border-radius: 12px;
     display: grid;
