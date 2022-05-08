@@ -49,7 +49,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less">
+<style lang="scss">
 .m-card-header {
     padding: 16px;
     display: flex;

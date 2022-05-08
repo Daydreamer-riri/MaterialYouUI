@@ -1,5 +1,7 @@
-@layer-primary-opacity08: linear-gradient(0deg, var(--md-color-primary-opacity08), var(--md-color-primary-opacity08));
-@layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12), var(--md-color-primary-opacity12));
+@import '../styles/elevation.scss';
+
+$layer-primary-opacity08: linear-gradient(0deg, var(--md-color-primary-opacity08), var(--md-color-primary-opacity08));
+$layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12), var(--md-color-primary-opacity12));
 
 .m-fab {
     display: flex;
@@ -13,14 +15,16 @@
     user-select: none;
 
     // 公用部分
-    .md-elevation-z3();
+    @extend .md-elevation-z3;
 
     &:hover {
-        .md-elevation-z4();
+        @media (any-hover: hover) {
+            @include md-elevation-z4;
+        }
     }
 
     &:active {
-        .md-elevation-z3();
+        @extend .md-elevation-z3;
     }
 
     // 尺寸
@@ -51,12 +55,12 @@
 
         &:hover {
             @media (any-hover: hover) {
-                background: @layer-primary-opacity08, var(--md-color-surface4);
+                background: $layer-primary-opacity08, var(--md-color-surface4);
             }
         }
 
         &--noripple:active {
-            background: @layer-primary-opacity12, var(--md-color-surface3);
+            background: $layer-primary-opacity12, var(--md-color-surface3);
         }
     }
 
@@ -129,7 +133,7 @@
     &--disabled {
         color: var(--md-color-on-surface);
         background: var(--md-color-on-surface-opacity12);
-        .md-elevation-z0();
+        @extend .md-elevation-z0;
         cursor: default;
         &:active {
             background: var(--md-color-on-surface-opacity12);

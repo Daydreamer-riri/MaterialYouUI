@@ -27,8 +27,8 @@
 import MSpace from '@packages/space'
 </script>
 
-<style lang="less" scoped>
-@import '@packages/styles/elevation.less';
+<style lang="scss" scoped>
+@import '@packages/styles/elevation.scss';
 .container {
     border-radius: 13px;
     display: grid;

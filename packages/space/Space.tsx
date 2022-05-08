@@ -4,7 +4,7 @@ import { internalSizeValidator, props } from './props'
 import type { SpaceInternalSize, SpaceSize } from './props'
 import { isArray } from '../utils/share'
 import { toPxNum } from '../utils/elements'
-import './space.less'
+import './space.scss'
 
 const { n, classes } = createNamespace('space')
 

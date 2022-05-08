@@ -7,13 +7,13 @@
                 [namespace, `${namespace}`, `material-symbols-${type}`],
                 [isURL(name), n('image')],
                 [shrinking, n(`--shrinking`)],
-                [fill, n('--fill')],
+                [nextFill, n('--fill')],
                 [stokeWidth, n(`--stokeWidth-${stokeWidth}`)]
             )
         "
         :style="{
             color,
-            transition: `transform ${toNumber(transition)}ms`,
+            transition: `transform ${toNumber(transition)}ms, opacity ${toNumber(transition)}ms`,
             width: isURL(name) ? toSizeUnit(iconSize) : null,
             height: isURL(name) ? toSizeUnit(iconSize) : null,
             fontSize: toSizeUnit(iconSize),
@@ -58,6 +58,7 @@ export default defineComponent({
         const iconSize = getSize(props.size)
 
         const nextName: Ref<string | undefined> = ref('')
+        const nextFill: Ref<boolean | undefined> = ref(false)
         const shrinking: Ref<boolean> = ref(false)
 
         const handleNameChange = async (newName: string | undefined, oldName: string | undefined) => {
@@ -76,12 +77,30 @@ export default defineComponent({
             }, toNumber(transition))
         }
 
+        const handleFillChange = async (newValue: boolean | undefined, oldValue: boolean | undefined) => {
+            const { transition } = props
+
+            if (oldValue == null || toNumber(transition) === 0) {
+                nextFill.value = newValue
+                return
+            }
+
+            shrinking.value = true
+            await nextTick()
+            setTimeout(() => {
+                oldValue != null && (nextFill.value = newValue)
+                shrinking.value = false
+            }, toNumber(transition))
+        }
+
         watch(() => props.name, handleNameChange, { immediate: true })
+        watch(() => props.fill, handleFillChange, { immediate: true })
 
         return {
             n,
             classes,
             nextName,
+            nextFill,
             shrinking,
             isURL,
             toNumber,
@@ -92,7 +111,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less">
-@import '../styles/common.less';
-@import './icon.less';
+<style lang="scss">
+@import '../styles/common.scss';
+@import './icon.scss';
 </style>

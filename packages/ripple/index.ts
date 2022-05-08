@@ -3,8 +3,8 @@ import type { DirectiveBinding } from '@vue/runtime-core'
 import { createNamespace } from '../utils/components'
 import { supportTouch } from '../utils/elements'
 import context from '../context'
-import './ripple.less'
-import '../styles/common.less'
+import './ripple.scss'
+import '../styles/common.scss'
 
 const { n } = createNamespace('ripple')
 

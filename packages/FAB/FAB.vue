@@ -177,8 +177,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less" scoped>
-@import '../styles/common';
-@import './FAB.less';
-@import '../styles/elevation';
+<style lang="scss" scoped>
+@import '../styles/common.scss';
+@import './FAB.scss';
 </style>

@@ -61,8 +61,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less" scoped>
-@import '../styles/common';
-@import '../styles/elevation';
-@import './card.less';
+<style lang="scss">
+@import '../styles/common.scss';
+@import './card.scss';
 </style>

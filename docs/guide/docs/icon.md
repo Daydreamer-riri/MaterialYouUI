@@ -63,7 +63,6 @@
     <m-icon name="verified" fill></m-icon>
     <m-icon name="verified" stokeWidth="700"></m-icon>
     <m-icon name="verified" stokeWidth="200"></m-icon>
-
 </template>
 ```
 

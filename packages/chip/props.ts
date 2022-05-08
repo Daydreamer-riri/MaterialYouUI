@@ -12,9 +12,9 @@ export const props = {
         default: 'assist',
         validator: typeValidator,
     },
-    round: {
+    rounded: {
         type: Boolean,
-        default: true,
+        default: false,
     },
     closable: {
         type: Boolean,
@@ -32,8 +32,14 @@ export const props = {
         type: Boolean,
         default: false,
     },
-    iconName: pickProps(iconProps, 'name'),
+    icon: pickProps(iconProps, 'name'),
     onClose: {
         type: Function as PropType<(e: Event) => void>,
+    },
+    onClick: {
+        type: Function as PropType<(e: Event) => void | Promise<any>>,
+    },
+    onTouchstart: {
+        type: Function as PropType<(e: Event) => void | Promise<any>>,
     },
 }

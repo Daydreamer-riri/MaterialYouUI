@@ -21,11 +21,11 @@ FAB代表屏幕上最重要的动作。它使关键行动触手可及。
 ```html
 <template>
     <div class="container">
-        // 1    未设置 size 默认为 medium
+        <!-- 1    未设置 size 默认为 medium -->
         <m-fab type="tertiary" name="accessible_forward"></m-fab>
-        // 2
+        <!-- 2 -->
         <m-fab size="small" name="edit"></m-fab>
-        // 3
+        <!-- 3 -->
         <m-fab size="large" type="surface" name="palette"></m-fab>
     </div>
 </template>

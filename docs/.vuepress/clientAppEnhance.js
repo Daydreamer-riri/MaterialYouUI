@@ -25,6 +25,7 @@ import CardDirection from '../guide/components/card/CardDirection.vue'
 import CardRipple from '../guide/components/card/CardRipple.vue'
 import CardMore from '../guide/components/card/CardMore.vue'
 import ElevationUse from '../guide/components/elevation/ElevationUse.vue'
+import ChipUse from '../guide/components/chip/ChipUse.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -53,4 +54,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('card-ripple', CardRipple)
     app.component('card-more', CardMore)
     app.component('elevation-use', ElevationUse)
+    app.component('chip-use', ChipUse)
 })

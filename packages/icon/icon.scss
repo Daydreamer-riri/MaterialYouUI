@@ -67,10 +67,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
-@icon-size: 24px;
+$icon-size: 24px;
 
 :root {
-    --icon-size: @icon-size;
+    --icon-size: $icon-size;
 }
 
 .m-icon {
@@ -83,7 +83,7 @@
     user-select: none;
 
     &--shrinking {
-        transform: scale(0);
+        transform: scale(0.3);
     }
 
     &__image {
@@ -114,7 +114,6 @@
     &--stokeWidth-600 {
         font-variation-settings: 'wght' 600;
     }
-
     &--stokeWidth-700 {
         font-variation-settings: 'wght' 700;
     }

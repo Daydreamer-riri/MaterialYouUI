@@ -1,3 +1,4 @@
+@import '../styles/elevation.scss';
 .m-button {
     display: flex;
     align-items: center;
@@ -17,17 +18,17 @@
     &--filled {
         background-color: var(--md-color-primary);
         color: var(--md-color-on-primary);
-        .common-buttons();
+        @extend .common-buttons;
 
         &:hover {
             @media (any-hover: hover) {
                 background-color: var(--md-color-primary-hover);
-                .md-elevation-z1;
+                @include md-elevation-z1();
             }
         }
 
         &:active {
-            .md-elevation-z0;
+            @extend .md-elevation-z0;
         }
 
         &--noripple:active {
@@ -35,7 +36,7 @@
         }
 
         &--disabled {
-            .filled-disabled();
+            @extend .filled-disabled;
         }
     }
 
@@ -43,18 +44,18 @@
     &--elevated {
         background: var(--md-color-surface1);
         color: var(--md-color-primary);
-        .md-elevation-z1;
-        .common-buttons();
+        @extend .md-elevation-z1;
+        @extend .common-buttons;
 
         &:hover {
             @media (any-hover: hover) {
-                .md-elevation-z2;
+                @include md-elevation-z2();
                 background: var(--md-layer-surface-2), var(--md-color-surface2);
             }
         }
 
         &:active {
-            .md-elevation-z1;
+            @extend .md-elevation-z1;
         }
 
         &--noripple:active {
@@ -62,25 +63,25 @@
         }
 
         &--disabled {
-            .filled-disabled();
+            @extend .filled-disabled;
         }
     }
 
     // filled-tonal 按钮样式
     &--filled-tonal {
-        .common-buttons();
+        @extend .common-buttons;
         color: var(--md-color-on-secondary-container);
         background-color: var(--md-color-secondary-container);
 
         &:hover {
             @media (any-hover: hover) {
-                .md-elevation-z1;
+                @include md-elevation-z1;
                 background-color: var(--md-color-secondary-container-hover);
             }
         }
 
         &:active {
-            .md-elevation-z0;
+            @extend .md-elevation-z0;
         }
 
         &--noripple:active {
@@ -88,13 +89,13 @@
         }
 
         &--disabled {
-            .filled-disabled();
+            @extend .filled-disabled;
         }
     }
 
     // outline 按钮样式
     &--outlined {
-        .common-buttons();
+        @extend .common-buttons;
         background: rgba(0, 0, 0, 0);
         border: 1px solid var(--md-color-outline);
         color: var(--md-color-primary);
@@ -121,7 +122,7 @@
 
             .text-content,
             .button-icon {
-                .text-content-disabled();
+                @extend .text-content-disabled;
             }
         }
     }
@@ -159,32 +160,32 @@
 
             .text-content,
             .button-icon {
-                .text-content-disabled();
+                @extend .text-content-disabled;
             }
         }
     }
 }
 
-.filled-disabled() {
+.filled-disabled {
     background: var(--md-color-background-disable);
-    .md-elevation-z0;
+    @extend .md-elevation-z0;
     cursor: default;
     pointer-events: none;
 
     .text-content,
     .button-icon {
-        .text-content-disabled();
+        @extend .text-content-disabled;
     }
 }
 
-.common-buttons() {
+.common-buttons {
     height: 40px;
     border-radius: 20px;
     padding-right: 24px;
     padding-left: 16px;
 }
 
-.text-content-disabled() {
+.text-content-disabled {
     color: var(--md-color-on-surface);
     opacity: 0.38;
     -webkit-user-select: none;

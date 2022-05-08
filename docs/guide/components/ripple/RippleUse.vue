@@ -9,7 +9,7 @@ import vRipple from '@packages/ripple'
 </template>
 
 <style lang="less" scoped>
-@import '@packages/styles/elevation.less';
+@import '@packages/styles/elevation.scss';
 
 .ripple-example {
     display: flex;

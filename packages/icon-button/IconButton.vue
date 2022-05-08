@@ -65,7 +65,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less" scoped>
-@import './IconButton.less';
-@import '../styles/common';
+<style lang="less">
+@import './IconButton.scss';
+@import '../styles/common.scss';
 </style>

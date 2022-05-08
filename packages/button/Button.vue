@@ -83,8 +83,8 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less" scoped>
-@import '../styles/common';
+<style lang="scss" scoped>
+@import '../styles/common.scss';
 @import './button';
-@import '../styles/elevation';
+@import '../styles/elevation.scss';
 </style>
