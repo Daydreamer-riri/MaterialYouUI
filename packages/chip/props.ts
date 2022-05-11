@@ -7,6 +7,14 @@ function typeValidator(type: string): boolean {
 }
 
 export const props = {
+    modelValue: {
+        type: [String, Number, Boolean, Object, Array] as PropType<any>,
+        default: false,
+    },
+    checkedValue: {
+        type: [String, Number, Boolean, Object, Array] as PropType<any>,
+        default: true,
+    },
     type: {
         type: String,
         default: 'assist',
@@ -24,10 +32,6 @@ export const props = {
         type: Boolean,
         default: false,
     },
-    selected: {
-        type: Boolean,
-        default: false,
-    },
     disabled: {
         type: Boolean,
         default: false,
@@ -41,5 +45,11 @@ export const props = {
     },
     onTouchstart: {
         type: Function as PropType<(e: Event) => void | Promise<any>>,
+    },
+    onChange: {
+        type: Function as PropType<(value: Array<any>) => void>,
+    },
+    'onUpdate:modelValue': {
+        type: Function as PropType<(value: Array<any>) => void>,
     },
 }

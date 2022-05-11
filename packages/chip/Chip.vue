@@ -6,7 +6,7 @@
                 n(`--${type}`),
                 [elevated, n('--elevated')],
                 [rounded, n('--rounded')],
-                [selected, n('--selected')]
+                [checked, n('--checked')]
             )
         "
         v-bind="$attrs"
@@ -19,7 +19,7 @@
             </slot>
         </span>
         <transition v-if="type === 'filter'" name="m-chip-slide">
-            <span v-show="selected" style="overflow: hidden">
+            <span v-show="checked" style="overflow: hidden">
                 <m-icon
                     name="check"
                     size="small"
@@ -37,12 +37,13 @@
     </span>
 </template>
 <script lang="ts">
-import { defineComponent, computed, useSlots } from 'vue'
-import { ComputedRef } from 'vue'
-import { createNamespace } from '../utils/components'
-import { props } from './props'
 import MIcon from '../icon'
 import Ripple from '../ripple'
+import { defineComponent, computed, useSlots, ref, onMounted, inject } from 'vue'
+import { createNamespace, call } from '../utils/components'
+import { props } from './props'
+import { useChipGroup } from './provide'
+import type { Ref, ComputedRef } from 'vue'
 
 const { n, classes } = createNamespace('chip')
 
@@ -75,6 +76,26 @@ export default defineComponent({
 
             onTouchstart(e)
         }
+
+        // ==================
+        // 复选逻辑
+        // ==================
+
+        const value: Ref = ref(false)
+        const checked: ComputedRef<boolean> = computed(() => value.value === props.checkedValue)
+        const checkedValue: ComputedRef<boolean> = computed(() => props.checkedValue)
+
+        const change = (changedValue: any) => {
+            value.value = changedValue
+
+            const { checkedValue, onChange } = props
+
+            call(props['onUpdate:modelValue'], value.value)
+            call(onChange, value.value)
+
+            // changedValue === checkedValue ?
+        }
+
         return {
             n,
             classes,
@@ -82,6 +103,7 @@ export default defineComponent({
             useRight,
             handleClick,
             handleTouchstart,
+            checked,
         }
     },
 })

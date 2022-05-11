@@ -13,13 +13,14 @@
                 </template>
                 Enabled
             </m-chip>
-            <m-chip elevated>Enabled</m-chip>
+            <m-chip elevated :checked="selected">Enabled</m-chip>
             <m-chip rounded>
                 <template #left> <m-icon size="30" name="account_circle" fill></m-icon> </template>
                 Enabled
             </m-chip>
-            <m-chip type="filter" @click="handleSelect" :selected="selected">Enabled</m-chip>
-            <m-chip type="filter" :selected="true">Enabled</m-chip>
+            <m-chip type="suggestion" @click="handleSelect" :checked="selected">Enabled</m-chip>
+            <m-chip type="filter" @click="handleSelect" :checked="selected">Enabled</m-chip>
+            <m-chip type="filter" :checked="true">Enabled</m-chip>
         </m-space>
     </div>
 </template>

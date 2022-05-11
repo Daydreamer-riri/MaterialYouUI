@@ -107,3 +107,4 @@
 | `stokeWidth` | 图标的线宽，与`fill`不能共存 | _‘100’ \| ‘200’ \| ‘300’ \| ‘400’ \| ‘500’ \| <br> ‘600’ \| ‘700’_ | `false`                    |
 | `color`      | 图标颜色，只适用于字体图标   | _string_                                                           | `-`                        |
 | `namespace`  | 图标的命名空间               | _string_                                                           | `material-symbols-rounded` |
+| `transitioin`  | 过渡动画时间（ms）   | _string \| number_                                                           | `0` |

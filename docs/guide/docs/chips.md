@@ -11,3 +11,11 @@
 <ClientOnly>
 <chip-use></chip-use>
 </ClientOnly>
+
+### group
+
+<ClientOnly>
+<chip-group-use></chip-group-use>
+</ClientOnly>
+
+

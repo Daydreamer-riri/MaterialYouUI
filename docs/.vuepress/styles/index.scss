@@ -22,7 +22,10 @@
 
 html.dark {
     @extend .material-theme-dark;
+    --c-brand: var(--md-color-primary);
+    --c-brand-light: var(--md-color-primary-hover);
     --c-bg: var(--md-color-background-dark);
+    --c-text: var(--md-color-on-background);
 }
 
 div[class*='language-'] {

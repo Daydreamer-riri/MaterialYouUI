@@ -12,6 +12,7 @@ $textColor: currentColor;
     padding-inline: 8px;
     user-select: none;
     cursor: pointer;
+    background-color: var(--md-color-surface);
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 
     &--assist {
@@ -51,8 +52,8 @@ $textColor: currentColor;
         padding-left: 0;
     }
 
-    &--selected {
-        border-color: transparent;
+    &--checked {
+        border-color: var(--md-color-secondary-container);
         background-color: var(--md-color-secondary-container);
         color: var(--md-color-on-secondary-container);
 
