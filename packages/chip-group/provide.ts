@@ -4,8 +4,6 @@ import { ChipProvider } from '../chip/provide'
 
 export interface ChipGroupProvider {
     checkedCount: ComputedRef<number>
-    errorMessage: ComputedRef<string>
-    max: ComputedRef<number | string | undefined>
     onChecked(value: any): void
     onUnchecked(value: any): void
 }

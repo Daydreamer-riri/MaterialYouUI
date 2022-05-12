@@ -12,10 +12,11 @@
         v-bind="$attrs"
         @click="handleClick"
         @touchstart="handleTouchstart"
+        v-ripple="{ disabled: type !== 'assist' || disabled }"
     >
         <span v-if="useLeft || icon != undefined" :class="n('left')">
             <slot v-if="type !== 'filter'" name="left">
-                <m-icon :name="icon" size="small" color="var(--md-color-primary)"></m-icon>
+                <m-icon :name="icon" size="18" color="var(--md-color-primary)"></m-icon>
             </slot>
         </span>
         <transition v-if="type === 'filter'" name="m-chip-slide">
@@ -34,15 +35,18 @@
         <span v-if="useRight" :class="n('right')">
             <slot name="right" />
         </span>
+        <span v-if="closable">
+            <m-icon name="close" size="18" style="margin-left: 4px"></m-icon>
+        </span>
     </span>
 </template>
 <script lang="ts">
 import MIcon from '../icon'
 import Ripple from '../ripple'
-import { defineComponent, computed, useSlots, ref, onMounted, inject } from 'vue'
+import { defineComponent, computed, useSlots, ref, watch, onMounted, inject } from 'vue'
 import { createNamespace, call } from '../utils/components'
 import { props } from './props'
-import { useChipGroup } from './provide'
+import { ChipProvider, useChipGroup } from './provide'
 import type { Ref, ComputedRef } from 'vue'
 
 const { n, classes } = createNamespace('chip')
@@ -56,15 +60,20 @@ export default defineComponent({
     setup(props) {
         const useLeft = !!useSlots().left
         const useRight = !!useSlots().right
+        const { chipGroup, bindChipGroup } = useChipGroup()
 
         const handleClick = (e: Event) => {
-            const { disabled, onClick } = props
+            const { disabled, onClick, uncheckedValue, checkedValue } = props
 
-            if (!onClick || disabled) {
+            if (disabled) {
                 return
             }
 
-            onClick(e)
+            call(onClick, e)
+
+            if (props.type === 'filter') {
+                change(checked.value ? uncheckedValue : checkedValue)
+            }
         }
 
         const handleTouchstart = (e: Event) => {
@@ -93,8 +102,40 @@ export default defineComponent({
             call(props['onUpdate:modelValue'], value.value)
             call(onChange, value.value)
 
-            // changedValue === checkedValue ?
+            changedValue === checkedValue ? chipGroup?.onChecked(checkedValue) : chipGroup?.onUnchecked(checkedValue)
         }
+
+        const sync = (values: Array<any>) => {
+            const { checkedValue, uncheckedValue } = props
+            value.value = values.includes(checkedValue) ? checkedValue : uncheckedValue
+        }
+
+        const toggle = (changedValue?: any) => {
+            const { checkedValue, uncheckedValue } = props
+
+            const shouldReverse = ![checkedValue, uncheckedValue].includes(changedValue)
+            if (shouldReverse) {
+                changedValue = checked.value ? uncheckedValue : checkedValue
+            }
+
+            change(changedValue)
+        }
+
+        watch(
+            () => props.modelValue,
+            (newValue) => {
+                value.value = newValue
+            },
+            { immediate: true }
+        )
+
+        const chipProvider: ChipProvider = {
+            checkedValue,
+            checked,
+            sync,
+        }
+
+        call(bindChipGroup, chipProvider)
 
         return {
             n,
@@ -104,6 +145,7 @@ export default defineComponent({
             handleClick,
             handleTouchstart,
             checked,
+            toggle,
         }
     },
 })

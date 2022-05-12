@@ -83,19 +83,25 @@ export function flatVNodes(subTree: any) {
 
     const flat = (subTree: any) => {
         if (subTree?.component) {
-            console.log(subTree?.component)
             flat(subTree?.component.subTree)
             return
         }
 
         if (Array.isArray(subTree?.children)) {
-            subTree.children.foreach((child: any) => {
+            // subTree.children.foreach((child: any) => {
+            //     if (isVNode(child)) {
+            //         vNodes.push(child)
+
+            //         flat(child)
+            //     }
+            // })
+            for (const child of subTree.children) {
                 if (isVNode(child)) {
                     vNodes.push(child)
 
                     flat(child)
                 }
-            })
+            }
         }
     }
 

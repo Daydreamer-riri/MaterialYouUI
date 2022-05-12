@@ -27,6 +27,7 @@ import CardMore from '../guide/components/card/CardMore.vue'
 import ElevationUse from '../guide/components/elevation/ElevationUse.vue'
 import ChipUse from '../guide/components/chip/ChipUse.vue'
 import ChipGroupUseVue from '../guide/components/chip/ChipGroupUse.vue'
+import ChipAssistVue from '../guide/components/chip/ChipAssist.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -57,4 +58,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('elevation-use', ElevationUse)
     app.component('chip-use', ChipUse)
     app.component('chip-group-use', ChipGroupUseVue)
+    app.component('chip-assist', ChipAssistVue)
 })

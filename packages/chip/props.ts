@@ -15,6 +15,10 @@ export const props = {
         type: [String, Number, Boolean, Object, Array] as PropType<any>,
         default: true,
     },
+    uncheckedValue: {
+        type: [String, Number, Boolean, Object, Array] as PropType<any>,
+        default: false,
+    },
     type: {
         type: String,
         default: 'assist',

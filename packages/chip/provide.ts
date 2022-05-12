@@ -6,7 +6,7 @@ export interface ChipProvider {
     checkedValue: ComputedRef
     checked: ComputedRef<boolean>
     sync(values: Array<any>): void
-    resetWithAnimation(): void
+    // resetWithAnimation(): void
 }
 
 export function useChipGroup() {

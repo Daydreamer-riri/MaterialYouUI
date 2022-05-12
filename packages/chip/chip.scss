@@ -53,7 +53,8 @@ $textColor: currentColor;
     }
 
     &--checked {
-        border-color: var(--md-color-secondary-container);
+        // border-color: var(--md-color-secondary-container);
+        border-width: 0;
         background-color: var(--md-color-secondary-container);
         color: var(--md-color-on-secondary-container);
 
