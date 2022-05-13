@@ -3,6 +3,7 @@ import BasicUse from '../guide/components/button/BasicUse.vue'
 import IconButton from '../guide/components/button/IconButton.vue'
 import DisabledButton from '../guide/components/button/DisabledButton.vue'
 import RippleDisabled from '../guide/components/button/ButtonRippleDisabled.vue'
+import ButtonLong from '../guide/components/button/ButtonLong.vue'
 import IconUse from '../guide/components/icon/IconUse.vue'
 import IconSize from '../guide/components/icon/IconSize.vue'
 import IconFill from '../guide/components/icon/IconFill.vue'
@@ -37,6 +38,7 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
     app.component('icon-button', IconButton)
     app.component('disabled-button', DisabledButton)
+    app.component('button-long', ButtonLong)
     app.component('icon-use', IconUse)
     app.component('icon-size', IconSize)
     app.component('icon-fill', IconFill)

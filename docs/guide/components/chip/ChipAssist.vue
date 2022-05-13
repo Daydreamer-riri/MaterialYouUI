@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="screen">
+            <img src="/img/chip/assist.png" alt="" class="top-img" />
             <div class="spacer"></div>
             <m-space direction="column" :size="[0, 0]" style="padding-inline: 16px">
                 <div class="title-large" style="margin-bottom: 4px">Welcome Home</div>
@@ -167,6 +168,13 @@ import MSpace from '@packages/space'
         border: solid rgba(0, 0, 0, 0.4) 6px;
         border-top: none;
         border-radius: 0 0 20px 20px;
+
+        .top-img {
+            height: 70px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0 0 20px 20px;
+        }
 
         .group {
             display: inline-flex;

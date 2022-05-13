@@ -85,7 +85,11 @@ Material you 提供了五种常见按钮。
 
 ### 长按钮
 
-> Long button support in plan
+为按钮设置`long`属性，可让按钮宽度占满容器。
+
+<ClientOnly>
+<button-long></button-long>
+</ClientOnly>
 
 ## API
 
