@@ -35,21 +35,172 @@ Chips 有四种类型：assist, filter, input 和 suggestion。
 
 ### Assist chips
 
-Assist Chips表示可以跨越多个应用程序的智能或自动化操作，例如从主屏幕打开日历事件。Assist Chips的功能就像用户要求助手完成操作一样。它们应该在UI中动态的根据上下文出现。
+Assist Chips 表示可以跨越多个应用程序的智能或自动化操作，例如从主屏幕打开日历事件。Assist Chips 的功能就像用户要求助手完成操作一样。它们应该在UI中动态的根据上下文出现。
 
-辅助芯片的替代方法是按钮，应持续稳定地显示。
+Assist Chips 的替代方法是按钮，应持续稳定地显示。
 
 <ClientOnly>
 <chip-assist></chip-assist>
 </ClientOnly>
 
-#### 使用方式
+##### 使用方式
 
-`type`属性值为`assist`，可通过`icon`属性设置图标。也可通过`left`插槽写入图标，实现切换图标等效果。
+`type`属性值为`assist`，可通过`icon`属性设置图标。也可通过`left`插槽写入图标，实现切换图标等效果。可以通过`@click`为其添加点击事件。
+
+<ClientOnly>
+<chip-assist-use></chip-assist-use>
+</ClientOnly>
+
+在代码中：
+
+```html
+<template>
+    <div class="container">
+        <m-chip @click="handle">
+            <template #left>
+                <m-icon name="favorite" 
+                        size="18" 
+                        :fill="isFill" 
+                        transition="50"></m-icon>
+            </template>
+            {{ text }}
+        </m-chip>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const textSave = 'Save to favorites'
+const textSaved = 'Saved to favorites'
+
+const isFill = ref(false)
+const text = ref(textSave)
+
+const handle = () => {
+    if (isFill.value) {
+        isFill.value = false
+        text.value = textSave
+    } else {
+        isFill.value = true
+        text.value = textSaved
+    }
+}
+</script>
+
+```
 
 
 
 ### Filter chips
+
+Filter chips 使用标签或描述性词来过滤内容。它们可以是切换按钮或复选框的好替代方法。
+
+##### 使用方式
+
+通过`v-model`绑定变量来获取单个 filter chip 的选中状态。
+
+<ClientOnly>
+<chip-filter-use></chip-filter-use>
+</ClientOnly>
+
+在代码中：
+
+```html
+<template>
+    <div class="container">
+        <m-chip type="filter" v-model="model"> Filter </m-chip>
+    </div>
+    <p>
+        Filter chip 的选中状态是：<code>{{ model }}</code>
+    </p>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const model = ref(true)
+</script>
+```
+
+##### 使用ChipGroup
+
+通过使用`m-chip-group`包裹 chips，实现多选的效果。对`m-chip-group`添加`v-model`来获取所有 chips 的选中状态。
+
+> 必须为 chips 添加`checked-value`来标识不同的 chip
+
+<ClientOnly>
+<chip-filter-group></chip-filter-group>
+</ClientOnly>
+
+在代码中：
+
+```html
+<template>
+    <div class="container">
+        <m-chip-group v-model="model">
+            <m-chip type="filter" checked-value="Docs">Docs</m-chip>
+            <m-chip type="filter" checked-value="Slides">Slides</m-chip>
+            <m-chip type="filter" checked-value="Sheets">Sheets</m-chip>
+            <m-chip type="filter" checked-value="Images">Images</m-chip>
+        </m-chip-group>
+    </div>
+    <p>
+        Filter chip group 的选中状态是：<code>{{ model }}</code>
+    </p>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const model = ref([])
+</script>
+```
+
+##### 单选 ChipGroup
+
+通过设置 ChipGroup 的`single-selection`属性，可以保持选中 Chip 唯一。这为单选按钮、单选菜单提供了替代方案。
+
+<ClientOnly>
+<chip-filter-single></chip-filter-single>
+</ClientOnly>
+
+在代码中：
+
+```html
+<template>
+    <div class="container">
+        <div class="screen">
+            <m-space direction="column" :size="[12, 0]">
+                <div class="title-medium">Select Type</div>
+                <m-chip-group v-model="model" single-selection>
+                    <m-chip type="filter" checked-value="ES">Extra Soft</m-chip>
+                    <m-chip type="filter" checked-value="S">Soft</m-chip>
+                    <m-chip type="filter" checked-value="M">Medium</m-chip>
+                    <m-chip type="filter" checked-value="H">Hard</m-chip>
+                </m-chip-group>
+                <!-- 占位 -->
+                <div></div>
+
+                <m-button long>Add to cart</m-button>
+            </m-space>
+            <!-- 占位 -->
+            <div class="spacer"></div>
+
+            <div class="bar"></div>
+        </div>
+    </div>
+    <p>
+        Filter chip group 的选中状态是：<code>{{ model }}</code>
+    </p>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const model = ref(['ES'])
+</script>
+```
 
 ### Input chips
 
@@ -57,8 +208,5 @@ Assist Chips表示可以跨越多个应用程序的智能或自动化操作，�
 
 ### group
 
-<ClientOnly>
-<chip-group-use></chip-group-use>
-</ClientOnly>
 
 

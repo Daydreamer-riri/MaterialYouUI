@@ -160,7 +160,8 @@ import MSpace from '@packages/space'
         position: relative;
         box-sizing: border-box;
         // height: 200px;
-        width: 375px;
+        width: 100%;
+        max-width: 375px;
         margin: 0 auto;
         background-color: var(--md-color-surface);
         border: solid rgba(0, 0, 0, 0.4) 6px;
@@ -170,6 +171,9 @@ import MSpace from '@packages/space'
         .group {
             display: inline-flex;
             overflow-x: auto;
+            &::-webkit-scrollbar {
+                display: none;
+            }
             box-sizing: border-box;
             width: 100%;
             padding-inline: 16px;

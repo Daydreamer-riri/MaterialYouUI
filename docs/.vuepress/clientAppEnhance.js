@@ -27,7 +27,11 @@ import CardMore from '../guide/components/card/CardMore.vue'
 import ElevationUse from '../guide/components/elevation/ElevationUse.vue'
 import ChipUse from '../guide/components/chip/ChipUse.vue'
 import ChipGroupUseVue from '../guide/components/chip/ChipGroupUse.vue'
-import ChipAssistVue from '../guide/components/chip/ChipAssist.vue'
+import ChipAssist from '../guide/components/chip/ChipAssist.vue'
+import ChipAssistUse from '../guide/components/chip/ChipAssistUse.vue'
+import ChipFilterUse from '../guide/components/chip/ChipFilterUse.vue'
+import ChipFilterGroup from '../guide/components/chip/ChipFilterGroup.vue'
+import ChipFilterGroupSingle from '../guide/components/chip/ChipFilterGroupSingle.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -58,5 +62,9 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('elevation-use', ElevationUse)
     app.component('chip-use', ChipUse)
     app.component('chip-group-use', ChipGroupUseVue)
-    app.component('chip-assist', ChipAssistVue)
+    app.component('chip-assist', ChipAssist)
+    app.component('chip-assist-use', ChipAssistUse)
+    app.component('chip-filter-use', ChipFilterUse)
+    app.component('chip-filter-group', ChipFilterGroup)
+    app.component('chip-filter-single', ChipFilterGroupSingle)
 })

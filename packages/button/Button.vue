@@ -6,7 +6,8 @@
                 n(),
                 n(`--${btnType}`),
                 [disabled, n(`--${btnType}--disabled`), n(`--${btnType}`)],
-                [!ripple, n(`--${btnType}--noripple`)]
+                [!ripple, n(`--${btnType}--noripple`)],
+                [long, n('--long')]
             )
         "
         :style="{

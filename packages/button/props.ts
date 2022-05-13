@@ -40,4 +40,8 @@ export const props = {
         type: Boolean,
         default: true,
     },
+    long: {
+        type: Boolean,
+        default: false,
+    },
 }
