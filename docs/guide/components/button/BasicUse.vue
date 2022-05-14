@@ -1,34 +1,34 @@
 <template>
     <div class="container exmaple-card">
         <div class="item">
-            <span class="button-name">1</span>
             <div>
                 <m-button type="elevated">Confirm</m-button>
             </div>
+            <span class="button-name">1</span>
         </div>
         <div class="item">
-            <span class="button-name">2</span>
             <div>
                 <m-button type="filled">Confirm</m-button>
             </div>
+            <span class="button-name">2</span>
         </div>
         <div class="item">
-            <span class="button-name">3</span>
             <div>
                 <m-button type="filled-tonal">Enabled</m-button>
             </div>
+            <span class="button-name">3</span>
         </div>
         <div class="item">
-            <span class="button-name">4</span>
             <div>
                 <m-button type="outlined">Confirm</m-button>
             </div>
+            <span class="button-name">4</span>
         </div>
         <div class="item">
-            <span class="button-name">5</span>
             <div>
                 <m-button type="text">Enabled</m-button>
             </div>
+            <span class="button-name">5</span>
         </div>
     </div>
 </template>

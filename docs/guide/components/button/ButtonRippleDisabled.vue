@@ -1,34 +1,34 @@
 <template>
     <div class="container exmaple-card">
         <div class="item">
-            <span class="button-name">1</span>
             <div>
                 <m-button type="elevated" :ripple="false">no ripple</m-button>
             </div>
+            <span class="button-name">1</span>
         </div>
         <div class="item">
-            <span class="button-name">2</span>
             <div>
                 <m-button type="filled" :ripple="false">no ripple</m-button>
             </div>
+            <span class="button-name">2</span>
         </div>
         <div class="item">
-            <span class="button-name">3</span>
             <div>
                 <m-button type="filled-tonal" :ripple="false">no ripple</m-button>
             </div>
+            <span class="button-name">3</span>
         </div>
         <div class="item">
-            <span class="button-name">4</span>
             <div>
                 <m-button type="outlined" :ripple="false">no ripple</m-button>
             </div>
+            <span class="button-name">4</span>
         </div>
         <div class="item">
-            <span class="button-name">5</span>
             <div>
                 <m-button type="text" :ripple="false">no ripple</m-button>
             </div>
+            <span class="button-name">5</span>
         </div>
     </div>
 </template>

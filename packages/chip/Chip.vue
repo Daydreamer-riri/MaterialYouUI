@@ -16,7 +16,7 @@
     >
         <span v-if="useLeft || icon != undefined" :class="n('left')">
             <slot v-if="type !== 'filter'" name="left">
-                <m-icon :name="icon" size="18" color="var(--md-color-primary)"></m-icon>
+                <m-icon :name="icon" size="small" color="var(--md-color-primary)"></m-icon>
             </slot>
         </span>
         <transition v-if="type === 'filter'" name="m-chip-slide">
@@ -36,7 +36,7 @@
             <slot name="right" />
         </span>
         <span v-if="closable">
-            <m-icon name="close" size="18" style="margin-left: 4px"></m-icon>
+            <m-icon name="close" size="small" style="margin-left: 4px"></m-icon>
         </span>
     </span>
 </template>
