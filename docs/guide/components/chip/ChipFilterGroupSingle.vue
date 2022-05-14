@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="screen">
+            <m-divider></m-divider>
             <m-space direction="column" :size="[12, 0]">
                 <div class="title-medium">Select Type</div>
                 <m-chip-group v-model="model" single-selection>
@@ -29,6 +30,7 @@ import MChip from '@packages/chip'
 import MChipGroup from '@packages/chip-group'
 import MSpace from '@packages/space'
 import MButton from '@packages/button'
+import MDivider from '@packages/divider'
 import { ref } from 'vue'
 
 const model = ref(['ES'])
@@ -52,7 +54,7 @@ const model = ref(['ES'])
         border-top: none;
         border-radius: 0 0 20px 20px;
         padding-inline: 24px;
-        padding-block: 36px;
+        padding-block: 16px 36px;
         color: var(--md-color-on-surface);
 
         .group {

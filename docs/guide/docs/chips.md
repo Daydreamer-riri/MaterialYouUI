@@ -171,6 +171,7 @@ const model = ref([])
 <template>
     <div class="container">
         <div class="screen">
+            <m-divider></m-divider>
             <m-space direction="column" :size="[12, 0]">
                 <div class="title-medium">Select Type</div>
                 <m-chip-group v-model="model" single-selection>
