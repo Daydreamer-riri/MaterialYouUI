@@ -130,8 +130,9 @@
                     </svg>
                     81°/ 62°
                 </div>
+                <m-divider style="margin-block: 16px"></m-divider>
             </m-space>
-            <div class="spacer"></div>
+            <!-- <div class="spacer"></div> -->
             <div class="group">
                 <m-space :wrap="false" style="flex-shrink: 0; height: 32px">
                     <m-chip icon="lightbulb">Turn on lights</m-chip>
@@ -149,6 +150,7 @@
 <script setup>
 import MChip from '@packages/chip'
 import MSpace from '@packages/space'
+import MDivider from '@packages/divider'
 </script>
 
 <style lang="scss" scoped>

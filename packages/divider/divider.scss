@@ -1,5 +1,7 @@
+$color: currentColor;
+
 :root {
-    --divider-color: currentColor;
+    --divider-color: #{$color};
     --divider-text-padding: 8px 0;
 }
 
