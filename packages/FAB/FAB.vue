@@ -97,6 +97,7 @@ export default defineComponent({
 
                 requestAnimationFrame(() => {
                     ;(btn.value as HTMLButtonElement).style.width = offsetWidth + 'px'
+                    // ;(text.value as HTMLSpanElement).style.transitionDelay = '0.2s'
                     nextTick(() => {
                         ;(text.value as HTMLSpanElement).style.opacity = '0'
                         setTimeout(() => {
@@ -104,6 +105,7 @@ export default defineComponent({
                                 ;(text.value as HTMLSpanElement).style.opacity = '1'
                                 nextTick(() => {
                                     ;(text.value as HTMLSpanElement).style.opacity = ''
+                                    // ;(text.value as HTMLSpanElement).style.transitionDelay = ''
                                 })
                             })
                         }, 100)

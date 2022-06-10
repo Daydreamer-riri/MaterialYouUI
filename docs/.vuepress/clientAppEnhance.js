@@ -33,6 +33,7 @@ import ChipAssistUse from '../guide/components/chip/ChipAssistUse.vue'
 import ChipFilterUse from '../guide/components/chip/ChipFilterUse.vue'
 import ChipFilterGroup from '../guide/components/chip/ChipFilterGroup.vue'
 import ChipFilterGroupSingle from '../guide/components/chip/ChipFilterGroupSingle.vue'
+import ChipInput from '../guide/components/chip/ChipInput.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -69,4 +70,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('chip-filter-use', ChipFilterUse)
     app.component('chip-filter-group', ChipFilterGroup)
     app.component('chip-filter-single', ChipFilterGroupSingle)
+    app.component('chip-input', ChipInput)
 })

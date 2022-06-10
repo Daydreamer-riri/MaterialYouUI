@@ -53,14 +53,15 @@ $textColor: currentColor;
     }
 
     &--checked {
-        // border-color: var(--md-color-secondary-container);
-        border-width: 0;
+        border-color: var(--md-color-secondary-container);
+        // border-width: 0;
         background-color: var(--md-color-secondary-container);
         color: var(--md-color-on-secondary-container);
 
         &:hover {
             @media (any-hover: hover) {
                 background-color: var(--md-color-secondary-container-hover);
+                border-color: var(--md-color-secondary-container-hover);
             }
         }
     }
@@ -75,21 +76,25 @@ $textColor: currentColor;
     }
 
     &-slide-enter-active {
-        transition: width 0.2s, margin-right 0.2s, transform 0.1s 0.1s;
+        transition: width 0.33s var(--expend-animation), margin-right 0.33s var(--expend-animation),
+            opacity 0.33s var(--expend-animation), background-color 0.33s var(--expend-animation);
     }
     &-slide-leave-active {
-        transition: width 0.2s, margin-right 0.2s, transform 0.1s;
+        transition: width 0.33s var(--expend-animation), margin-right 0.33s var(--expend-animation),
+            opacity 0.33s var(--expend-animation), background-color 0.33s var(--expend-animation);
     }
     &-slide-enter-from,
     &-slide-leave-to {
         width: 0;
         margin-right: 0;
-        transform: scale(0.7);
+        // transform: scale(0.5);
+        opacity: 0;
     }
     &-slide-enter-to,
     &-slide-leave-from {
         width: 20px;
         margin-right: 4px;
-        transform: scale(1);
+        // transform: scale(1);
+        opacity: 1;
     }
 }

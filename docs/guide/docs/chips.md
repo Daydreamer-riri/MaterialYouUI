@@ -205,6 +205,12 @@ const model = ref(['ES'])
 
 ### Input chips
 
+input chip
+
+<ClientOnly>
+<chip-input></chip-input>
+</ClientOnly>
+
 ### Suggestion chips
 
 ### group

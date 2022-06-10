@@ -8,8 +8,10 @@ $layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12
     align-items: center;
     outline: none;
     border: none;
-    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s linear, width 0.2s ease;
-    will-change: box-shadow;
+    transition: box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1), background 0.15s linear,
+        width 0.44s var(--expend-animation);
+    backface-visibility: hidden;
+    will-change: box-shadow, width;
     overflow: hidden;
     cursor: pointer;
     user-select: none;
@@ -111,7 +113,7 @@ $layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12
 
     // extended
     .text {
-        transition: opacity 0.1s linear;
+        transition: opacity 0.22s var(--expend-animation);
         white-space: nowrap;
 
         &-useicon {
