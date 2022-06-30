@@ -14,6 +14,7 @@ $textColor: currentColor;
     cursor: pointer;
     background-color: var(--md-color-surface);
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
 
     &--assist {
         color: var(--md-color-on-surface);
@@ -49,7 +50,12 @@ $textColor: currentColor;
 
     &--rounded {
         border-radius: 16px;
-        padding-left: 0;
+        padding-left: 36px;
+
+        .m-chip__left {
+            position: absolute;
+            left: 1px;
+        }
     }
 
     &--checked {
@@ -96,5 +102,49 @@ $textColor: currentColor;
         margin-right: 4px;
         // transform: scale(1);
         opacity: 1;
+    }
+
+    // input
+    &__input-block {
+        display: inline-flex;
+        align-items: center;
+        height: 32px;
+        padding-inline: 8px;
+        position: relative;
+        overflow: hidden;
+
+        &__label {
+            visibility: hidden;
+            // z-index: -1;
+            // position: relative;
+        }
+
+        &__input {
+            color: var(--md-color-on-surface-variant);
+            border: none;
+            margin-inline: 3px;
+            width: 100%;
+            position: absolute;
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+    }
+}
+
+.m-animation-open {
+    &-enter {
+        &-from {
+            transform: translateX(-4px);
+            opacity: 0.6;
+        }
+        &-active {
+            transition: all 0.1s ease;
+        }
+        &-to {
+            transform: translateX(0px);
+            opacity: 1;
+        }
     }
 }

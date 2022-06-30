@@ -1,44 +1,59 @@
 <template>
-    <span
-        :class="
-            classes(
-                n(),
-                n(`--${type}`),
-                [elevated, n('--elevated')],
-                [rounded, n('--rounded')],
-                [checked, n('--checked')]
-            )
-        "
-        v-bind="$attrs"
-        @click="handleClick"
-        @touchstart="handleTouchstart"
-        v-ripple="{ disabled: type !== 'assist' || disabled }"
-    >
-        <span v-if="useLeft || icon != undefined" :class="n('left')">
-            <slot v-if="type !== 'filter'" name="left">
-                <m-icon :name="icon" size="small" color="var(--md-color-primary)"></m-icon>
-            </slot>
-        </span>
-        <transition v-if="type === 'filter'" name="m-chip-slide">
-            <span v-show="checked" style="overflow: hidden">
-                <m-icon
-                    name="check"
-                    size="small"
-                    color="var(--md-color-on-secondary-container)"
-                    style="margin-right: 4px"
-                ></m-icon>
+    <transition mode="out-in" name="m-animation-open" @transitionstart="inputFocus">
+        <span
+            :class="
+                classes(
+                    n(),
+                    n(`--${type}`),
+                    [elevated, n('--elevated')],
+                    [rounded, n('--rounded')],
+                    [checked, n('--checked')]
+                )
+            "
+            v-bind="$attrs"
+            @click="handleClick"
+            @touchstart="handleTouchstart"
+            v-ripple="{ disabled: type !== 'assist' || disabled }"
+            v-if="!isInputting"
+        >
+            <span v-if="useLeft || icon != undefined" :class="n('left')">
+                <slot v-if="type !== 'filter'" name="left">
+                    <m-icon :name="icon" size="small" color="var(--md-color-primary)"></m-icon>
+                </slot>
             </span>
-        </transition>
-        <span :class="classes(n(`text`), 'label-large')">
-            <slot />
+            <transition v-if="type === 'filter'" name="m-chip-slide">
+                <span v-show="checked" style="overflow: hidden">
+                    <m-icon
+                        name="check"
+                        size="small"
+                        color="var(--md-color-on-secondary-container)"
+                        style="margin-right: 4px"
+                    ></m-icon>
+                </span>
+            </transition>
+            <span :class="classes(n(`text`), 'label-large')">
+                <slot />
+            </span>
+            <span v-if="useRight" :class="n('right')">
+                <slot name="right" />
+            </span>
+            <span v-if="closable">
+                <m-icon name="close" size="small" style="margin-left: 4px"></m-icon>
+            </span>
         </span>
-        <span v-if="useRight" :class="n('right')">
-            <slot name="right" />
+        <!-- <transition v-if="type === 'input'" name="m-animation-open"> -->
+        <span :class="classes(n('input-block'), 'label-large')" v-else="isInputting">
+            <input
+                :class="classes(n('input-block__input'), 'label-large')"
+                ref="input"
+                type="text"
+                @blur="handleInputBlur"
+                @keydown.enter="input?.blur()"
+                v-model="inputValue"
+            />
+            <label :class="classes(n('input-block__label'), 'label-large')">{{ inputValue }}</label>
         </span>
-        <span v-if="closable">
-            <m-icon name="close" size="small" style="margin-left: 4px"></m-icon>
-        </span>
-    </span>
+    </transition>
 </template>
 <script lang="ts">
 import MIcon from '../icon'
@@ -57,7 +72,8 @@ export default defineComponent({
     components: { MIcon },
     directives: { Ripple },
     props,
-    setup(props) {
+    emits: ['update:modelValue'],
+    setup(props, { emit }) {
         const useLeft = !!useSlots().left
         const useRight = !!useSlots().right
         const { chipGroup, bindChipGroup } = useChipGroup()
@@ -73,6 +89,15 @@ export default defineComponent({
 
             if (props.type === 'filter') {
                 change(checked.value ? uncheckedValue : checkedValue)
+            }
+
+            if (props.type === 'input') {
+                isInputting.value = !isInputting.value
+
+                // setTimeout(() => {
+                //     inputRef.value?.focus()
+                //     inputRef.value?.select()
+                // }, 50)
             }
         }
 
@@ -99,7 +124,8 @@ export default defineComponent({
 
             const { checkedValue, onChange } = props
 
-            call(props['onUpdate:modelValue'], value.value)
+            // call(props['onUpdate:modelValue'], value.value)
+            emit('update:modelValue', value.value)
             call(onChange, value.value)
 
             changedValue === checkedValue ? chipGroup?.onChecked(checkedValue) : chipGroup?.onUnchecked(checkedValue)
@@ -137,6 +163,21 @@ export default defineComponent({
 
         call(bindChipGroup, chipProvider)
 
+        // input
+        const isInputting: Ref = ref(false)
+        const inputValue = ref(props.modelValue)
+
+        const inputRef = ref<HTMLInputElement | null>(null)
+
+        const handleInputBlur = () => {
+            emit('update:modelValue', inputValue.value)
+            isInputting.value = !isInputting.value
+        }
+        const inputFocus = () => {
+            if (!isInputting.value) return
+            inputRef.value?.select()
+        }
+
         return {
             n,
             classes,
@@ -146,6 +187,11 @@ export default defineComponent({
             handleTouchstart,
             checked,
             toggle,
+            isInputting,
+            input: inputRef,
+            inputValue,
+            handleInputBlur,
+            inputFocus,
         }
     },
 })

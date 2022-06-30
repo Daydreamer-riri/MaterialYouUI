@@ -116,3 +116,8 @@ a.sidebar-item {
 .container {
     transition: background-color 0.3s ease;
 }
+
+::selection {
+    color: currentColor;
+    background-color: var(--md-color-tertiary-container);
+}
