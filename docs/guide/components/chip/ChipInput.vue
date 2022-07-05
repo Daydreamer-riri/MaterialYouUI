@@ -1,23 +1,34 @@
 <template>
-    <div>
-        <m-chip type="input" closable v-model="info" rounded>
+    <div class="container">
+        <m-chip
+            type="input"
+            closable
+            v-model="infos.list[index]"
+            rounded
+            v-for="(info, index) of infos.list"
+            :key="index"
+            @close="infos.list.splice(index, 1)"
+        >
             <template #left>
                 <div class="avatar"></div>
             </template>
-            {{ name }}</m-chip
+            {{ getName(info) }}</m-chip
         >
-        <input type="text" v-model="name" />
     </div>
+    <p>
+        list 所对应的值为：<br /><code>{{ infos.list }}</code>
+    </p>
 </template>
 
 <script setup>
-import { computed, reactive, ref } from 'vue'
-import MIcon from '@packages/icon'
+import { reactive, ref } from 'vue'
 import MChip from '../../../../packages/chip'
-const info = ref('Fabian Reza <rezzain120@gmail.com>')
-const name = computed(() => {
-    console.log(info.value.match(/.*(?= <)/))
-    return info.value.match(/.*(?= <)/)[0]
+
+const getName = (info) => {
+    return info.match(/.*(?= <)/)[0]
+}
+const infos = reactive({
+    list: ['Fabian Reza <rezzain120@gmail.com>', 'Ping Qiang <pingqiang@gmail.com>'],
 })
 </script>
 
@@ -27,5 +38,12 @@ const name = computed(() => {
     width: 28px;
     border-radius: 50%;
     background: url('/img/card/avatar.jpg') center/cover;
+}
+
+.container {
+    background-color: var(--md-color-surface1);
+    border-radius: 13px;
+    padding-inline: 16px;
+    padding-block: 40px;
 }
 </style>

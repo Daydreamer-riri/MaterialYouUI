@@ -15,6 +15,7 @@
             @touchstart="handleTouchstart"
             v-ripple="{ disabled: type !== 'assist' || disabled }"
             v-if="!isInputting"
+            ref="chipRef"
         >
             <span v-if="useLeft || icon != undefined" :class="n('left')">
                 <slot v-if="type !== 'filter'" name="left">
@@ -38,7 +39,12 @@
                 <slot name="right" />
             </span>
             <span v-if="closable">
-                <m-icon name="close" size="small" style="margin-left: 4px"></m-icon>
+                <m-icon-button
+                    name="close"
+                    size="small"
+                    style="margin-left: -2px"
+                    @click.stop="handleClose"
+                ></m-icon-button>
             </span>
         </span>
         <!-- <transition v-if="type === 'input'" name="m-animation-open"> -->
@@ -57,6 +63,7 @@
 </template>
 <script lang="ts">
 import MIcon from '../icon'
+import MIconButton from '../icon-button'
 import Ripple from '../ripple'
 import { defineComponent, computed, useSlots, ref, watch, onMounted, inject } from 'vue'
 import { createNamespace, call } from '../utils/components'
@@ -69,10 +76,10 @@ const { n, classes } = createNamespace('chip')
 export default defineComponent({
     name: 'MChip',
     inheritAttrs: false,
-    components: { MIcon },
+    components: { MIcon, MIconButton },
     directives: { Ripple },
     props,
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'close'],
     setup(props, { emit }) {
         const useLeft = !!useSlots().left
         const useRight = !!useSlots().right
@@ -178,6 +185,10 @@ export default defineComponent({
             inputRef.value?.select()
         }
 
+        const handleClose = () => {
+            emit('close')
+        }
+
         return {
             n,
             classes,
@@ -192,6 +203,7 @@ export default defineComponent({
             inputValue,
             handleInputBlur,
             inputFocus,
+            handleClose,
         }
     },
 })

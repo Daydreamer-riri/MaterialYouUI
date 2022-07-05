@@ -108,6 +108,10 @@ function createRipple(this: RippleHTMLElement, event: any) {
             ripple.style.transition = `transform 0.2s var(--ripple-cubic-bezier), opacity 0.3s ease-out`
             ripple.style.opacity = `.12`
         }, 20)
+
+        // window.setTimeout(() => {
+        //     ripple.style.boxShadow = `0 0 0 0 ${_ripple.color ?? ''}`
+        // }, 200)
     }
 
     _ripple.tasker = window.setTimeout(task, 60)

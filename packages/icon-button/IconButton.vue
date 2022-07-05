@@ -13,7 +13,7 @@
         @touchstart="handleTouchstart"
     >
         <slot name="icon">
-            <m-icon :name="name" :fill="fill"></m-icon>
+            <m-icon :name="name" :fill="fill" :size="size"></m-icon>
         </slot>
     </button>
 </template>

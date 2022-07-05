@@ -205,11 +205,48 @@ const model = ref(['ES'])
 
 ### Input chips
 
-input chip
+输入芯片表示用户输入的离散信息片段，例如Gmail联系人或搜索字段中的过滤器选项。
+
+##### 使用方式
+
+通过`v-model`双向绑定 Input 的值，点击后可以进入编辑模式，失去焦点或回车键按下时保存数据
 
 <ClientOnly>
 <chip-input></chip-input>
 </ClientOnly>
+
+在代码中：
+``` html
+<template>
+    <div class="container">
+        <m-chip
+            type="input"
+            closable
+            v-model="infos.list[index]"
+            rounded
+            v-for="(info, index) of infos.list"
+            :key="index"
+            @close="infos.list.splice(index, 1)"
+        >
+            <template #left>
+                <div class="avatar"></div>
+            </template>
+            {{ getName(info) }}</m-chip
+        >
+    </div>
+</template>
+
+<script setup>
+
+const getName = (info) => {
+    return info.match(/.*(?= <)/)[0]
+}
+const infos = reactive({
+    list: ['Fabian Reza <rezzain120@gmail.com>', 
+    'Ping Qiang <pingqiang@gmail.com>'],
+})
+</script>
+```
 
 ### Suggestion chips
 
@@ -217,3 +254,31 @@ input chip
 
 
 
+## API
+
+### 属性
+
+| 参数       | 说明             | 类型                                                              | 默认值  |
+| ---------- | ---------------- | ----------------------------------------------------------------- | ------- |
+| `type`     | chips 的类型 | _'assist' \| 'filter' \| 'input' \|'suggestion'_ | `assist`  |
+| `checkedValue` | 选中状态的值     | _boolean \| string_ | `false` |
+| `rounded` | 是否为圆形     | _boolean_ | `false` |
+| `elevated`     | 是否具有海拔       | _boolean_  | `false`  |
+| `closable` | 是否显示关闭图标 | _boolean_  | `false` |
+
+### 事件
+
+| 事件名       | 说明                   | 参数           |
+| ------------ | ---------------------- | -------------- |
+| `click`      | 点击 chip 时触发         | `event: Event` |
+| `touchstart` | 触摸手指压下 chip 时触发 | `event: Event` |
+| `close` | 点击关闭图标时触发 | `event: Event` |
+| `change` | 状态改变时触发 | `event: Event` |
+
+### 插槽
+
+| 插槽名    | 说明     | 参数 |
+| --------- | -------- | ---- |
+| `default` | chip 内容 | `-`  |
+| `left` | chip 左侧部分 | `-`  |
+| `right` | chip 右侧部分 | `-`  |

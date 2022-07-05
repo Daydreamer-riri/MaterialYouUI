@@ -12,8 +12,6 @@ dist-ssr
 .prettierignore
 .prettierrc
 dist
-docs
-docs/*
 
 # Editor directories and files
 .vscode/*

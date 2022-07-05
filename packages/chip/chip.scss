@@ -125,6 +125,7 @@ $textColor: currentColor;
             margin-inline: 3px;
             width: 100%;
             position: absolute;
+            background-color: inherit;
 
             &:focus-visible {
                 outline: none;
