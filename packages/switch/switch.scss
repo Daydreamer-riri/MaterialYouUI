@@ -1,0 +1,78 @@
+.m-switch {
+    width: 52px;
+    height: 32px;
+    box-sizing: border-box;
+    background-color: var(--md-color-surface-variant);
+    border: solid 2px var(--md-color-outline);
+    padding: 0;
+    border-radius: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    transition: background-color 0.2s cubic-bezier(0.34, 0.69, 0.1, 1),
+        border-color 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+
+    &__overlay {
+        width: 40px;
+        height: 40px;
+        border-radius: 31px;
+        flex-shrink: 0;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.34, 0.69, 0.1, 1);
+        transition-property: background-color, transform;
+        transform: translateX(-9px);
+        display: grid;
+        place-items: center;
+
+        .m-switch__handle {
+            width: 24px;
+            height: 24px;
+            border-radius: 24px;
+            background-color: var(--md-color-outline);
+
+            transform: scale(0.6666);
+            transition-duration: 0.2s;
+            transition-timing-function: cubic-bezier(0.34, 0.69, 0.1, 1);
+            transition-property: background-color, transform;
+        }
+    }
+
+    &:hover {
+        .m-switch__overlay {
+            background: #1c1b1f14;
+
+            .m-switch__handle {
+                background-color: var(--md-color-on-surface-variant);
+            }
+        }
+    }
+
+    &:active {
+        .m-switch__handle {
+        }
+    }
+
+    &--checked {
+        background-color: var(--md-color-primary);
+        border-color: var(--md-color-primary);
+
+        .m-switch__overlay {
+            transform: translateX(9px);
+
+            .m-switch__handle {
+                background-color: var(--md-color-on-primary);
+                transform: scale(1);
+            }
+        }
+
+        &:hover {
+            .m-switch__overlay {
+                .m-switch__handle {
+                    background-color: var(--md-color-primary-container);
+                }
+            }
+        }
+    }
+}

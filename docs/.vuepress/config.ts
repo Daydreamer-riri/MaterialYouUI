@@ -1,5 +1,6 @@
 import { defineUserConfig, defaultTheme, viteBundler } from 'vuepress'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import vue from '@vitejs/plugin-vue'
 
 import { path } from '@vuepress/utils'
 const sidebar = [
@@ -18,6 +19,7 @@ const sidebar = [
             '/guide/docs/FAB.md',
             '/guide/docs/extended-FAB.md',
             '/guide/docs/chips.md',
+            '/guide/docs/switch.md',
             { text: '布局' },
             '/guide/docs/space.md',
             { text: '展示' },

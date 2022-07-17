@@ -35,6 +35,8 @@ import ChipFilterGroup from '../guide/components/chip/ChipFilterGroup.vue'
 import ChipFilterGroupSingle from '../guide/components/chip/ChipFilterGroupSingle.vue'
 import ChipInput from '../guide/components/chip/ChipInput.vue'
 
+import SwitchUse from '../guide/components/switch/SwitchUse.vue'
+
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
     app.component('icon-button', IconButton)
@@ -71,4 +73,5 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('chip-filter-group', ChipFilterGroup)
     app.component('chip-filter-single', ChipFilterGroupSingle)
     app.component('chip-input', ChipInput)
+    app.component('switch-use', SwitchUse)
 })
