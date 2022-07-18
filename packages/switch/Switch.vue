@@ -1,7 +1,9 @@
 <template>
-    <button @click="handleClick" :class="classes(n(), [modelValue, n('--checked')])">
+    <button @click="handleClick" :class="classes(n(), [checked, n('--checked')])">
         <div :class="classes(n('overlay'))">
-            <div :class="classes(n('handle'))"></div>
+            <div :class="classes(n('handle'), [withIcon === 'both', n('handle--has-icon')])"></div>
+            <m-icon :class="n('icon')" :size="16" name="done" v-if="withIcon && checked"></m-icon>
+            <m-icon :class="n('icon')" :size="16" name="close" v-else-if="withIcon === 'both' && !checked"></m-icon>
         </div>
     </button>
 </template>
@@ -9,6 +11,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue'
 import Ripple from '../ripple'
+import MIcon from '../icon'
 import { createNamespace, call } from '../utils/components'
 import type { PropType, ComputedRef, Ref } from 'vue'
 
@@ -16,7 +19,7 @@ const { n, classes } = createNamespace('switch')
 
 export default defineComponent({
     name: 'MSwitch',
-    components: {},
+    components: { MIcon },
     directives: { Ripple },
     props: {
         modelValue: {
@@ -37,6 +40,10 @@ export default defineComponent({
         },
         onChange: {
             type: Function as PropType<(value: Array<any>) => void>,
+        },
+        withIcon: {
+            type: [Boolean, String],
+            default: false,
         },
     },
     emits: ['update:modelValue'],

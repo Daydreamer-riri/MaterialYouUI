@@ -21,10 +21,13 @@
         flex-shrink: 0;
         transition-duration: 0.2s;
         transition-timing-function: cubic-bezier(0.34, 0.69, 0.1, 1);
-        transition-property: background-color, transform;
-        transform: translateX(-9px);
+        transition-property: background-color, transform, color;
+        transform: translateX(-10px);
         display: grid;
         place-items: center;
+        position: relative;
+
+        color: var(--md-color-on-primary);
 
         .m-switch__handle {
             width: 24px;
@@ -36,6 +39,17 @@
             transition-duration: 0.2s;
             transition-timing-function: cubic-bezier(0.34, 0.69, 0.1, 1);
             transition-property: background-color, transform;
+
+            &--has-icon {
+                transform: scale(1);
+            }
+        }
+
+        .m-switch__icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
@@ -51,6 +65,7 @@
 
     &:active {
         .m-switch__handle {
+            transform: scale(1.1666);
         }
     }
 
@@ -59,7 +74,8 @@
         border-color: var(--md-color-primary);
 
         .m-switch__overlay {
-            transform: translateX(9px);
+            transform: translateX(10px);
+            color: var(--md-color-on-primary-container);
 
             .m-switch__handle {
                 background-color: var(--md-color-on-primary);
@@ -72,6 +88,12 @@
                 .m-switch__handle {
                     background-color: var(--md-color-primary-container);
                 }
+            }
+        }
+
+        &:active {
+            .m-switch__handle {
+                transform: scale(1.1666);
             }
         }
     }

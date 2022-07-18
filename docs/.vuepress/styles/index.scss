@@ -160,7 +160,7 @@ a.sidebar-item {
 }
 
 p.sidebar-item {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .sidebar-item {
@@ -184,6 +184,11 @@ p.sidebar-item {
         font-weight: 500;
         background-color: var(--md-color-secondary-container);
         // border-left-color: var(--c-text-accent);
+        margin-left: 6px;
+        margin-right: 2px;
+        margin-bottom: 4px;
+        border-left: 0.25rem solid transparent;
+        color: currentColor;
     }
 
     &.sidebar-heading {
@@ -214,10 +219,15 @@ p.sidebar-item {
         font-size: 1em;
         font-weight: 400;
         display: inline-block;
-        // margin: 0;
+        margin: 0 2px 4px 6px;
+        // margin: none;
+        // margin-left: 6px;
+        // margin-right: 2px;
+        // margin-bottom: 4px;
         padding: 0 1rem 0 2rem;
         width: 94%;
         box-sizing: border-box;
+        line-height: calc(3rem - 4px);
 
         & + .sidebar-item-children {
             padding-left: 1rem;
@@ -242,8 +252,11 @@ p.sidebar-item {
 
 a.sidebar-item {
     cursor: pointer;
+    margin-left: 6px;
+    margin-right: 2px;
+    margin-bottom: 4px;
 
     &:hover {
-        // color: var(--c-text-accent);
+        color: var(--c-text);
     }
 }
