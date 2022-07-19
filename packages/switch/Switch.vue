@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, watch } from 'vue'
 import Ripple from '../ripple'
 import MIcon from '../icon'
 import { createNamespace, call } from '../utils/components'
@@ -23,7 +23,7 @@ export default defineComponent({
     directives: { Ripple },
     props: {
         modelValue: {
-            type: [Boolean, String],
+            type: [Boolean, String, Array],
             default: false,
         },
         checkedValue: {
@@ -48,17 +48,57 @@ export default defineComponent({
     },
     emits: ['update:modelValue'],
     setup(props, { emit }) {
-        const value: Ref = ref(false)
+        const { modelValue, checkedValue, uncheckedValue } = props
+        const value: Ref = ref(uncheckedValue)
+        // const value = computed(() => {
+        //     if (Array.isArray(props.modelValue) && props.modelValue.includes(checkedValue)) {
+        //         return checkedValue
+        //     } else {
+        //         return props.modelValue
+        //     }
+        // })
+
+        watch(
+            () => props.modelValue,
+            (newModelValue) => {
+                if (Array.isArray(newModelValue) && newModelValue.includes(checkedValue)) {
+                    value.value = checkedValue
+                } else {
+                    value.value = newModelValue
+                }
+            },
+            { immediate: true }
+        )
+
         const checked: ComputedRef<boolean> = computed(() => value.value === props.checkedValue)
-        const checkedValue: ComputedRef<boolean> = computed(() => props.checkedValue)
+
+        const toggle = (changedValue?: any) => {
+            const { checkedValue, uncheckedValue } = props
+
+            const shouldReverse = ![checkedValue, uncheckedValue].includes(changedValue)
+            if (shouldReverse) {
+                changedValue = checked.value ? uncheckedValue : checkedValue
+            }
+
+            change(changedValue)
+        }
 
         const change = (changedValue: any) => {
-            value.value = changedValue
+            const { checkedValue, modelValue, onChange } = props
 
-            const { checkedValue, onChange } = props
+            if (Array.isArray(modelValue)) {
+                const newModel = modelValue.filter((v) => {
+                    return v !== checkedValue
+                })
 
-            // call(props['onUpdate:modelValue'], value.value)
-            emit('update:modelValue', value.value)
+                changedValue === checkedValue && newModel.push(checkedValue)
+
+                emit('update:modelValue', newModel)
+            } else {
+                value.value = changedValue
+                emit('update:modelValue', value.value)
+            }
+
             call(onChange, value.value)
         }
 
@@ -67,10 +107,12 @@ export default defineComponent({
             change(checked.value ? uncheckedValue : checkedValue)
         }
         return {
+            value,
             n,
             classes,
             checked,
             handleClick,
+            toggle,
         }
     },
 })

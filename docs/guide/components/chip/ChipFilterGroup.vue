@@ -16,7 +16,7 @@
 import { ref } from 'vue'
 import MChipGroup from '../../../../packages/chip-group'
 import MChip from '../../../../packages/chip'
-const model = ref([])
+const model = ref(['Slides', 'Images'])
 </script>
 
 <style lang="scss" scoped>

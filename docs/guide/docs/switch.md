@@ -26,3 +26,17 @@ import { ref } from 'vue'
 const isChecked = ref(false)
 </script>
 ```
+
+#### 通过字段获取 Switch 选中状态
+
+设置`checkedValue`与`uncheckedValue`后，`v-model`将在二者之中变化
+
+<ClientOnly>
+<switch-value></switch-value>
+</ClientOnly>
+
+#### 将多个 Swtich 绑定到同一个数组
+
+<ClientOnly>
+<switch-group></switch-group>
+</ClientOnly>
