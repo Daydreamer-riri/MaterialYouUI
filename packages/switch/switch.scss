@@ -54,18 +54,23 @@
     }
 
     &:hover {
-        .m-switch__overlay {
-            background: #1c1b1f14;
+        @media (any-hover: hover) {
+            .m-switch__overlay {
+                background: #1c1b1f14;
 
-            .m-switch__handle {
-                background-color: var(--md-color-on-surface-variant);
+                .m-switch__handle {
+                    background-color: var(--md-color-on-surface-variant);
+                }
             }
         }
     }
 
     &:active {
-        .m-switch__handle {
-            transform: scale(1.1666);
+        .m-switch__overlay {
+            background: #1c1b1f14;
+            .m-switch__handle {
+                transform: scale(1.1666);
+            }
         }
     }
 
@@ -84,9 +89,11 @@
         }
 
         &:hover {
-            .m-switch__overlay {
-                .m-switch__handle {
-                    background-color: var(--md-color-primary-container);
+            @media (any-hover: hover) {
+                .m-switch__overlay {
+                    .m-switch__handle {
+                        background-color: var(--md-color-primary-container);
+                    }
                 }
             }
         }
