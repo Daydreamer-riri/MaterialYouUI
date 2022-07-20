@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleClick" :class="classes(n(), [checked, n('--checked')])">
+    <button @click="handleClick" :class="classes(n(), [checked, n('--checked')], [disabled, n('--disabled')])">
         <div :class="classes(n('overlay'))">
             <div :class="classes(n('handle'), [withIcon === 'both', n('handle--has-icon')])"></div>
             <m-icon :class="n('icon')" :size="16" name="done" v-if="withIcon && checked"></m-icon>
@@ -104,6 +104,7 @@ export default defineComponent({
 
         const handleClick = (e: Event) => {
             const { disabled, uncheckedValue, checkedValue } = props
+            if (disabled) return
             change(checked.value ? uncheckedValue : checkedValue)
         }
         return {

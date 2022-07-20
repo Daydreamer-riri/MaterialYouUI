@@ -261,7 +261,8 @@ const infos = reactive({
 | 参数       | 说明             | 类型                                                              | 默认值  |
 | ---------- | ---------------- | ----------------------------------------------------------------- | ------- |
 | `type`     | chips 的类型 | _'assist' \| 'filter' \| 'input' \|'suggestion'_ | `assist`  |
-| `checkedValue` | 选中状态的值     | _boolean \| string_ | `false` |
+| `checkedValue` | 选中状态的值     | _boolean \| string_ | `true` |
+| `uncheckedValue` | 非选中状态的值     | _boolean \| string_ | `false` |
 | `rounded` | 是否为圆形     | _boolean_ | `false` |
 | `elevated`     | 是否具有海拔       | _boolean_  | `false`  |
 | `closable` | 是否显示关闭图标 | _boolean_  | `false` |

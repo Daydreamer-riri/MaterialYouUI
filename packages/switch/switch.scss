@@ -104,4 +104,54 @@
             }
         }
     }
+
+    &--disabled {
+        opacity: 0.12;
+
+        &:hover {
+            @media (any-hover: hover) {
+                .m-switch__overlay {
+                    background: none;
+
+                    .m-switch__handle {
+                        background-color: var(--md-color-outline);
+                    }
+                }
+            }
+        }
+
+        &:active {
+            .m-switch__overlay {
+                background: none;
+                .m-switch__handle {
+                    transform: scale(0.6666);
+
+                    &--has-icon {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+
+        &.m-switch--checked {
+            &:hover {
+                @media (any-hover: hover) {
+                    .m-switch__overlay {
+                        background: none;
+                        .m-switch__handle {
+                            background-color: var(--md-color-on-primary);
+                        }
+                    }
+                }
+            }
+            &:active {
+                .m-switch__overlay {
+                    background: none;
+                    .m-switch__handle {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -17,7 +17,6 @@
     <div class="container">
         <m-switch v-model="isChecked"></m-switch>
     </div>
-    <p>switch 的选中状态为：{{ isChecked }}</p>
 </template>
 
 <script setup lang="ts">
@@ -35,8 +34,100 @@ const isChecked = ref(false)
 <switch-value></switch-value>
 </ClientOnly>
 
+```html
+<template>
+    <div class="container">
+        <m-switch 
+        checked-value="open" 
+        unchecked-value="off" 
+        v-model="checkedValue">
+        </m-switch>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const checkedValue = ref('open')
+</script>
+```
+
 #### 将多个 Swtich 绑定到同一个数组
+
+可以将多个 Switchs 绑定到同一个数组，此种使用方法必须设置 `checkedValue`。
 
 <ClientOnly>
 <switch-group></switch-group>
 </ClientOnly>
+
+```html 
+<template>
+  <div class="container">
+    <m-space direction="column" :size="[24, 0]">
+      <m-switch checked-value="Wi-Fi" v-model="model"></m-switch>
+      <m-switch checked-value="Bluetooth" v-model="model"></m-switch>
+      <m-switch checked-value="Do not disturb" v-model="model"></m-switch>
+      <m-switch checked-value="Airpline mode" v-model="model"></m-switch>
+    </m-space>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const model = ref([])
+</script>
+```
+
+### 显示图标
+
+通过传入`withIcon`属性，来设置 Switch 是否显示图标
+
+<ClientOnly>
+<switch-icon></switch-icon>
+</ClientOnly>
+
+三种`withIcon`的值分别为：`false`, `true`, `'both'`
+
+在代码中：
+```html
+<template>
+    <div class="container">
+        <m-switch></m-switch>
+        <m-switch with-icon></m-switch>
+        <m-switch with-icon='both'></m-switch>
+    </div>
+</template>
+```
+
+### 禁用
+
+通过设置`disabled`属性禁用 Switch。
+
+<ClientOnly>
+<switch-disabled></switch-disabled>
+</ClientOnly>
+
+
+## API
+
+### 属性
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `modelValue` | 是否选中     | _boolean \| string \| Array_ | `false` |
+| `checkedValue` | 选中状态的值     | _boolean \| string_ | `true` |
+| `uncheckedValue` | 选中状态的值     | _boolean \| string_ | `false` |
+| `withIcon` | 是否显示图标 | _boolean \| `both`_ | `false` |
+| `disabled` | 按钮是否禁用     | _boolean_ | `false` |
+
+### 事件
+| 事件名 | 说明  | 参数  |
+| --- | --- | --- | 
+| `click` | 点击时触发 | `event: Event` |
+| `change` | 状态改变时触发 | `event: Event` |
+
+### 方法
+| 方法名 | 说明 | 参数 | 
+| --- | --- | --- |
+| `toggle` | 切换状态 | `-` |

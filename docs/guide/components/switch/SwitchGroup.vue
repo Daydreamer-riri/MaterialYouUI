@@ -19,7 +19,7 @@
         </div>
     </div>
     <p>
-        Filter chip group 的选中状态是：<code>{{ model }}</code>
+        Switchs 的选中状态是：<code>{{ model }}</code>
     </p>
 </template>
 
@@ -27,7 +27,6 @@
 import { ref } from 'vue'
 import MSpace from '../../../../packages/space'
 import MSwitch from '../../../../packages/switch'
-import MButton from '../../../../packages/button'
 
 const model = ref([])
 </script>

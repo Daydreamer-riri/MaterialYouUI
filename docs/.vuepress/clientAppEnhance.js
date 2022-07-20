@@ -37,6 +37,8 @@ import ChipInput from '../guide/components/chip/ChipInput.vue'
 import SwitchUse from '../guide/components/switch/SwitchUse.vue'
 import SwitchValue from '../guide/components/switch/SwitchValue.vue'
 import SwitchGroup from '../guide/components/switch/SwitchGroup.vue'
+import SwitchIcon from '../guide/components/switch/SwitchIcon.vue'
+import SwitchDisabled from '../guide/components/switch/SwitchDisabled.vue'
 
 export default defineClientAppEnhance(({ app }) => {
     app.component('basic-use', BasicUse)
@@ -77,4 +79,6 @@ export default defineClientAppEnhance(({ app }) => {
     app.component('switch-use', SwitchUse)
     app.component('switch-value', SwitchValue)
     app.component('switch-group', SwitchGroup)
+    app.component('switch-icon', SwitchIcon)
+    app.component('switch-disabled', SwitchDisabled)
 })
