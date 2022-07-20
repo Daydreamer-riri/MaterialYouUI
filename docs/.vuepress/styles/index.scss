@@ -260,3 +260,22 @@ a.sidebar-item {
         color: var(--c-text);
     }
 }
+
+// 滚动条
+// style/layout.scss
+
+// .sidebar {
+//     scrollbar-width: initial;
+//     scrollbar-color: initial;
+//     background-color: initial;
+//     transition: transform var(--t-transform), background-color var(--t-color), border-color var(--t-color);
+//     &::-webkit-scrollbar {
+
+//     }
+//     &::-webkit-scrollbar-track {
+//         background-color: inherit;
+//     }
+//     &::-webkit-scrollbar-thumb {
+//         background-color: inherit;
+//     }
+// }

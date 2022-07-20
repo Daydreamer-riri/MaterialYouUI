@@ -1,15 +1,14 @@
 <template>
     <div class="container">
-        <m-switch v-model="isChecked" :with-icon="withIcon"></m-switch>
+        <m-switch v-model="isChecked"></m-switch>
     </div>
     <p>switch 的选中状态为：{{ isChecked }}</p>
 </template>
 
 <script setup lang="ts">
 import MSwitch from '../../../../packages/switch'
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 // customElements.define('m-ce-switch', MSwitch)
-const { withIcon } = defineProps(['withIcon'])
 const isChecked = ref(false)
 </script>
 
