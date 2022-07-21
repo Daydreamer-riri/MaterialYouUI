@@ -65,7 +65,7 @@ export default defineComponent({
     },
 })
 </script>
-<style lang="less">
-@import './IconButton.scss';
-@import '../styles/common.scss';
+<style lang="scss">
+@use './IconButton.scss';
+@use '../styles/common.scss';
 </style>

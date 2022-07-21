@@ -209,7 +209,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-@import './chip.scss';
-@import '../styles/common.scss';
-@import '../styles/elevation.scss';
+@use './chip.scss';
+@use '../styles/common.scss';
+@use '../styles/elevation.scss';
 </style>

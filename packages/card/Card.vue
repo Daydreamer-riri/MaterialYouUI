@@ -62,6 +62,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '../styles/common.scss';
-@import './card.scss';
+@use './card.scss';
 </style>

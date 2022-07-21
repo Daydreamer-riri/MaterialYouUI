@@ -1,4 +1,4 @@
-@import '../styles/elevation.scss';
+@use '../styles/elevation.scss';
 
 $textColor: currentColor;
 
@@ -39,12 +39,12 @@ $textColor: currentColor;
 
         &:hover {
             @media (any-hover: hover) {
-                @include md-elevation-z2;
+                @include elevation.md-elevation-z2;
             }
         }
 
         &:active {
-            @include md-elevation-z1;
+            @include elevation.md-elevation-z1;
         }
     }
 

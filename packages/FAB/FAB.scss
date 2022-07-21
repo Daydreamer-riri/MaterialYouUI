@@ -1,4 +1,4 @@
-@import '../styles/elevation.scss';
+@use '../styles/elevation.scss';
 
 $layer-primary-opacity08: linear-gradient(0deg, var(--md-color-primary-opacity08), var(--md-color-primary-opacity08));
 $layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12), var(--md-color-primary-opacity12));
@@ -19,14 +19,14 @@ $layer-primary-opacity12: linear-gradient(0deg, var(--md-color-primary-opacity12
     // 公用部分
     @extend .md-elevation-z3;
 
-    &:hover {
-        @media (any-hover: hover) {
-            @include md-elevation-z4;
+    @media (any-hover: hover) {
+        &:hover {
+            @include elevation.md-elevation-z4;
         }
     }
 
     &:active {
-        @extend .md-elevation-z3;
+        @include elevation.md-elevation-z3;
     }
 
     // 尺寸

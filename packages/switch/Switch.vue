@@ -120,5 +120,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import './switch.scss';
+@use './switch.scss';
 </style>

@@ -112,6 +112,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '../styles/common.scss';
-@import './icon.scss';
+@use '../styles/common.scss';
+@use './icon.scss';
 </style>

@@ -180,6 +180,6 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-@import '../styles/common.scss';
-@import './FAB.scss';
+@use '../styles/common.scss';
+@use './FAB.scss';
 </style>

@@ -1,4 +1,6 @@
-@import '../styles/elevation.scss';
+@use '../styles/elevation.scss';
+@use '../styles/common.scss';
+
 .m-button {
     display: flex;
     align-items: center;
@@ -23,7 +25,7 @@
         &:hover {
             @media (any-hover: hover) {
                 background-color: var(--md-color-primary-hover);
-                @include md-elevation-z1();
+                @include elevation.md-elevation-z1;
             }
         }
 
@@ -49,7 +51,7 @@
 
         &:hover {
             @media (any-hover: hover) {
-                @include md-elevation-z2();
+                @include elevation.md-elevation-z2;
                 background: var(--md-layer-surface-2), var(--md-color-surface2);
             }
         }
@@ -75,7 +77,7 @@
 
         &:hover {
             @media (any-hover: hover) {
-                @include md-elevation-z1;
+                @include elevation.md-elevation-z1;
                 background-color: var(--md-color-secondary-container-hover);
             }
         }
