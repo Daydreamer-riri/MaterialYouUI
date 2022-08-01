@@ -1,61 +1,61 @@
 .material-theme-dark {
-    --md-color-primary: var(--md-color-primary-dark);
-    --md-color-on-primary: var(--md-color-on-primary-dark);
-    --md-color-primary-container: var(--md-color-primary-container-dark);
-    --md-color-on-primary-container: var(--md-color-on-primary-container-dark);
-    --md-color-secondary: var(--md-color-secondary-dark);
-    --md-color-on-secondary: var(--md-color-on-secondary-dark);
-    --md-color-secondary-container: var(--md-color-secondary-container-dark);
-    --md-color-on-secondary-container: var(--md-color-on-secondary-container-dark);
-    --md-color-tertiary: var(--md-color-tertiary-dark);
-    --md-color-on-tertiary: var(--md-color-on-tertiary-dark);
-    --md-color-tertiary-container: var(--md-color-tertiary-container-dark);
-    --md-color-on-tertiary-container: var(--md-color-on-tertiary-container-dark);
-    --md-color-error: var(--md-color-error-dark);
-    --md-color-on-error: var(--md-color-on-error-dark);
-    --md-color-error-container: var(--md-color-error-container-dark);
-    --md-color-on-error-container: var(--md-color-on-error-container-dark);
-    --md-color-outline: var(--md-color-outline-dark);
-    --md-color-background: var(--md-color-background-dark);
-    --md-color-on-background: var(--md-color-on-background-dark);
-    --md-color-surface: var(--md-color-surface-dark);
-    --md-color-on-surface: var(--md-color-on-surface-dark);
-    --md-color-surface-variant: var(--md-color-surface-variant-dark);
-    --md-color-on-surface-variant: var(--md-color-on-surface-variant-dark);
-    --md-color-inverse-surface: var(--md-color-inverse-surface-dark);
-    --md-color-inverse-on-surface: var(--md-color-inverse-on-surface-dark);
+  --md-color-primary: var(--md-color-primary-dark);
+  --md-color-on-primary: var(--md-color-on-primary-dark);
+  --md-color-primary-container: var(--md-color-primary-container-dark);
+  --md-color-on-primary-container: var(--md-color-on-primary-container-dark);
+  --md-color-secondary: var(--md-color-secondary-dark);
+  --md-color-on-secondary: var(--md-color-on-secondary-dark);
+  --md-color-secondary-container: var(--md-color-secondary-container-dark);
+  --md-color-on-secondary-container: var(--md-color-on-secondary-container-dark);
+  --md-color-tertiary: var(--md-color-tertiary-dark);
+  --md-color-on-tertiary: var(--md-color-on-tertiary-dark);
+  --md-color-tertiary-container: var(--md-color-tertiary-container-dark);
+  --md-color-on-tertiary-container: var(--md-color-on-tertiary-container-dark);
+  --md-color-error: var(--md-color-error-dark);
+  --md-color-on-error: var(--md-color-on-error-dark);
+  --md-color-error-container: var(--md-color-error-container-dark);
+  --md-color-on-error-container: var(--md-color-on-error-container-dark);
+  --md-color-outline: var(--md-color-outline-dark);
+  --md-color-background: var(--md-color-background-dark);
+  --md-color-on-background: var(--md-color-on-background-dark);
+  --md-color-surface: var(--md-color-surface-dark);
+  --md-color-on-surface: var(--md-color-on-surface-dark);
+  --md-color-surface-variant: var(--md-color-surface-variant-dark);
+  --md-color-on-surface-variant: var(--md-color-on-surface-variant-dark);
+  --md-color-inverse-surface: var(--md-color-inverse-surface-dark);
+  --md-color-inverse-on-surface: var(--md-color-inverse-on-surface-dark);
 
-    // Interaction states
-    --md-color-primary-hover: var(--md-color-primary-dark-hover);
-    --md-color-primary-focus: var(--md-color-primary-dark-focus);
+  // Interaction states
+  --md-color-primary-hover: var(--md-color-primary-dark-hover);
+  --md-color-primary-focus: var(--md-color-primary-dark-focus);
 
-    --md-color-secondary-container-hover: var(--md-color-secondary-container-dark-hover);
-    --md-color-secondary-container-focus: var(--md-color-secondary-container-dark-focus);
+  --md-color-secondary-container-hover: var(--md-color-secondary-container-dark-hover);
+  --md-color-secondary-container-focus: var(--md-color-secondary-container-dark-focus);
 
-    --md-color-primary-container-hover: var(--md-color-primary-container-dark-hover);
-    --md-color-primary-container-focus: var(--md-color-primary-container-dark-focus);
+  --md-color-primary-container-hover: var(--md-color-primary-container-dark-hover);
+  --md-color-primary-container-focus: var(--md-color-primary-container-dark-focus);
 
-    --md-color-tertiary-container-hover: var(--md-color-tertiary-container-dark-hover);
-    --md-color-tertiary-container-focus: var(--md-color-tertiary-container-dark-focus);
+  --md-color-tertiary-container-hover: var(--md-color-tertiary-container-dark-hover);
+  --md-color-tertiary-container-focus: var(--md-color-tertiary-container-dark-focus);
 
-    --md-color-primary-opacity05: var(--md-color-primary-opacity05-dark);
-    --md-color-primary-opacity08: var(--md-color-primary-opacity08-dark);
-    --md-color-primary-opacity11: var(--md-color-primary-opacity11-dark);
-    --md-color-primary-opacity12: var(--md-color-primary-opacity12-dark);
+  --md-color-primary-opacity05: var(--md-color-primary-opacity05-dark);
+  --md-color-primary-opacity08: var(--md-color-primary-opacity08-dark);
+  --md-color-primary-opacity11: var(--md-color-primary-opacity11-dark);
+  --md-color-primary-opacity12: var(--md-color-primary-opacity12-dark);
 
-    --md-color-on-surface-opacity12: var(--md-color-on-surface-opacity12-dark);
-    --md-color-on-surface-opacity08: var(--md-color-on-surface-opacity08-dark);
+  --md-color-on-surface-opacity12: var(--md-color-on-surface-opacity12-dark);
+  --md-color-on-surface-opacity08: var(--md-color-on-surface-opacity08-dark);
 
-    --md-color-surface1: var(--md-color-surface1-dark);
-    --md-color-surface2: var(--md-color-surface2-dark);
-    --md-color-surface3: var(--md-color-surface3-dark);
-    --md-color-surface4: var(--md-color-surface4-dark);
-    --md-color-surface5: var(--md-color-surface5-dark);
+  --md-color-surface1: var(--md-color-surface1-dark);
+  --md-color-surface2: var(--md-color-surface2-dark);
+  --md-color-surface3: var(--md-color-surface3-dark);
+  --md-color-surface4: var(--md-color-surface4-dark);
+  --md-color-surface5: var(--md-color-surface5-dark);
 
-    --md-layer-surface-1: var(--md-layer-surface-1-dark);
-    --md-layer-surface-2: var(--md-layer-surface-2-dark);
-    --md-layer-surface-3: var(--md-layer-surface-3-dark);
-    --md-layer-surface-4: var(--md-layer-surface-4-dark);
+  --md-layer-surface-1: var(--md-layer-surface-1-dark);
+  --md-layer-surface-2: var(--md-layer-surface-2-dark);
+  --md-layer-surface-3: var(--md-layer-surface-3-dark);
+  --md-layer-surface-4: var(--md-layer-surface-4-dark);
 
-    --md-color-background-disable: var(--md-color-background-disable-dark);
+  --md-color-background-disable: var(--md-color-background-disable-dark);
 }

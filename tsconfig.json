@@ -17,7 +17,7 @@
             "@packages/*": ["packages/*"],
         },
     },
-    "include": ["shims-vue.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "packages/**/*.vue", "packages/**/*.d.ts"],
+    "include": ["shims-vue.d.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "packages/**/*.ts","packages/**/*.tsx", "packages/**/*.vue"],
     "references": [{
         "path": "./tsconfig.node.json"
     }]
