@@ -13,7 +13,7 @@
 </ClientOnly>
 
 在模板中：
-```html
+```vue
 <template>
     <div class="container">
         <div class="ripple-example" v-ripple>点击</div>
@@ -32,7 +32,7 @@
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <div class="ripple-example" 
@@ -49,7 +49,7 @@
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <div class="ripple-example" 

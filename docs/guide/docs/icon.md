@@ -14,7 +14,7 @@
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container exmaple-card">
         <m-icon name="search"></m-icon>
@@ -36,7 +36,7 @@
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container exmaple-card">
         <m-icon name="add_circle" size="small"></m-icon>
@@ -56,7 +56,7 @@
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container exmaple-card">
     <m-icon name="verified"></m-icon>
@@ -70,7 +70,7 @@
 
 可以通过设置`namespace`属性来使用您自己的图标库。假设我们设置一个名为`new-icons`的字体图标。
 
-```html
+```vue
 <m-icon namespace="new-icons"></m-icon>
 ```
 

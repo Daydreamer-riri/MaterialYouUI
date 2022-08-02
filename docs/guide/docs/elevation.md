@@ -12,7 +12,7 @@
 </ClientOnly>
 
 在模板中：
-```html
+```vue
 <template>
   <div class="container" 
        style="background-color: var(--md-color-surface-light)">

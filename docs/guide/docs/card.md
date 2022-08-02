@@ -22,7 +22,7 @@ Card 有三种类型：elevated, filled 和 outlined。
 **1. elevated  2. filled  3. outlined**
 
 在模板中：
-```html
+```vue
 <template>
     <div class="container">
         <m-space direction="column" align="center" :size="[24, 0]">
@@ -92,7 +92,7 @@ Card 有三种类型：elevated, filled 和 outlined。
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-card type="elevated" :style="{ width: '360px' }">

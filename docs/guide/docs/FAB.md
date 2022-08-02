@@ -18,7 +18,7 @@ FAB代表屏幕上最重要的动作。它使关键行动触手可及。
 </ClientOnly>
 
 在模板中：
-```html
+```vue
 <template>
     <div class="container">
         <!-- 1    未设置 size 默认为 medium -->
@@ -42,7 +42,7 @@ FABs 默认拥有四种颜色类型：
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-fab name="edit"></m-fab>
@@ -63,7 +63,7 @@ FABs 默认拥有四种颜色类型：
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-fab name="edit"></m-fab>
@@ -85,7 +85,7 @@ FABs 默认拥有四种颜色类型：
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-fab name="edit" :ripple="false"></m-fab>
@@ -106,7 +106,7 @@ FABs 可以使用`icon`插槽来更自定义设置图标，如设置[填充图�
 
 在模板中：
 
-```html
+```vue
 <template>
     <m-fab>
         <template #icon>

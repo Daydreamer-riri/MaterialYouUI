@@ -22,7 +22,7 @@ Extended FAB 组件基于 FAB，部分使用方法见[Floating action buttons (F
 2. 没有图标的 Extended FAB
 
 在模板中：
-```html
+```vue
 <template>
     <div class="container">
         <m-fab name="navigation">
@@ -45,7 +45,7 @@ Extended FAB 组件基于 FAB，部分使用方法见[Floating action buttons (F
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-fab name="save" type="tertiary" :extended="state">
@@ -59,7 +59,7 @@ Extended FAB 组件基于 FAB，部分使用方法见[Floating action buttons (F
 ```
 
 在 Script 中：
-```html
+```vue
 <script setup>
 import MFab from '@packages/FAB'
 import MButton from '@packages/button'

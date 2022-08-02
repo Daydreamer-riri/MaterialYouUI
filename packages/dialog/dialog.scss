@@ -1,0 +1,142 @@
+@use '../styles/common.scss';
+@use '../styles/animation.scss' as *;
+
+.m-dialog-container {
+  z-index: 1000;
+
+  position: fixed;
+  inset: 0;
+
+  // background: pink;
+}
+
+.m-dialog-mask {
+  position: absolute;
+  inset: 0;
+
+  background: rgba($color: #1c1b1f, $alpha: 0.6);
+  // transition: opacity 0.4s $transition-timing-function-overshoot;
+}
+
+.m-dialog-wrapper {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  overflow: auto;
+}
+
+.m-dialog {
+  position: relative;
+
+  background-color: var(--md-color-surface3);
+  box-sizing: border-box;
+
+  @media screen and (min-width: 0) {
+    width: 312px;
+    padding: 24px 24px 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 560px;
+    padding: 32px 32px 8px;
+  }
+
+  border-radius: 28px;
+
+  &__text-content {
+    div:not(:last-child) {
+      margin-bottom: 16px;
+
+      @media screen and (min-width: 600px) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__icon {
+    color: var(--md-color-secondary);
+    text-align: center;
+  }
+
+  &__title {
+    color: var(--md-color-on-surface);
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__actions {
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > .m-button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.fade-modal-enter-from,
+.fade-modal-appear-from {
+  opacity: 0;
+}
+
+.fade-modal-enter-to,
+.fade-modal-appear-to {
+  opacity: 1;
+}
+
+.fade-modal-enter-active,
+.fade-modal-appear-active {
+  transition: opacity 0.4s $transition-timing-function-overshoot;
+}
+
+.fade-modal-leave-from {
+  opacity: 1;
+}
+
+.fade-modal-leave-to {
+  opacity: 0;
+}
+
+.fade-modal-leave-active {
+  transition: opacity 0.4s $transition-timing-function-overshoot;
+}
+
+// slide
+
+.slide-modal-enter-from,
+.slide-modal-appear-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide-modal-enter-to,
+.slide-modal-appear-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-modal-enter-active,
+.slide-modal-appear-active {
+  transition: opacity 0.4s $transition-timing-function-overshoot, transform 0.4s $transition-timing-function-standard;
+}
+
+.slide-modal-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-modal-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide-modal-leave-active {
+  transition: opacity 0.4s $transition-timing-function-overshoot, transform 0.4s $transition-timing-function-standard;
+}

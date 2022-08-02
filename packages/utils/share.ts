@@ -11,6 +11,8 @@ export const isObject = (val: unknown): val is Record<string, any> => typeof val
 
 export const isArray = (val: unknown): val is Array<any> => Array.isArray(val)
 
+export const isFunction = (val: unknown): val is Function => typeof val === 'function'
+
 export const isURL = (val: string | undefined | null) => {
   if (!val) {
     return false

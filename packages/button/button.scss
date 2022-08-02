@@ -2,199 +2,200 @@
 @use '../styles/common.scss';
 
 .m-button {
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: box-shadow 0.2s, background 0.15s;
+  will-change: box-shadow;
+  cursor: pointer;
+  user-select: none;
+
+  .text-content {
+    flex: 1;
+    margin-left: 8px;
+  }
+
+  // filled 按钮样式
+  &--filled {
+    background-color: var(--md-color-primary);
+    color: var(--md-color-on-primary);
+    @extend .common-buttons;
+
+    &:hover {
+      @media (any-hover: hover) {
+        background-color: var(--md-color-primary-hover);
+        @include elevation.md-elevation-z1;
+      }
+    }
+
+    &:active {
+      @extend .md-elevation-z0;
+    }
+
+    &--noripple:active {
+      background-color: var(--md-color-primary-focus);
+    }
+
+    &--disabled {
+      @extend .filled-disabled;
+    }
+  }
+
+  // elevated 按钮样式
+  &--elevated {
+    background: var(--md-color-surface1);
+    color: var(--md-color-primary);
+    @extend .md-elevation-z1;
+    @extend .common-buttons;
+
+    &:hover {
+      @media (any-hover: hover) {
+        @include elevation.md-elevation-z2;
+        background: var(--md-layer-surface-2), var(--md-color-surface2);
+      }
+    }
+
+    &:active {
+      @extend .md-elevation-z1;
+    }
+
+    &--noripple:active {
+      background: var(--md-layer-surface-3), var(--md-color-surface2);
+    }
+
+    &--disabled {
+      @extend .filled-disabled;
+    }
+  }
+
+  // filled-tonal 按钮样式
+  &--filled-tonal {
+    @extend .common-buttons;
+    color: var(--md-color-on-secondary-container);
+    background-color: var(--md-color-secondary-container);
+
+    &:hover {
+      @media (any-hover: hover) {
+        @include elevation.md-elevation-z1;
+        background-color: var(--md-color-secondary-container-hover);
+      }
+    }
+
+    &:active {
+      @extend .md-elevation-z0;
+    }
+
+    &--noripple:active {
+      background-color: var(--md-color-secondary-container-focus);
+    }
+
+    &--disabled {
+      @extend .filled-disabled;
+    }
+  }
+
+  // outline 按钮样式
+  &--outlined {
+    @extend .common-buttons;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid var(--md-color-outline);
+    color: var(--md-color-primary);
+    box-sizing: border-box;
+
+    &:hover {
+      @media (any-hover: hover) {
+        background: var(--md-color-primary-opacity08);
+      }
+    }
+
+    &:focus {
+      border: 1px solid var(--md-color-primary);
+    }
+
+    &--noripple:active {
+      background: var(--md-color-primary-opacity12);
+    }
+
+    &--disabled {
+      border-color: var(--md-color-background-disable);
+      cursor: default;
+      pointer-events: none;
+
+      .text-content,
+      .button-icon {
+        @extend .text-content-disabled;
+      }
+    }
+  }
+
+  // text 按钮样式
+  &--text {
+    height: 40px;
+    padding-left: 4px;
+    padding-right: 12px;
+    border-radius: 20px;
+    color: var(--md-color-primary);
+    background: rgba(0, 0, 0, 0);
+
+    &:hover {
+      @media (any-hover: hover) {
+        background: var(--md-color-primary-opacity08);
+      }
+    }
+
+    &--noripple:active {
+      background: var(--md-color-primary-opacity12);
+    }
+
+    .button-icon {
+      margin-left: 8px;
+    }
+
+    .button-icon + .text-content {
+      margin-right: 4px;
+    }
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+
+      .text-content,
+      .button-icon {
+        @extend .text-content-disabled;
+      }
+    }
+  }
+
+  &--long {
+    width: 100%;
     display: flex;
-    align-items: center;
-    outline: none;
-    border: none;
-    transition: box-shadow 0.2s, background 0.15s;
-    will-change: box-shadow;
-    cursor: pointer;
-    user-select: none;
-
-    .text-content {
-        flex: 1;
-        margin-left: 8px;
-    }
-
-    // filled 按钮样式
-    &--filled {
-        background-color: var(--md-color-primary);
-        color: var(--md-color-on-primary);
-        @extend .common-buttons;
-
-        &:hover {
-            @media (any-hover: hover) {
-                background-color: var(--md-color-primary-hover);
-                @include elevation.md-elevation-z1;
-            }
-        }
-
-        &:active {
-            @extend .md-elevation-z0;
-        }
-
-        &--noripple:active {
-            background-color: var(--md-color-primary-focus);
-        }
-
-        &--disabled {
-            @extend .filled-disabled;
-        }
-    }
-
-    // elevated 按钮样式
-    &--elevated {
-        background: var(--md-color-surface1);
-        color: var(--md-color-primary);
-        @extend .md-elevation-z1;
-        @extend .common-buttons;
-
-        &:hover {
-            @media (any-hover: hover) {
-                @include elevation.md-elevation-z2;
-                background: var(--md-layer-surface-2), var(--md-color-surface2);
-            }
-        }
-
-        &:active {
-            @extend .md-elevation-z1;
-        }
-
-        &--noripple:active {
-            background: var(--md-layer-surface-3), var(--md-color-surface2);
-        }
-
-        &--disabled {
-            @extend .filled-disabled;
-        }
-    }
-
-    // filled-tonal 按钮样式
-    &--filled-tonal {
-        @extend .common-buttons;
-        color: var(--md-color-on-secondary-container);
-        background-color: var(--md-color-secondary-container);
-
-        &:hover {
-            @media (any-hover: hover) {
-                @include elevation.md-elevation-z1;
-                background-color: var(--md-color-secondary-container-hover);
-            }
-        }
-
-        &:active {
-            @extend .md-elevation-z0;
-        }
-
-        &--noripple:active {
-            background-color: var(--md-color-secondary-container-focus);
-        }
-
-        &--disabled {
-            @extend .filled-disabled;
-        }
-    }
-
-    // outline 按钮样式
-    &--outlined {
-        @extend .common-buttons;
-        background: rgba(0, 0, 0, 0);
-        border: 1px solid var(--md-color-outline);
-        color: var(--md-color-primary);
-        box-sizing: border-box;
-
-        &:hover {
-            @media (any-hover: hover) {
-                background: var(--md-color-primary-opacity08);
-            }
-        }
-
-        &:focus {
-            border: 1px solid var(--md-color-primary);
-        }
-
-        &--noripple:active {
-            background: var(--md-color-primary-opacity12);
-        }
-
-        &--disabled {
-            border-color: var(--md-color-background-disable);
-            cursor: default;
-            pointer-events: none;
-
-            .text-content,
-            .button-icon {
-                @extend .text-content-disabled;
-            }
-        }
-    }
-
-    // text 按钮样式
-    &--text {
-        height: 40px;
-        padding-left: 4px;
-        padding-right: 12px;
-        border-radius: 20px;
-        color: var(--md-color-primary);
-        background: rgba(0, 0, 0, 0);
-
-        &:hover {
-            @media (any-hover: hover) {
-                background: var(--md-color-primary-opacity08);
-            }
-        }
-
-        &--noripple:active {
-            background: var(--md-color-primary-opacity12);
-        }
-
-        .button-icon {
-            margin-left: 8px;
-        }
-
-        .button-icon + .text-content {
-            margin-right: 4px;
-        }
-
-        &--disabled {
-            cursor: default;
-            pointer-events: none;
-
-            .text-content,
-            .button-icon {
-                @extend .text-content-disabled;
-            }
-        }
-    }
-
-    &--long {
-        width: 100%;
-    }
+  }
 }
 
 .filled-disabled {
-    background: var(--md-color-background-disable);
-    @extend .md-elevation-z0;
-    cursor: default;
-    pointer-events: none;
+  background: var(--md-color-background-disable);
+  @extend .md-elevation-z0;
+  cursor: default;
+  pointer-events: none;
 
-    .text-content,
-    .button-icon {
-        @extend .text-content-disabled;
-    }
+  .text-content,
+  .button-icon {
+    @extend .text-content-disabled;
+  }
 }
 
 .common-buttons {
-    height: 40px;
-    border-radius: 20px;
-    padding-right: 24px;
-    padding-left: 16px;
+  height: 40px;
+  border-radius: 20px;
+  padding-right: 24px;
+  padding-left: 16px;
 }
 
 .text-content-disabled {
-    color: var(--md-color-on-surface);
-    opacity: 0.38;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  color: var(--md-color-on-surface);
+  opacity: 0.38;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -93,3 +93,29 @@ export const getElement = (
   }
   return target
 }
+
+export const contains = (root: Node | null | undefined, element: Node | null) => {
+  if (!root || !element) return false
+
+  let node: Node | null = element
+
+  while (node) {
+    if (node === root) return true
+
+    node = node.parentNode
+  }
+
+  return false
+}
+
+export const isScroll = (element: HTMLElement) => {
+  return element.tagName === 'BODY'
+    ? document.documentElement.scrollHeight > window.innerHeight
+    : element.scrollHeight > element.offsetHeight
+}
+
+export const getScrollBarWidth = (element: HTMLElement) => {
+  return element.tagName === 'BODY'
+    ? window.innerWidth - (document.documentElement.offsetWidth || document.body.offsetWidth)
+    : element.offsetWidth - element.clientWidth
+}

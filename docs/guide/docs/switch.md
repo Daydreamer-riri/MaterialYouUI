@@ -12,7 +12,7 @@
 </ClientOnly>
 
 在代码中：
-```html
+```vue
 <template>
     <div class="container">
         <m-switch v-model="isChecked"></m-switch>
@@ -34,7 +34,7 @@ const isChecked = ref(false)
 <switch-value></switch-value>
 </ClientOnly>
 
-```html
+```vue
 <template>
     <div class="container">
         <m-switch 
@@ -60,7 +60,7 @@ const checkedValue = ref('open')
 <switch-group></switch-group>
 </ClientOnly>
 
-```html 
+```vue 
 <template>
   <div class="container">
     <m-space direction="column" :size="[24, 0]">
@@ -90,7 +90,7 @@ const model = ref([])
 三种`withIcon`的值分别为：`false`, `true`, `'both'`
 
 在代码中：
-```html
+```vue
 <template>
     <div class="container">
         <m-switch></m-switch>

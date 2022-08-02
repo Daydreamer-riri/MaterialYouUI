@@ -26,7 +26,7 @@ Material you 提供了五种常见按钮。
 
 在模板中：
 
-```html
+```vue
 <template>
     <m-button type="elevated">Confirm</m-button>
     <m-button type="filled">Confirm</m-button>
@@ -48,7 +48,7 @@ Material you 提供了五种常见按钮。
 
 在模板中：
 
-```html
+```vue
 <template>
     <m-button type="elevated" icon="add">Elevated button</m-button>
 </template>
@@ -64,7 +64,7 @@ Material you 提供了五种常见按钮。
 
 在模板中：
 
-```html
+```vue
 <template>
     <m-button type="elevated" disabled>Confirm</m-button>
     <m-button type="filled" disabled>Confirm</m-button>

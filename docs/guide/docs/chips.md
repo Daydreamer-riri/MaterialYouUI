@@ -21,7 +21,7 @@ Chips 有四种类型：assist, filter, input 和 suggestion。
 
 在模板中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-chip icon="event">Assist</m-chip>
@@ -30,7 +30,6 @@ Chips 有四种类型：assist, filter, input 和 suggestion。
         <m-chip type="suggestion">Suggestion</m-chip>
     </div>
 </template>
-
 ```
 
 ### Assist chips
@@ -53,7 +52,7 @@ Assist Chips 的替代方法是按钮，应持续稳定地显示。
 
 在代码中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-chip @click="handle">
@@ -87,7 +86,6 @@ const handle = () => {
     }
 }
 </script>
-
 ```
 
 
@@ -106,7 +104,7 @@ Filter chips 使用标签或描述性词来过滤内容。它们可以是切换�
 
 在代码中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-chip type="filter" v-model="model"> Filter </m-chip>
@@ -135,7 +133,7 @@ const model = ref(true)
 
 在代码中：
 
-```html
+```vue
 <template>
     <div class="container">
         <m-chip-group v-model="model">
@@ -167,7 +165,7 @@ const model = ref([])
 
 在代码中：
 
-```html
+```vue
 <template>
     <div class="container">
         <div class="screen">

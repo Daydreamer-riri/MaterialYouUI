@@ -8,7 +8,7 @@
 - 适合行内元素的水平间距。
 - 可以设置各种水平对齐方式。
 
-```html:no-line-numbers
+```vue:no-line-numbers
 <template>
     <m-space>
         <m-button>Button1</m-button>
@@ -25,7 +25,7 @@
 
 ### 垂直
 
-```html
+```vue
 <template>
     <m-space direction="column" size="large">
         <m-button>Button1</m-button>
@@ -37,7 +37,7 @@
 
 ### 间隙
 
-```html
+```vue
 <template>
     <m-space :size="[20, 20]">
         <m-button>Button1</m-button>
@@ -52,7 +52,7 @@
 
 ### 靠右
 
-```html
+```vue
 <template>
     <m-space justify="end">
         <m-button>Button1</m-button>
@@ -63,7 +63,7 @@
 
 ### 环绕
 
-```html
+```vue
 <template>
     <m-space justify="space-around">
         <m-button>Button1</m-button>
@@ -74,7 +74,7 @@
 
 ### 居中
 
-```html
+```vue
 <template>
     <m-space justify="center">
         <m-button>Button1</m-button>
@@ -85,7 +85,7 @@
 
 ### 两端对齐
 
-```html
+```vue
 <template>
     <m-space justify="space-between">
         <m-button>Button1</m-button>
