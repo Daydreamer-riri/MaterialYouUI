@@ -60,5 +60,48 @@ const handleClick2 = () => {
   visible2.value = !visible2.value
 }
 </script>
+```
 
+### 按钮文本 
+
+通过设置 `ok-text`、`cancel-text` 属性来设置两个按钮的文本。`ok-button-filled` 属性可以强调 OK 按钮（设置按钮类型为 `filled-tonal`）。
+
+同时可以通过设置 `ok-button-props` 与 `cancel-button-props` 来设置两个按钮的参数。
+
+<ClientOnly>
+<dialog-btn></dialog-btn>
+</ClientOnly>
+
+在代码中：
+```vue
+<template>
+  <div class="container">
+    <m-space>
+      <MButton @click="handleClick1" type="filled-tonal">Open Dialog</MButton>
+    </m-space>
+    <MDialog
+      v-model:visible="visible1"
+      with-icon="delete"
+      title="Permanently delete"
+      ok-text="Delete"
+      ok-button-filled
+      unmount-on-close
+      :cancel-button-props="{ disabled: true }"
+    >
+      {{ content }}
+    </MDialog>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const content = 'Deleting the selected messages will also remove them from all synced devices.'
+
+const visible1 = ref(false)
+
+const handleClick1 = () => {
+  visible1.value = !visible1.value
+}
+</script>
 ```

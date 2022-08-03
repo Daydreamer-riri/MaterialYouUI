@@ -40,6 +40,7 @@ import SwitchGroup from '../guide/components/switch/SwitchGroup.vue'
 import SwitchIcon from '../guide/components/switch/SwitchIcon.vue'
 import SwitchDisabled from '../guide/components/switch/SwitchDisabled.vue'
 import DialogUse from '../guide/components/dialog/DialogUse.vue'
+import DialogBtn from '../guide/components/dialog/Dialogbtn.vue'
 
 export default defineClientAppEnhance(({ app }) => {
   app.component('basic-use', BasicUse)
@@ -83,4 +84,5 @@ export default defineClientAppEnhance(({ app }) => {
   app.component('switch-icon', SwitchIcon)
   app.component('switch-disabled', SwitchDisabled)
   app.component('dialog-use', DialogUse)
+  app.component('dialog-btn', DialogBtn)
 })

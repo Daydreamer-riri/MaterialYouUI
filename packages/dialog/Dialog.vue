@@ -15,7 +15,7 @@
         @mousedown.self="handleMaskMouseDown"
       >
         <transition :name="modalAnimationName" appear @after-enter="handleOpen" @after-leave="handleClose">
-          <div v-show="computedVisible" ref="modalRef" :class="classes(n())" :style="modalStyle">
+          <div v-show="computedVisible" ref="modalRef" :class="classes(n(), dialogClass)" :style="modalStyle">
             <div :class="n('text-content')">
               <div v-if="$slots.icon || withIcon" :class="classes(n('icon'))">
                 <slot name="icon">
@@ -34,8 +34,10 @@
             </div>
             <div :class="n('actions')">
               <slot name="actions">
-                <m-button @click="handleCancel" v-bind="okButtonProps" type="text">{{ cancelText }}</m-button>
-                <m-button @click="handleOk" :type="okBtnFilled ? 'filled-tonal' : 'text'">{{ okText }}</m-button>
+                <m-button @click="handleCancel" type="text" v-bind="cancelButtonProps">{{ cancelText }}</m-button>
+                <m-button @click="handleOk" :type="okButtonFilled ? 'filled-tonal' : 'text'" v-bind="okButtonProps">{{
+                  okText
+                }}</m-button>
               </slot>
             </div>
           </div>

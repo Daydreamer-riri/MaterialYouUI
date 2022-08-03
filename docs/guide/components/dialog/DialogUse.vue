@@ -15,9 +15,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import MButton from '../../../../packages/button'
-import MDialog from '../../../../packages/dialog'
-import MSpace from '../../../../packages/space'
+import MButton from '@packages/button'
+import MDialog from '@packages/dialog'
+import MSpace from '@packages/space'
 
 const content =
   'A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.'
