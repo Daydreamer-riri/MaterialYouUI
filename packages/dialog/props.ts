@@ -1,5 +1,6 @@
-import type { CSSProperties, PropType } from 'vue'
+import type { CSSProperties, PropType, VNodeChild } from 'vue'
 import type { ButtonProps } from '@packages/button'
+import type { RenderContent } from '@packages/utils/vue-utils'
 
 export default {
   visible: {
@@ -60,6 +61,7 @@ export default {
   title: {
     type: String,
   },
+  content: {},
 
   unmountOnClose: Boolean,
 
@@ -117,13 +119,13 @@ export default {
 }
 
 export interface DialogConfig {
-  title?: string
-}
+  title?: RenderContent
 
-export interface ModalConfig {
-  title?: string
+  content?: RenderContent
 
-  content: string
+  actions?: RenderContent
+
+  withIcon?: string
 
   okText?: string
 
@@ -132,6 +134,8 @@ export interface ModalConfig {
   okButtonProps?: ButtonProps
 
   cancelButtonProps?: ButtonProps
+
+  okButtonFilled: boolean
 
   okLoading?: boolean
 

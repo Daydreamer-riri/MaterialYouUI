@@ -62,6 +62,7 @@ import MIcon from '@packages/icon'
 const { n, classes } = createNamespace('dialog')
 
 export default defineComponent({
+  name: 'm-dialog',
   components: { MButton, MIcon },
   props,
   emits: ['update:visible', 'ok', 'cancel', 'open', 'close', 'beforeOpen', 'beforeClose'],

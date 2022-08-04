@@ -1,20 +1,20 @@
 <template>
   <div class="container">
     <m-space>
-      <MButton @click="handleClick1" type="filled-tonal">Open Dialog</MButton>
-      <MButton @click="handleClick2" type="filled-tonal">Open Icon Dialog</MButton>
+      <m-button @click="handleClick1" type="filled-tonal">Open Dialog</m-button>
+      <m-button @click="handleClick2" type="filled-tonal">Open Icon Dialog</m-button>
     </m-space>
-    <MDialog v-model:visible="visible1" title="Basic dialog title" unmount-on-close>
+    <m-dialog v-model:visible="visible1" title="Basic dialog title" unmount-on-close>
       {{ content }}
-    </MDialog>
-    <MDialog v-model:visible="visible2" with-icon="mobile_friendly" title="Dialog with hero icon" unmount-on-close>
+    </m-dialog>
+    <m-dialog v-model:visible="visible2" with-icon="mobile_friendly" title="Dialog with hero icon" unmount-on-close>
       {{ content }}
-    </MDialog>
+    </m-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, h, defineComponent } from 'vue'
 import MButton from '@packages/button'
 import MDialog from '@packages/dialog'
 import MSpace from '@packages/space'

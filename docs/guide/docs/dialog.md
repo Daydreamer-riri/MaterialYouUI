@@ -20,26 +20,26 @@
 <template>
   <div class="container">
     <m-space>
-      <MButton @click="handleClick1" type="filled-tonal">
+      <m-button @click="handleClick1" type="filled-tonal">
         Open Dialog
-      </MButton>
-      <MButton @click="handleClick2" type="filled-tonal">
+      </m-button>
+      <m-button @click="handleClick2" type="filled-tonal">
         Open Icon Dialog
-      </MButton>
+      </m-button>
     </m-space>
-    <MDialog 
+    <m-dialog 
       v-model:visible="visible1" 
       title="Basic dialog title" 
       unmount-on-close>
       {{ content }}
-    </MDialog>
-    <MDialog 
+    </m-dialog>
+    <m-dialog 
       v-model:visible="visible2" 
       with-icon="mobile_friendly" 
       title="Dialog with hero icon" 
       unmount-on-close>
       {{ content }}
-    </MDialog>
+    </m-dialog>
   </div>
 </template>
 
@@ -77,9 +77,9 @@ const handleClick2 = () => {
 <template>
   <div class="container">
     <m-space>
-      <MButton @click="handleClick1" type="filled-tonal">Open Dialog</MButton>
+      <m-button @click="handleClick1" type="filled-tonal">Open Dialog</m-button>
     </m-space>
-    <MDialog
+    <m-dialog
       v-model:visible="visible1"
       with-icon="delete"
       title="Permanently delete"
@@ -89,7 +89,7 @@ const handleClick2 = () => {
       :cancel-button-props="{ disabled: true }"
     >
       {{ content }}
-    </MDialog>
+    </m-dialog>
   </div>
 </template>
 
@@ -102,6 +102,54 @@ const visible1 = ref(false)
 
 const handleClick1 = () => {
   visible1.value = !visible1.value
+}
+</script>
+```
+
+### 函数调用
+
+通过函数的方式调用对话框。
+
+<ClientOnly>
+<dialog-open></dialog-open>
+</ClientOnly>
+
+在代码中
+```vue
+<template>
+  <div class="container">
+    <MButton @click="handleClick1" type="filled-tonal">Open Dialog</MButton>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { h } from 'vue'
+
+const ModalContent = {
+  setup() {
+    const onClick = () => {
+      MDialog.open({
+        title: 'Nest dialog',
+        content: 'This is an nest dialog',
+        okButtonProps: {
+          type: 'outlined',
+        },
+      })
+    }
+
+    return () =>
+      h('div', { class: 'modal-content' }, [
+        h(MButton, { onClick, type: 'outlined' }, () => 'Open Nest Modal')
+      ])
+  },
+}
+
+const handleClick1 = () => {
+  MDialog.open({
+    title: 'Open dialog',
+    content: () => h(ModalContent),
+    withIcon: 'mobile_friendly',
+  })
 }
 </script>
 ```
