@@ -135,7 +135,7 @@ export interface DialogConfig {
 
   cancelButtonProps?: ButtonProps
 
-  okButtonFilled: boolean
+  okButtonFilled?: boolean
 
   okLoading?: boolean
 
