@@ -62,7 +62,7 @@ const handleClick2 = () => {
 </script>
 ```
 
-### 按钮文本 
+### 按钮
 
 通过设置 `ok-text`、`cancel-text` 属性来设置两个按钮的文本。`ok-button-filled` 属性可以强调 OK 按钮（设置按钮类型为 `filled-tonal`）。
 

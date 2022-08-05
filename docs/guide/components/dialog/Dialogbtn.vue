@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <m-space>
-      <MButton @click="handleClick1" type="filled-tonal">Open Dialog</MButton>
+      <m-button @click="handleClick1" type="filled-tonal">Open Dialog</m-button>
+      <m-button @click="handleClick2" type="filled-tonal">Open Dialog</m-button>
     </m-space>
-    <MDialog
+    <m-dialog
       v-model:visible="visible1"
       with-icon="delete"
       title="Permanently delete"
@@ -13,7 +14,17 @@
       :cancel-button-props="{ disabled: true }"
     >
       {{ content }}
-    </MDialog>
+    </m-dialog>
+    <m-dialog
+      v-model:visible="visible2"
+      title="要开启超级省电模式吗"
+      ok-text="开启"
+      cancel-text="不用了"
+      :ok-button-props="{ type: 'filled-tonal' }"
+      :cancel-button-props="{ type: 'outlined' }"
+    >
+      {{ '系统会限制您只能使用必须应用，以延长电池续航时间' }}
+    </m-dialog>
   </div>
 </template>
 
