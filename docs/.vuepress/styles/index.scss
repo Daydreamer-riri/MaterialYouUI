@@ -279,3 +279,9 @@ a.sidebar-item {
 //         background-color: inherit;
 //     }
 // }
+
+.navbar {
+    -webkit-backdrop-filter: saturate(50%) blur(8px);
+    backdrop-filter: saturate(50%) blur(8px);
+    background: rgba(255,255,255,.7);
+}

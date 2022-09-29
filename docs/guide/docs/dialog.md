@@ -153,3 +153,46 @@ const handleClick1 = () => {
 }
 </script>
 ```
+
+## API
+
+### Props
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| `visible` <br/> `(v-model)` | 对话框是否可见 | _boolean_ | `-` | 
+| `default-visible` | 对话框默认是否可见（非受控状态） | _boolean_ | `false` | 
+| `width` | 对话框的宽度，不设置的情况下<br/>会使用样式中的宽度值 | _number \| string_ | `-` |
+| `top` | 对话框的距离顶部的高度 | _number \| string_ | `-` |
+| `left` | 对话框的距离左端的距离 | _number \| string_ | `-` |
+| `mask` | 是否显示遮罩层 | _boolean_ | `true` |
+| `title` | 标题 | _string_ | `-` |
+| `unmount-on-close` | 关闭时是否卸载节点 | _boolean_ | `false` |
+| `mask-closable` | 是否点击遮罩层可以关闭对话框 | _boolean_ | `true` |
+| `ok-text` | 确认按钮的内容 | _string_ | `-` |
+| `cancel-text` | 取消按钮的内容 | _string_ | `-` |
+| `ok-loading` | 确认按钮是否为加载中状态 | _boolean_ | `false` |
+| `ok-button-props` | 确认按钮的Props | _object_ | `-` |
+| `cancel-button-props` | 取消按钮的Props | _object_ | `-` |
+| `ok-loading` | 确认按钮是否为加载中状态 | _boolean_ | `false` |
+| `with-icon` | 顶部显示图标 | _string_ | `_` |
+| `on-before-ok` | 触发 ok 事件前的回调函数。如果返回 false 则不会触发后续事件，也可使用 done 进行异步关闭。 | _( done: (closed: boolean) => void) => void \| boolean \| Promise<void \| boolean>_ | `-` |
+| `on-before-cancel` | 触发 cancel 事件前的回调函数。如果返回 false 则不会触发后续事件。 | _() => boolean_ | `-` |
+
+### Event
+| 事件名 | 说明 | 类型 |
+| --- | --- | --- |
+| `ok` | 点击确定按钮时触发 | `-` |
+| `cancel` | 点击取消、关闭按钮时触发 | `-` |
+| `open` | 对话框打开后（动画结束）触发 | `-` |
+| `close` | 对话框关闭后（动画结束）触发 | `-` |
+| `before-open` | 对话框打开前触发 | `-` |
+| `before-close` | 对话框关闭前触发 | `-` |
+
+### Slots
+| 插槽 | 描述 | 参数 |
+| --- | --- | --- |
+| `title` | 标题 | `-` | 
+| `icon` | 顶部图标 | `-` |
+| default | dialog 主体部分 | `-` |
+| `actions` | 底部 操作区域 | `-` |
+
