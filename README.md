@@ -14,4 +14,5 @@
 
 MaterialYou-UI 是一个基于 `Vue3` MaterialYou 组件库。
 
-目前正在锐意开发中！
+---
+计划重写
